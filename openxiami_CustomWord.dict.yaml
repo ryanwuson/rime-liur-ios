@@ -1,0 +1,20 @@
+﻿# Rime schema 中州輸入法的字碼檔
+# encoding: utf-8
+#
+# 自定詞字典（由 lua_translator@liu_custom_word_translator 載入）
+# 格式：詞條<Tab>編碼
+#
+---
+name: openxiami_CustomWord
+version: "1"
+sort: original
+...
+#人工編碼詞，適合超長句子，或包含數字的詞
+#自定詞會排在完整匹配漢字後面、補字候選前面
+
+#自動編碼：當造詞未滿4碼時，須補滿4碼（這些由 RIME 自動處理，不在此字典）
+#國家
+#交通部
+
+#人工編碼詞
+嘸蝦米	liu
