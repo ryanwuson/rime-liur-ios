@@ -19,18 +19,11 @@ publish_branch() {
     git checkout $BRANCH_NAME
     
     # 2. 同步檔案
-    # 使用 rsync 確保刪除的檔案也會被同步刪除 (--delete)，並排除 .git 和原始資料夾
-    # 排除清單必須跟 .gitignore 吻合，避免把備份資料夾殺掉
-    # 但因為備份資料夾在 .gitignore 裡，rsync 預設不會去動它們如果它們是目的地？
-    # 不，我們要從 SOURCE 複製到 ROOT。
-    # 簡單起見，我們用 cp -R 覆寫。如果需要刪除檔案，Git add . 會處理修改和新增，
-    # 但 git add . 在舊版 git 可能不處理刪除。我們用 git add -A。
-    
     cp -R "$SOURCE_DIR_NAME/"* .
     
     # 3. 提交並上傳
     git add -A
-    # 只有在有變更時才 Commit，避免空 Commit 錯誤
+    # 只有在有變更時才 Commit
     if ! git diff-index --quiet HEAD; then
         git commit -m "Auto-update: $DESCRIPTION"
         git push origin $BRANCH_NAME
@@ -39,14 +32,6 @@ publish_branch() {
         echo "👌 $BRANCH_NAME 沒有變更，跳過上傳"
     fi
 }
-
-# 確保腳本存在於所有分支 (以免切換後腳本消失導致執行中斷)
-# 這是一個小技巧：我們先把腳本複製到 /tmp 執行？
-# 既然我們最終會回到 maintenance，只要 maintenance 有腳本就行？
-# 不，shell 執行中的腳本如果被刪除會出錯。
-# 所以我們假設這個腳本在所有分支都「存在」比較保險。
-# 或者，我們都在 "maintenance" 分支執行，但這裡運用 git worktree？太複雜。
-# 最簡單：我把這個腳本 add 到所有分支。
 
 # 執行 4 個分支的發布
 publish_branch "main" "中文輸入" "純中文版"
