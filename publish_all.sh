@@ -1,16 +1,16 @@
 #!/bin/bash
 
-# 設定跟目錄和資料夾名稱
-# 確保這個腳本在 Repo 根目錄執行
-REPO_ROOT="$(pwd)"
+# Rime 自動發布腳本 (Inheritance Mode)
+# 邏輯： Root (Common) + _variants (Override) -> Branch
 
-echo "🚀 開始自動發布流程..."
+REPO_ROOT="$(pwd)"
+echo "🚀 開始自動發布流程 (繼承模式)..."
 
 # 定義函數：發布單一分支
 publish_branch() {
     BRANCH_NAME=$1
-    SOURCE_DIR_NAME=$2
-    DESCRIPTION=$3
+    VARIANT_DIR="_variants/$BRANCH_NAME"
+    DESCRIPTION=$2
 
     echo "------------------------------------------------------"
     echo "正在處理: $DESCRIPTION ($BRANCH_NAME)"
@@ -18,12 +18,22 @@ publish_branch() {
     # 1. 切換到該分支
     git checkout $BRANCH_NAME
     
-    # 2. 同步檔案
-    cp -R "$SOURCE_DIR_NAME/"* .
+    # 2. 同步共用檔案
+    # 把 maintenance (共用區) 的所有檔案倒過來覆蓋目前分支
+    git checkout maintenance -- .
     
-    # 3. 提交並上傳
+    # 3. 覆蓋變體特有的檔案 (Override)
+    # 從 _variants 對應資料夾複製出來覆蓋根目錄
+    if [ -d "$VARIANT_DIR" ]; then
+        cp "$VARIANT_DIR/rime.lua" . 2>/dev/null || true
+        cp "$VARIANT_DIR/liur.schema.yaml" . 2>/dev/null || true
+        echo "   -> 已依照變體設定覆蓋 rime.lua 和 liur.schema.yaml"
+    else
+        echo "⚠️ 警告：找不到變體資料夾 $VARIANT_DIR"
+    fi
+    
+    # 4. 提交並上傳
     git add -A
-    # 只有在有變更時才 Commit
     if ! git diff-index --quiet HEAD; then
         git commit -m "Auto-update: $DESCRIPTION"
         git push origin $BRANCH_NAME
@@ -33,15 +43,20 @@ publish_branch() {
     fi
 }
 
+# 確保在 maintenance 分支執行
+CURRENT_BRANCH=$(git branch --show-current)
+if [ "$CURRENT_BRANCH" != "maintenance" ]; then
+    echo "❌ 錯誤：請在 maintenance 分支執行此腳本。"
+    exit 1
+fi
+
 # 執行 4 個分支的發布
-publish_branch "main" "中文輸入" "純中文版"
-publish_branch "main-block" "中文輸入+屏蔽無效鍵" "純中文+屏蔽版"
-publish_branch "english" "中文輸入+英文詞庫" "英文版"
-publish_branch "english-block" "中文輸入+英文詞庫+屏蔽無效鍵" "英文+屏蔽版"
+publish_branch "main" "純中文版"
+publish_branch "main-block" "純中文+屏蔽版"
+publish_branch "english" "英文版"
+publish_branch "english-block" "英文+屏蔽版"
 
-# 最後回到乾淨模式
+# 最後回到這
 echo "------------------------------------------------------"
-echo "🧹 切換回乾淨模式 (maintenance)..."
+echo "🎉 全部完成！"
 git checkout maintenance
-
-echo "🎉 全部完成！您的 GitHub 已經同步更新。"
