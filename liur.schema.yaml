@@ -50,7 +50,7 @@ engine:
     - lua_processor@liu_symbols_number_processor     # 數字變體及字母變化形（保留）
     - recognizer
     # - lua_processor@liu_wildcard_processor           # 萬用字元開關（手機用不到）
-    # - lua_processor@liu_key_blocker                # 無效輸入遮蔽（註解掉，不需要屏蔽）
+    - lua_processor@liu_key_blocker                # 無效輸入遮蔽（防誤觸）
     - lua_processor@liu_quick_mode_processor         # 處理 ,,sp 切換快打模式
     # - lua_processor@liu_phonetic_hint_processor      # 讀音查詢模式下屏蔽 ctrl+'（手機用不到）
     # - lua_processor@liu_symbols_processor            # 符號清單模式下屏蔽 ctrl+'（手機用不到）
@@ -78,7 +78,7 @@ engine:
     - affix_segmentor@code_decode  # 編碼解碼模式 ,,x
     - affix_segmentor@help_mode  # 功能說明 ,,h
     - abc_segmentor
-    - affix_segmentor@mkst         # 造詞功能（保留）
+    # - affix_segmentor@mkst         # 造詞功能（屏蔽無效鍵模式下註解）
     - affix_segmentor@liurqry      # 讀音查詢（保留）
     - affix_segmentor@pinyin  # 漢語拼音（;' 引導）
     # - affix_segmentor@phonetic     # 注音輸入（手機用不到）
@@ -99,7 +99,7 @@ engine:
     - lua_translator@liu_phonetic_suffix_translator  # 同音字翻譯器（選中後按 '）
     - lua_translator@liu_code_decoder_translator  # 編碼解碼器（,,x 模式）
     # - script_translator@all_bpm        # 注音輸入（手機用不到）
-    - table_translator@mkst            # 造詞功能（保留）
+    # - table_translator@mkst            # 造詞功能（屏蔽無效鍵模式下註解）
     - table_translator@fixed
     - table_translator@liurqry         # 讀音查詢（保留）
     - lua_translator@liu_custom_word_translator  # 自定詞翻譯器（在 table_translator 之前）
@@ -142,7 +142,7 @@ liu_w2c:
   opencc_config: liu_w2c.json
   option_name: liu_w2c
   show_in_comment: true
-  tags: [ abc, mkst, pinyin, symbols, lua, fancy_title, fancy_lower, fancy_upper, fancy_number, extended_mode ]  # 加入 symbols（字母變體）
+  tags: [ abc, pinyin, symbols, lua, fancy_title, fancy_lower, fancy_upper, fancy_number, extended_mode ]  # 移除 mkst（屏蔽無效鍵模式）
   tips: all
   
 
@@ -155,7 +155,7 @@ zh_tw:	#只針對拼音輸入進行台灣用語轉換（注音輸入已註解）
 simplifier:
   option_name: simplification
   tips: all	# 簡化字模式下顯示對應的傳統漢字
-  tags: [ abc, mkst, pinyin, symbols, lua, fancy_title, fancy_lower, fancy_upper, fancy_number, extended_mode ]  # 加入 symbols（字母變體）
+  tags: [ abc, pinyin, symbols, lua, fancy_title, fancy_lower, fancy_upper, fancy_number, extended_mode ]  # 移除 mkst（屏蔽無效鍵模式）
 
 speller:
   alphabet: "abcdefghijklmnopqrstuvwxyz[];',.?~"
@@ -207,20 +207,20 @@ fixed:
   enable_user_dict: true
   initial_quality: 100
 
-# 造詞功能（保留）
-mkst:
-  enable_encoder: false
-  enable_user_dict: false
-  __include: /translator
-  enable_sentence: true
-  prefix: ';'
-  tips: "《造詞》▸"
-  closing_tips: "◀《造詞》"
-  tag: mkst
-  initial_quality: 10
-  preedit_format:
-    - "xform/~/`/"
-    - xform/^/《造詞》/
+# 造詞功能（屏蔽無效鍵模式下註解，因為會與 key blocker 衝突）
+# mkst:
+#   enable_encoder: false
+#   enable_user_dict: false
+#   __include: /translator
+#   enable_sentence: true
+#   prefix: ';'
+#   tips: "《造詞》▸"
+#   closing_tips: "◀《造詞》"
+#   tag: mkst
+#   initial_quality: 10
+#   preedit_format:
+#     - "xform/~/`/"
+#     - xform/^/《造詞》/
 
 # 讀音查詢功能（保留）
 liurqry:
@@ -332,8 +332,8 @@ recognizer:
 # 讀音查詢引導鍵（;;）- 保留
     liurqry: "^;;[a-z']*'?$"
 # 拼音引導鍵（;'）- 必須在 mkst 之前
-# 造詞引導（;）- 排除 ;' 和 ;; 開頭 - 保留
-    mkst: "^;(?![';])[a-z,.'~]*$"
+# 造詞引導（;）- 排除 ;' 和 ;; 開頭 - 屏蔽無效鍵模式下註解
+#    mkst: "^;(?![';])[a-z,.'~]*$"
 # 擴充模式引導鍵（``）- 雙反引號 - 保留字母變化形和日期時間功能
 # ``a = 小寫變化形（ā á...），``A = 大寫變化形（Ā Á...）
 # ``/ = 日期時間功能（保留功能，但選單中不顯示），``/01~``/10 = 日期時間分類
