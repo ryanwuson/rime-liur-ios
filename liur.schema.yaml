@@ -50,7 +50,7 @@ engine:
     - lua_processor@liu_symbols_number_processor     # 數字變體及字母變化形（保留）
     - recognizer
     # - lua_processor@liu_wildcard_processor           # 萬用字元開關（手機用不到）
-    # - lua_processor@liu_key_blocker                # 無效輸入遮蔽（防誤觸）- 純中文輸入模式不需要
+    # - lua_processor@liu_key_blocker                # 無效輸入遮蔽（註解掉，不需要屏蔽）
     - lua_processor@liu_quick_mode_processor         # 處理 ,,sp 切換快打模式
     # - lua_processor@liu_phonetic_hint_processor      # 讀音查詢模式下屏蔽 ctrl+'（手機用不到）
     # - lua_processor@liu_symbols_processor            # 符號清單模式下屏蔽 ctrl+'（手機用不到）
@@ -104,7 +104,7 @@ engine:
     - table_translator@liurqry         # 讀音查詢（保留）
     - lua_translator@liu_custom_word_translator  # 自定詞翻譯器（在 table_translator 之前）
     - table_translator
-    # - table_translator@easy_en  # 英文輸入（獨立翻譯器）- 純中文輸入模式
+    - table_translator@easy_en  # 英文輸入（獨立翻譯器）
     - script_translator@pinyin  # 漢語拼音（;' 引導）
     # - script_translator@phonetic       # 注音輸入（手機用不到）
     # - table_translator@symbols         # 字母變體改用 date_translator
@@ -234,16 +234,16 @@ liurqry:
   preedit_format:
     - xform/^/《讀音查詢》/
 
-# 英文輸入（獨立翻譯器，只對 abc tag 生效）- 純中文輸入模式已註解
-# easy_en:
-#   dictionary: easy_en
-#   db_class: tabledb
-#   enable_completion: true
-#   enable_sentence: false
-#   enable_user_dict: false
-#   enable_encoder: false
-#   tag: abc
-#   initial_quality: -1
+# 英文輸入（獨立翻譯器，只對 abc tag 生效）
+easy_en:
+  dictionary: easy_en
+  db_class: tabledb
+  enable_completion: true
+  enable_sentence: false
+  enable_user_dict: false
+  enable_encoder: false
+  tag: abc
+  initial_quality: -1
 
 # 注音輸入（手機用不到）
 # all_bpm:
