@@ -130,3 +130,6 @@ liu_english_case_filter = require("liu_english_case_filter")
 
 -- 上屏後小步垃圾回收
 liu_gc_processor = require("liu_gc_processor")
+
+-- 無效輸入遮蔽（防誤觸）
+liu_key_blocker = require("liu_key_blocker")
