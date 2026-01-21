@@ -230,6 +230,13 @@
       box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.2);
       border-radius: 4px;
     }
+    /* 排除圖標文件 */
+    .markdown-section img[src*="元書icon"],
+    .markdown-section img[src*="設定icon"] {
+      box-shadow: none !important;
+      border-radius: 0 !important;
+      margin: 0 !important;
+    }
     /* 亮暗色切換按鈕樣式 - 放在 sidebar 標題旁 */
     .theme-toggle {
       display: inline-flex;
