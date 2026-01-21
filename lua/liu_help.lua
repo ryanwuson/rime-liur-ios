@@ -23,7 +23,7 @@ M.help_items = {
     "快打模式 ▸ ,,sp",
     -- "萬用查字 ▸ ,,wc",
     "擴充字集 ▸ 空白鍵上滑",
-    "完整說明 ▸ rryanwuson.github.io/rime-liur-ios",
+    "完整說明 ▸ ryanwuson.github.io/rime-liur-ios",
 }
 
 function M.translator(input, seg, env)
