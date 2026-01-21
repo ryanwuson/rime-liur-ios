@@ -220,11 +220,15 @@
       box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.2);
       border-radius: 4px;
     }
-    /* PNG 圖片加陰影效果和間距 */
-    img[src$=".png"], img[src$=".PNG"] {
+    /* PNG 圖片加陰影效果和間距 - 只針對內容圖片 */
+    .markdown-section img[src$=".png"], 
+    .markdown-section img[src$=".PNG"] {
+      margin: 15px 0;
+    }
+    /* 只有實際內容圖片才加圓角和陰影 */
+    .markdown-section img[src*="images/"] {
       box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.2);
       border-radius: 4px;
-      margin: 15px 0;
     }
     /* 亮暗色切換按鈕樣式 - 放在 sidebar 標題旁 */
     .theme-toggle {
