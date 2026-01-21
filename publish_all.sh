@@ -36,7 +36,7 @@ publish_branch() {
     git add -A
     
     # 4.5 從索引中移除不應該發布的工具 (由於 .gitignore 有寫，add -A 不會抓，但為了保險起見再清一次)
-    git rm -r --cached _variants publish_all.sh 2>/dev/null || true
+    git rm -r --cached _variants publish_all.sh docs/ 2>/dev/null || true
 
     if ! git diff-index --quiet HEAD; then
         git commit -m "Auto-update: $DESCRIPTION"
