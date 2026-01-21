@@ -6,7 +6,15 @@
 REPO_ROOT="$(pwd)"
 echo "🚀 開始自動發布流程 (繼承模式)..."
 
-# 定義函數：發布單一分支
+# 0. 先把目前的 maintenance 分支推送到 GitHub (包含 docs/ 與工具備份)
+CURRENT_BRANCH=$(git branch --show-current)
+if [ "$CURRENT_BRANCH" == "maintenance" ]; then
+    echo "--- 正在備份 maintenance 分支 (含 docs/) 到 GitHub ---"
+    git push origin maintenance
+else
+    echo "❌ 錯誤：請在 maintenance 分支執行此腳本。"
+    exit 1
+fi
 publish_branch() {
     BRANCH_NAME=$1
     VARIANT_DIR="_variants/$BRANCH_NAME"
