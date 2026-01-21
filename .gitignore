@@ -2,4 +2,6 @@
 中文輸入+屏蔽無效鍵/
 中文輸入+英文詞庫/
 中文輸入+英文詞庫+屏蔽無效鍵/
+_variants/
+publish_all.sh
 .DS_Store
