@@ -82,11 +82,11 @@
    
    - **蝦米：慣用右手**：適合左手持機者之佈局
    
-     
+     https://github.com/ryanwuson/rime-liur-ios-skin/raw/main/Right-handed.cskin
    
    - **蝦米：慣用左手**：適合右手持機者之佈局
    
-     
+     https://github.com/ryanwuson/rime-liur-ios-skin/raw/main/Left-handed.cskin
    
    - 將皮膚儲存至「檔案.app」
    - 以元書輸入法 App 開啟
