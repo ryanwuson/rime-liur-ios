@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FXBNJSVFKW"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-FXBNJSVFKW');
+  </script>
+  <title>元書輸入法 - 蝦米輸入方案 iOS 版 | 基於 Rime 的嘸蝦米輸入法</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="description" content="元書輸入法專用的蝦米輸入方案，基於 Rime 輸入法引擎，專為 iOS 設備優化。支援造詞、同音選字、注音拼音輸入、符號快捷、變體英數等豐富功能，提供多種皮膚主題選擇。">
+  <meta name="keywords" content="元書輸入法,蝦米輸入法,嘸蝦米,Rime,iOS,輸入法,liu,liur,造詞,同音選字,注音,拼音,皮膚主題">
+  <meta name="author" content="Ryan">
+  <meta name="google-site-verification" content="5ruarShW0LAmWyIbSPgW-gwfA4mSLb-xL-Q6x1Yifl0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ryanwuson.github.io/rime-liur-ios/">
+  <meta property="og:title" content="元書輸入法 - 蝦米輸入方案 iOS 版 | 基於 Rime 的嘸蝦米輸入法">
+  <meta property="og:description" content="元書輸入法專用的蝦米輸入方案，基於 Rime 輸入法引擎，專為 iOS 設備優化，提供豐富的輸入功能和多種皮膚主題。">
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://ryanwuson.github.io/rime-liur-ios/">
+  <!-- Docsify 主題 -->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
+  <style>
+    /* 主題色 */
+    :root {
+      --theme-color: #005AD7;
+      --docsify-example-panels-left-panel-background: #f8f8f8;
+    }
+    
+    /* 深色模式 */
+    html[data-theme="dark"] {
+      --theme-color: #5B9FFF;
+    }
+    html[data-theme="dark"] body {
+      background-color: #1a1a2e;
+      color: #e0e0e0;
+    }
+    html[data-theme="dark"] .sidebar {
+      background-color: #1a1a2e;
+      color: #f0f0f0;
+    }
+    /* Sidebar 標題 */
+    html[data-theme="dark"] .sidebar > h1,
+    html[data-theme="dark"] .sidebar .app-name {
+      color: #ffffff !important;
+    }
+    html[data-theme="dark"] .sidebar-nav a {
+      color: #d0d0d0 !important;
+    }
+    html[data-theme="dark"] .sidebar-nav a:hover,
+    html[data-theme="dark"] .sidebar-nav li.active > a {
+      color: #7CB9FF !important;
+    }
+    /* 搜尋框區塊 - 統一亮暗色高度 */
+    .sidebar .search {
+      margin-bottom: 10px;
+      padding: 10px 15px;
+    }
+    /* Sidebar 搜尋框區塊 - 深色模式 */
+    html[data-theme="dark"] .search,
+    html[data-theme="dark"] .sidebar .search,
+    html[data-theme="dark"] body .sidebar .search,
+    html[data-theme="dark"] .sidebar > .search,
+    html[data-theme="dark"] .sidebar-nav ~ .search {
+      background: #1a1a2e !important;
+      background-color: #1a1a2e !important;
+      border-bottom: none !important;
+      border: none !important;
+      margin-bottom: 10px;
+      padding: 10px 15px;
+    }
+    html[data-theme="dark"] .search input,
+    html[data-theme="dark"] .sidebar .search input,
+    html[data-theme="dark"] body .sidebar .search input {
+      background: #252542 !important;
+      background-color: #252542 !important;
+      color: #f0f0f0 !important;
+      border: 1px solid #3a3a5a !important;
+      border-radius: 6px;
+    }
+    html[data-theme="dark"] .search input::placeholder {
+      color: #888 !important;
+    }
+    html[data-theme="dark"] .search input:focus {
+      border-color: #5B9FFF !important;
+      box-shadow: 0 0 3px rgba(91, 159, 255, 0.3);
+    }
+    html[data-theme="dark"] .content {
+      background-color: #1a1a2e;
+    }
+    html[data-theme="dark"] .markdown-section {
+      color: #f5f5f5;
+    }
+    /* 深色模式標題 - 使用最強選擇器 */
+    html[data-theme="dark"] body .markdown-section h1,
+    html[data-theme="dark"] body .markdown-section h2,
+    html[data-theme="dark"] body .markdown-section h3,
+    html[data-theme="dark"] body .markdown-section h4,
+    html[data-theme="dark"] body .markdown-section h5,
+    html[data-theme="dark"] body .markdown-section h6,
+    html[data-theme="dark"] body .markdown-section h1 *,
+    html[data-theme="dark"] body .markdown-section h2 *,
+    html[data-theme="dark"] body .markdown-section h3 *,
+    html[data-theme="dark"] body .markdown-section h4 *,
+    html[data-theme="dark"] body .markdown-section h5 *,
+    html[data-theme="dark"] body .markdown-section h6 * {
+      color: #ffffff !important;
+      text-decoration: none !important;
+    }
+    
+    /* 亮色模式標題連結無底線 */
+    .markdown-section h1 a,
+    .markdown-section h2 a,
+    .markdown-section h3 a,
+    .markdown-section h4 a,
+    .markdown-section h5 a,
+    .markdown-section h6 a {
+      text-decoration: none !important;
+    }
+    html[data-theme="dark"] .markdown-section h2 {
+      border-bottom-color: #3a3a5a;
+    }
+    html[data-theme="dark"] .markdown-section p,
+    html[data-theme="dark"] .markdown-section li,
+    html[data-theme="dark"] .markdown-section td,
+    html[data-theme="dark"] .markdown-section th {
+      color: #f0f0f0;
+    }
+    html[data-theme="dark"] .markdown-section strong {
+      color: #ffffff;
+    }
+    /* 一般連結用亮藍色 */
+    html[data-theme="dark"] .markdown-section a {
+      color: #7CB9FF !important;
+    }
+    html[data-theme="dark"] .markdown-section a:hover {
+      color: #a8d4ff !important;
+    }
+    html[data-theme="dark"] .markdown-section code {
+      background-color: #2d3748;
+      color: #e2e8f0;
+    }
+    html[data-theme="dark"] .markdown-section pre {
+      background-color: #2d3748;
+    }
+    html[data-theme="dark"] .markdown-section pre code {
+      color: #e2e8f0;
+    }
+    html[data-theme="dark"] .markdown-section blockquote {
+      border-left-color: #5B9FFF;
+      color: #a0a0a0;
+    }
+    html[data-theme="dark"] .markdown-section table th,
+    html[data-theme="dark"] .markdown-section table td {
+      border-color: #3a3a5a;
+    }
+    html[data-theme="dark"] .markdown-section table tr:nth-child(2n) {
+      background-color: #1f1f3a;
+    }
+    html[data-theme="dark"] .markdown-section hr {
+      border-color: #3a3a5a;
+    }
+    html[data-theme="dark"] .search input {
+      background-color: #2d3748;
+      color: #e0e0e0;
+      border-color: #3a3a5a;
+    }
+    html[data-theme="dark"] .search .matching-post {
+      background-color: #1f1f3a;
+      border-color: #3a3a5a;
+    }
+    html[data-theme="dark"] .search .matching-post .search-keyword {
+      color: #5B9FFF;
+    }
+    html[data-theme="dark"] .app-nav {
+      background-color: #16213e;
+    }
+    /* 手機版底部導航列 */
+    html[data-theme="dark"] .sidebar-toggle {
+      background-color: #16213e;
+    }
+    html[data-theme="dark"] .sidebar-toggle span {
+      background-color: #5B9FFF;
+    }
+    html[data-theme="dark"] body .sidebar-toggle {
+      background-color: #16213e;
+      border-color: #3a3a5a;
+    }
+    /* 手機版 Sidebar 背景 */
+    @media screen and (max-width: 768px) {
+      html[data-theme="dark"] body {
+        background-color: #1a1a2e;
+      }
+      html[data-theme="dark"] .sidebar-toggle {
+        background-color: #1a1a2e;
+      }
+    }
+    
+    /* 連結顏色 */
+    a {
+      color: var(--theme-color);
+    }
+    /* Sidebar 選中項目 */
+    .sidebar-nav li.active > a {
+      color: var(--theme-color);
+      border-color: var(--theme-color);
+    }
+    /* 搜尋框 focus */
+    .search input:focus {
+      border-color: var(--theme-color);
+    }
+    /* GIF 圖片加陰影效果 */
+    img[src$=".gif"] {
+      box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.2);
+      border-radius: 4px;
+    }
+    /* PNG 圖片加陰影效果和間距 - 只針對內容圖片 */
+    .markdown-section img[src$=".png"], 
+    .markdown-section img[src$=".PNG"] {
+      margin: 15px 0;
+    }
+    /* 只有實際內容圖片才加圓角和陰影 */
+    .markdown-section img[src*="images/"] {
+      box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.2);
+      border-radius: 4px;
+    }
+    /* 排除圖標文件 */
+    .markdown-section img[src*="元書icon"],
+    .markdown-section img[src*="設定icon"] {
+      box-shadow: none !important;
+      border-radius: 0 !important;
+      margin: 0 !important;
+    }
+    /* 亮暗色切換按鈕樣式 - 放在 sidebar 標題旁 */
+    .theme-toggle {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-left: 8px;
+      vertical-align: middle;
+      background: #f0f0f0;
+      border: 1px solid #ccc;
+      border-radius: 12px;
+      width: 28px;
+      height: 28px;
+      padding: 0;
+      cursor: pointer;
+      font-size: 14px;
+      line-height: 1;
+      transition: all 0.3s ease;
+    }
+    .theme-toggle:hover {
+      background: var(--theme-color);
+      color: #fff;
+      border-color: var(--theme-color);
+    }
+    html[data-theme="dark"] .theme-toggle {
+      background: #3a3a5a;
+      border-color: #4a5568;
+      color: #e0e0e0;
+    }
+    html[data-theme="dark"] .theme-toggle:hover {
+      background: #5B9FFF;
+      border-color: #5B9FFF;
+      color: #fff;
+    }
+    /* Sidebar 標題區域 - 統一亮暗色樣式 */
+    .sidebar .app-name {
+      display: flex;
+      align-items: center;
+      line-height: 1.5;
+      padding: 10px 15px;
+      margin: 0;
+      font-size: 18px;
+    }
+    .sidebar .app-name-link {
+      display: inline-flex;
+      align-items: center;
+    }
+    html[data-theme="dark"] .sidebar .app-name {
+      line-height: 1.5;
+      padding: 10px 15px;
+      margin: 0;
+    }
+    
+    /* 程式碼區塊容器 */
+    .markdown-section pre {
+      position: relative;
+    }
+    /* 隱藏語言標籤 */
+    .markdown-section pre::after {
+      display: none !important;
+    }
+    .markdown-section pre[data-lang]::before {
+      display: none !important;
+    }
+    /* 程式碼複製按鈕樣式 - 類似 GitHub */
+    .docsify-copy-code-button {
+      position: absolute !important;
+      top: 8px !important;
+      right: 8px !important;
+      font-size: 0 !important;
+      width: 28px !important;
+      height: 28px !important;
+      padding: 0 !important;
+      background: #f6f8fa !important;
+      border: 1px solid #d0d7de !important;
+      border-radius: 6px !important;
+      opacity: 0.8 !important;
+      cursor: pointer;
+      display: flex !important;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+    }
+    .docsify-copy-code-button::after {
+      content: "📋";
+      font-size: 14px;
+    }
+    .docsify-copy-code-button:hover {
+      background: #e8eaed !important;
+      opacity: 1 !important;
+    }
+    .docsify-copy-code-button.success::after {
+      content: "✓";
+      color: #22c55e;
+    }
+    /* 深色模式複製按鈕 */
+    html[data-theme="dark"] .docsify-copy-code-button {
+      background: #3a3a5a !important;
+      border-color: #4a5568 !important;
+    }
+    html[data-theme="dark"] .docsify-copy-code-button:hover {
+      background: #4a4a6a !important;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">載入中...</div>
+  <script>
+    // 亮暗色切換功能
+    function toggleTheme() {
+      const html = document.documentElement;
+      const btn = document.querySelector('.theme-toggle');
+      if (html.getAttribute('data-theme') === 'dark') {
+        html.removeAttribute('data-theme');
+        btn.textContent = '🌙';
+        localStorage.setItem('theme', 'light');
+      } else {
+        html.setAttribute('data-theme', 'dark');
+        btn.textContent = '☀️';
+        localStorage.setItem('theme', 'dark');
+      }
+    }
+    
+    // 載入時檢查儲存的主題偏好
+    (function() {
+      const savedTheme = localStorage.getItem('theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
+    })();
+    
+    // 把亮暗色按鈕插入到 sidebar 標題旁邊
+    function insertThemeToggle() {
+      // 等待 Docsify 完全載入
+      const appName = document.querySelector('.app-name-link') || document.querySelector('.app-name');
+      if (appName && !document.querySelector('.theme-toggle')) {
+        const btn = document.createElement('button');
+        btn.className = 'theme-toggle';
+        btn.title = '切換亮暗色主題';
+        btn.onclick = toggleTheme;
+        btn.textContent = document.documentElement.getAttribute('data-theme') === 'dark' ? '☀️' : '🌙';
+        
+        // 嘗試不同的插入方式
+        if (appName.parentNode) {
+          appName.parentNode.insertBefore(btn, appName.nextSibling);
+        } else {
+          appName.appendChild(btn);
+        }
+      }
+    }
+    
+    // 多次嘗試插入按鈕，確保 Docsify 完全載入
+    function tryInsertThemeToggle() {
+      insertThemeToggle();
+      // 如果還沒插入成功，再試一次
+      if (!document.querySelector('.theme-toggle')) {
+        setTimeout(insertThemeToggle, 500);
+      }
+    }
+    
+    // 頁面載入後插入按鈕
+    window.addEventListener('load', function() {
+      setTimeout(tryInsertThemeToggle, 200);
+    });
+    
+    // Docsify 載入完成後也嘗試插入
+    window.addEventListener('DOMContentLoaded', function() {
+      setTimeout(tryInsertThemeToggle, 300);
+    });
+    
+    // 動態修正深色模式元素背景
+    function fixDarkModeElements() {
+      const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+      // 搜尋框區塊
+      const searchEl = document.querySelector('.sidebar .search');
+      if (searchEl) {
+        searchEl.style.setProperty('background-color', isDark ? '#1a1a2e' : '', 'important');
+        searchEl.style.setProperty('background', isDark ? '#1a1a2e' : '', 'important');
+      }
+      // 手機版底部導航列
+      const toggleEl = document.querySelector('.sidebar-toggle');
+      if (toggleEl) {
+        toggleEl.style.setProperty('background-color', isDark ? '#1a1a2e' : '', 'important');
+      }
+    }
+    
+    // 頁面載入後執行
+    window.addEventListener('load', function() {
+      setTimeout(fixDarkModeElements, 100);
+      // 監聽主題切換
+      const observer = new MutationObserver(function() {
+        setTimeout(fixDarkModeElements, 50);
+      });
+      observer.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+    });
+
+    window.$docsify = {
+      name: '元書輸入法 - 蝦米方案',
+      repo: 'ryanwuson/rime-liur-ios',
+      homepage: 'user-guide.md',
+      loadSidebar: true,
+      subMaxLevel: 0,
+      auto2top: true,
+      search: {
+        placeholder: '搜尋',
+        noData: '找不到結果',
+        paths: 'auto'
+      }
+    }
+  </script>
+  <!-- Docsify v4 -->
+  <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
+  <!-- 懶加載插件 (重要：優化圖檔過多導致的加載緩慢) -->
+  <script src="//cdn.jsdelivr.net/npm/docsify-lazy-load-images@latest/dist/docsify-lazy-load-images.min.js"></script>
+  <!-- 搜尋插件 -->
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
+  <!-- 圖片縮放 -->
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/zoom-image.min.js"></script>
+  <!-- Sidebar 摺疊 -->
+  <script src="//cdn.jsdelivr.net/npm/docsify-sidebar-collapse/dist/docsify-sidebar-collapse.min.js"></script>
+  <!-- 程式碼複製按鈕 -->
+  <script src="//cdn.jsdelivr.net/npm/docsify-copy-code/dist/docsify-copy-code.min.js"></script>
+</body>
+</html>
