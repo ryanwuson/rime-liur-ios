@@ -254,48 +254,49 @@
       border-color: var(--theme-color);
     }
 
-    /* GIF 圖片加陰影效果 */
-    img[src$=".gif"] {
-      box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.2);
-      border-radius: 4px;
-    }
-
-    /* 只有實際內容圖片才加圓角和陰影，並增加間距 */
+    /* 圖片基礎樣式：陰影與圓角 */
     .markdown-section img[src*="images/"] {
       box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.2);
       border-radius: 4px;
       margin: 15px 10px;
-      /* 增加上下 15px，左右 10px 的間距 */
       display: inline-block;
       vertical-align: middle;
-      /* 讓不同高度的圖片中線對齊，視覺上較平衡 */
     }
 
-    /* 限制電腦版圖片大小，避免 iPhone 截圖在橫向螢幕顯得過大 */
-    @media screen and (min-width: 769px) {
-      .markdown-section img[src*="images/"] {
-        max-width: 380px;
-        /* 稍微縮小，並移除 !important 讓內聯樣式可以微調 */
-      }
-    }
-
-    /* 確保手機版圖片寬度一致，避免大小不一 */
-    @media screen and (max-width: 768px) {
-      .markdown-section img[src*="images/"] {
-        width: 100% !important;
-        max-width: 280px !important;
-        height: auto !important;
-        display: block;
-        margin: 15px 0;
-      }
-    }
-
-    /* 排除圖標文件 */
-    .markdown-section img[src*="元書icon"],
-    .markdown-section img[src*="設定icon"] {
+    /* 排除圖標文件：圖標不應有陰影與邊距 */
+    .markdown-section img[src*="icon"],
+    .markdown-section img[src*="重新部署"] {
       box-shadow: none !important;
       border-radius: 0 !important;
       margin: 0 !important;
+      display: inline !important;
+      vertical-align: middle;
+    }
+
+    /* 電腦版：限制圖片最大寬度，避免 iPhone 截圖過大 */
+    @media screen and (min-width: 769px) {
+      .markdown-section img[src*="images/"] {
+        max-width: 380px;
+      }
+    }
+
+    /* 手機版：強制所有截圖寬度一致，避免大小不一 */
+    @media screen and (max-width: 768px) {
+      .markdown-section img[src*="images/"] {
+        display: block !important;
+        width: 100% !important;
+        max-width: 280px !important;
+        margin: 15px auto !important;
+        /* 置中顯示 */
+      }
+
+      /* 手機版圖標維持原樣 */
+      .markdown-section img[src*="icon"] {
+        display: inline !important;
+        width: auto !important;
+        max-width: none !important;
+        margin: 0 !important;
+      }
     }
 
     /* 亮暗色切換按鈕樣式 - 放在 sidebar 標題旁 */
