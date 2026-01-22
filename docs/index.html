@@ -279,6 +279,13 @@
       }
     }
 
+    /* 確保手機版圖片也不會超出預期寬度，解決圖片大小不一的問題 */
+    @media screen and (max-width: 768px) {
+      .markdown-section img[src*="images/"] {
+        max-width: 280px !important;
+      }
+    }
+
     /* 排除圖標文件 */
     .markdown-section img[src*="元書icon"],
     .markdown-section img[src*="設定icon"] {

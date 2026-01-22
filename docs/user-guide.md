@@ -223,7 +223,7 @@
    
      
    
-     <img src="images/01-31下載項目.PNG" alt="01-31下載項目" style="zoom: 67%;" />
+     <img src="images/01-31下載項目.PNG" alt="01-31下載項目" style="width: 280px;" />
    
      
    
@@ -613,7 +613,7 @@
 
 - **注意**：簡體模式下亦可對應相關同音字，如「发」的同音字有「伐」、「瞂」及「法」。
 
-    <img src="images/06-1同音選字.gif" alt="06-1同音選字" style="zoom: 58%;" />
+    <img src="images/06-1同音選字.gif" alt="06-1同音選字" style="width: 280px;" />
 
 ### 應用場景
 
