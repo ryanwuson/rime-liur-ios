@@ -334,25 +334,25 @@
 #### 長按操作
 - **字母鍵**：顯示該鍵的符號選單或變體選項
 
-<img src="images/03-3-2長按操作字母.gif" alt="03-3-2長按操作字母" style="zoom:58%;" />
+  <img src="images/03-3-2長按操作字母.gif" alt="03-3-2長按操作字母" style="zoom:67%;" />
 
 
 
 - **空格鍵**：開啟方案選擇器，可在「蝦米輸入法」及「Easy English」間切換
 
-  <img src="images/03-3-3長按操作空白.gif" alt="03-3-3長按操作空白" style="zoom:58%;" />
+  <img src="images/03-3-3長按操作空白.gif" alt="03-3-3長按操作空白" style="zoom:67%;" />
 
   
 
 - **123鍵**：顯示數學符號選單（+、-、×、÷、=、≠）
 
-  <img src="images/03-3-4長按操作123.gif" alt="03-3-4長按操作123" style="zoom:58%;" />
+  <img src="images/03-3-4長按操作123.gif" alt="03-3-4長按操作123" style="zoom:67%;" />
 
   
 
 - **「,」及「.」鍵**：開啟「日期時間」選單
 
-  <img src="images/03-3-5長按操作，。.gif" alt="03-3-5長按操作，。" style="zoom:58%;" />
+  <img src="images/03-3-5長按操作，。.gif" alt="03-3-5長按操作，。" style="zoom:67%;" />
 
 #### 滑動操作
 
@@ -362,31 +362,31 @@
 
 - **Q～P鍵下滑**：快速輸入**數字1～0**，若「候選字區」有候選字，也可透過**Q～P鍵下滑**來選字
 
-  <img src="images/03-11-1QP鍵下滑.gif" alt="03-11-1QP鍵下滑" style="zoom:58%;" />
+  <img src="images/03-11-1QP鍵下滑.gif" alt="03-11-1QP鍵下滑" style="zoom:67%;" />
 
   
 
 - **Q～P鍵上滑、A～L鍵上下滑、X～B鍵上滑**：輸出該鍵左上或右上之符號
 
-  <img src="images/03-11-2QP鍵上滑.gif" alt="03-11-2QP鍵上滑" style="zoom:58%;" />
+  <img src="images/03-11-2QP鍵上滑.gif" alt="03-11-2QP鍵上滑" style="zoom:67%;" />
 
   
 
 - **空格鍵上滑**：切換擴充字集
 
-  <img src="images/03-11-3空白鍵上滑.gif" alt="03-11-3空白鍵上滑" style="zoom:58%;" />
+  <img src="images/03-11-3空白鍵上滑.gif" alt="03-11-3空白鍵上滑" style="zoom:67%;" />
 
   
 
 - **Shift鍵上滑**：切換中文及純英文鍵盤
 
-  <img src="images/03-11-4Shift鍵上滑.gif" alt="03-11-4Shift鍵上滑" style="zoom:58%;" />
+  <img src="images/03-11-4Shift鍵上滑.gif" alt="03-11-4Shift鍵上滑" style="zoom:67%;" />
 
   
 
 - **「123」鍵上滑**：切換為符號鍵盤
 
-  <img src="images/03-11-5「123」鍵上滑.gif" alt="03-11-5「123」鍵上滑" style="zoom:58%;" />
+  <img src="images/03-11-5「123」鍵上滑.gif" alt="03-11-5「123」鍵上滑" style="zoom:67%;" />
   
   
 
@@ -396,7 +396,7 @@
 
 - **A鍵上滑**：上滑A鍵輸出之<code>&#96;</code>，可開啟「字母變體」及「數字變體」功能
 
-  <img src="images/03-11-6A鍵上滑.gif" alt="03-11-6A鍵上滑" style="zoom:58%;" />
+  <img src="images/03-11-6A鍵上滑.gif" alt="03-11-6A鍵上滑" style="zoom:67%;" />
 
   
 
@@ -404,43 +404,43 @@
 
 - **G鍵上滑2次**：上滑G鍵2次輸出之右括號`]]`，可使每個英文字母均大寫
 
-  <img src="images/03-11-7G鍵上滑.gif" alt="03-11-7G鍵上滑" style="zoom:58%;" />
+  <img src="images/03-11-7G鍵上滑.gif" alt="03-11-7G鍵上滑" style="zoom:67%;" />
 
   
 
 - **K鍵上滑**：上滑K鍵輸出之分號 `;`，可開啟「臨時造詞」功能（註：不適用於屏蔽無效字方案）
 
-  <img src="images/03-11-8K鍵上滑.gif" alt="03-11-8K鍵上滑" style="zoom:58%;" />
+  <img src="images/03-11-8K鍵上滑.gif" alt="03-11-8K鍵上滑" style="zoom:67%;" />
 
   
 
 - **K鍵上滑2次**：上滑K鍵2次輸出之分號 `;;`，可開啟「讀音查詢」功能（註：需開啟候選Comment）
 
-  <img src="images/03-11-9K鍵上滑2.gif" alt="03-11-9K鍵上滑2" style="zoom:58%;" />
+  <img src="images/03-11-9K鍵上滑2.gif" alt="03-11-9K鍵上滑2" style="zoom:67%;" />
 
   
 
 - **K鍵及L鍵依序上滑**：上滑K鍵輸出之分號 `;`，上滑L鍵輸出之單引號 `'` ，組合成`;'`，可開啟「拼音輸入」功能
 
-  <img src="images/03-11-10KL鍵上滑.gif" alt="03-11-10KL鍵上滑" style="zoom:58%;" />
+  <img src="images/03-11-10KL鍵上滑.gif" alt="03-11-10KL鍵上滑" style="zoom:67%;" />
 
   
 
 - **L鍵上滑**：輸入蝦米編碼 + 上滑L鍵輸出之單引號 `'`，可開啟「同音字」功能
 
-  <img src="images/03-11-11L鍵上滑.gif" alt="03-11-11L鍵上滑" style="zoom:58%;" />
+  <img src="images/03-11-11L鍵上滑.gif" alt="03-11-11L鍵上滑" style="zoom:67%;" />
 
   
 
 - **Z～M鍵下滑**：分別為  **Z**「句首」、**M**「句尾」、**N**「全選」、**X**「剪下」、**V**「貼上」、**C**「複製」及 **B**「Tab」功能
 
-  <img src="images/03-11-12ZM鍵下滑.gif" alt="03-11-12ZM鍵下滑" style="zoom:58%;" />
+  <img src="images/03-11-12ZM鍵下滑.gif" alt="03-11-12ZM鍵下滑" style="zoom:67%;" />
 
   
 
 - **Z、N及M鍵上滑**：分別為  **Z**「單手模式」、**N**「選擇第2候選字」及 **M**「選擇第3候選字」功能
 
-  <img src="images/03-11-13ZNM鍵上滑.gif" alt="03-11-13ZNM鍵上滑" style="zoom:58%;" />
+  <img src="images/03-11-13ZNM鍵上滑.gif" alt="03-11-13ZNM鍵上滑" style="zoom:67%;" />
   
   
 
@@ -450,13 +450,13 @@
 
 - **輸入蝦碼字碼後左滑**：清除所有字碼，方便刪除錯誤之字碼
 
-  <img src="images/03-11-14Delete01.gif" alt="03-11-14Delete01" style="zoom:58%;" />
+  <img src="images/03-11-14Delete01.gif" alt="03-11-14Delete01" style="zoom:67%;" />
 
   
 
 - **輸入臨時造詞之字碼後下滑**：清除臨時造詞
 
-  <img src="images/03-11-14Delete02.gif" alt="03-11-14Delete02" style="zoom:58%;" />
+  <img src="images/03-11-14Delete02.gif" alt="03-11-14Delete02" style="zoom:67%;" />
 
   
 
@@ -464,13 +464,13 @@
 
 - **清除上屏文字後下滑**：回復前次清除之上屏文字
 
-  <img src="images/03-11-14Delete03.gif" alt="03-11-14Delete03" style="zoom:58%;" />
+  <img src="images/03-11-14Delete03.gif" alt="03-11-14Delete03" style="zoom:67%;" />
 
   
 
 - **對已上屏文字長按並左滑及右滑**：長按並往左滑動可逐字刪除已上屏之文字，保持長按並往右滑動，則可逐字回復刪除之文字
 
-  <img src="images/03-11-14Delete05.gif" alt="03-11-14Delete05" style="zoom:58%;" />
+  <img src="images/03-11-14Delete05.gif" alt="03-11-14Delete05" style="zoom:67%;" />
   
   
 
@@ -478,7 +478,7 @@
 
 ![03-12全鍵盤左右滑動](images/03-12全鍵盤左右滑動.png)
 
-<img src="images/03-11-15全鍵盤.gif" alt="03-11-15全鍵盤" style="zoom:58%;" />
+  <img src="images/03-11-15全鍵盤.gif" alt="03-11-15全鍵盤" style="zoom:67%;" />
 
 
 
@@ -523,7 +523,7 @@
 
 4. **按右側展開鍵**：顯示更多候選字
 
-   <img src="images/03-19數字選字.gif" alt="03-19數字選字" style="zoom:58%;" />
+   <img src="images/03-19數字選字.gif" alt="03-19數字選字" style="zoom:67%;" />
 
 ---
 
