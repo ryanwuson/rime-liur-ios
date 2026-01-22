@@ -71,4 +71,4 @@ publish_branch "english-block" "英文+屏蔽版"
 # 最後回到這
 echo "------------------------------------------------------"
 echo "🎉 全部完成！"
-git checkout maintenance
+git checkout -f maintenance
