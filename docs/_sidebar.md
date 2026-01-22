@@ -4,6 +4,7 @@
   - [啟用輸入法](user-guide.md#啟用輸入法)
   - [方案配置說明](user-guide.md#方案配置說明)
   - [安裝步驟](user-guide.md#安裝步驟)
+  - [注意事項](user-guide.md#注意事項)
 - [二、元書輸入法基本設定](user-guide.md#二、元書輸入法基本設定)
   - [基本設定項目](user-guide.md#基本設定項目)
 - [三、鍵盤介面與操作](user-guide.md#三、鍵盤介面與操作)
