@@ -24,55 +24,55 @@
 
 2. 選擇「一般」→「鍵盤」→「鍵盤」
 
-   <img src="images/01-3一般.PNG" alt="01-3一般" style="zoom:67%;" />
+   <img src="images/01-3一般.PNG" alt="01-3一般" style="width: 280px;" />
 
    
 
-   <img src="images/01-4鍵盤.PNG" alt="01-4鍵盤" style="zoom:67%;" />
+   <img src="images/01-4鍵盤.PNG" alt="01-4鍵盤" style="width: 280px;" />
 
    
 
-   <img src="images/01-5鍵盤.PNG" alt="01-5鍵盤" style="zoom:67%;" />
+   <img src="images/01-5鍵盤.PNG" alt="01-5鍵盤" style="width: 280px;" />
 
    
 
 3. 點擊「新增鍵盤」
 
-   <img src="images/01-6新增鍵盤.PNG" alt="01-6新增鍵盤" style="zoom:67%;" />
+   <img src="images/01-6新增鍵盤.PNG" alt="01-6新增鍵盤" style="width: 280px;" />
 
    
 
 4. 在第三方鍵盤中選擇「元書輸入法」
 
-   <img src="images/01-7元書輸入法.PNG" alt="01-7元書輸入法" style="zoom:67%;" />
+   <img src="images/01-7元書輸入法.PNG" alt="01-7元書輸入法" style="width: 280px;" />
 
    
 
 5. 開啟「允許完整取用」
 
-   <img src="images/01-8元書輸入法.PNG" alt="01-8元書輸入法" style="zoom:67%;" />
+   <img src="images/01-8元書輸入法.PNG" alt="01-8元書輸入法" style="width: 280px;" />
 
    
 
-   <img src="images/01-9允許完整取用.PNG" alt="01-9允許完整取用" style="zoom:67%;" />
+   <img src="images/01-9允許完整取用.PNG" alt="01-9允許完整取用" style="width: 280px;" />
 
    
 
 6. 若長按「地球」後，選單中沒有「元書輸入法」，請重新開機。
 
-   <img src="images/01-10地球選單.png" alt="01-10地球選單" style="zoom:67%;" />
+   <img src="images/01-10地球選單.png" alt="01-10地球選單" style="width: 280px;" />
 
    
 
 7. 選擇「一般」→「鍵盤」→「鍵盤」→「聽寫語言」
 
-   <img src="images/01-11聽寫語言.PNG" alt="01-11聽寫語言" style="zoom:67%;" />
+   <img src="images/01-11聽寫語言.PNG" alt="01-11聽寫語言" style="width: 280px;" />
 
    
 
 8. 取消勾選「國語 - 中國大陸」
 
-   <img src="images/01-12國語中國大陸.PNG" alt="01-12國語中國大陸" style="zoom:67%;" />
+   <img src="images/01-12國語中國大陸.PNG" alt="01-12國語中國大陸" style="width: 280px;" />
 
    
 
@@ -115,81 +115,81 @@
    
    - 選擇「輸入方案」
    
-     <img src="images/01-13輸入方案.PNG" alt="01-13輸入方案" style="zoom:67%;" />
+     <img src="images/01-13輸入方案.PNG" alt="01-13輸入方案" style="width: 280px;" />
    
      
    
    - 點擊「下載方案」
    
-     <img src="images/01-14下載方案.PNG" alt="01-14下載方案" style="zoom:67%;" />
+     <img src="images/01-14下載方案.PNG" alt="01-14下載方案" style="width: 280px;" />
 
      
    
-     <img src="images/01-15下載方案.PNG" alt="01-15下載方案" style="zoom:67%;" />
+     <img src="images/01-15下載方案.PNG" alt="01-15下載方案" style="width: 280px;" />
    
      
    
    - 點擊「㊉」
    
-     <img src="images/01-16㊉.PNG" alt="01-16㊉" style="zoom:67%;" />
+     <img src="images/01-16㊉.PNG" alt="01-16㊉" style="width: 280px;" />
    
      
    
    - 輸入「方案名稱(自訂)」、貼上「下載網址」並儲存
    
-     <img src="images/01-17下載網址.PNG" alt="01-17下載網址" style="zoom:67%;" />
+     <img src="images/01-17下載網址.PNG" alt="01-17下載網址" style="width: 280px;" />
    
      
    
    - 點擊右方綠色按鍵下載，等待下載完成
    
-     <img src="images/01-18下載完成.PNG" alt="01-18下載完成" style="zoom:67%;" />
+     <img src="images/01-18下載完成.PNG" alt="01-18下載完成" style="width: 280px;" />
    
      
    
-     <img src="images/01-19下載完成.PNG" alt="01-19下載完成" style="zoom:67%;" />
+     <img src="images/01-19下載完成.PNG" alt="01-19下載完成" style="width: 280px;" />
    
      
    
-     <img src="images/01-20下載完成.PNG" alt="01-20下載完成" style="zoom:67%;" />
+     <img src="images/01-20下載完成.PNG" alt="01-20下載完成" style="width: 280px;" />
    
      
    
    - 點擊「方案目錄切換」
    
-     <img src="images/01-14下載方案.PNG" alt="01-14下載方案" style="zoom:67%;" />
+     <img src="images/01-14下載方案.PNG" alt="01-14下載方案" style="width: 280px;" />
    
      
    
-     <img src="images/01-21方案目錄切換.PNG" alt="01-21方案目錄切換" style="zoom:67%;" />
+     <img src="images/01-21方案目錄切換.PNG" alt="01-21方案目錄切換" style="width: 280px;" />
    
      
    
    - 依序選擇「RimeUserData」
    
-     <img src="images/01-22RimeUserData.PNG" alt="01-22RimeUserData" style="zoom:67%;" />
+     <img src="images/01-22RimeUserData.PNG" alt="01-22RimeUserData" style="width: 280px;" />
    
      
    
    - 選擇「方案名稱(自訂)」
    
-     <img src="images/01-23方案名稱.PNG" alt="01-23方案名稱" style="zoom:67%;" />
+     <img src="images/01-23方案名稱.PNG" alt="01-23方案名稱" style="width: 280px;" />
    
      
    
    - 選擇「rime-liur-ios」
    
-     <img src="images/01-24rime-liur-ios.PNG" alt="01-24rime-liur-ios" style="zoom:67%;" />
+     <img src="images/01-24rime-liur-ios.PNG" alt="01-24rime-liur-ios" style="width: 280px;" />
    
      
    
    - 點擊「打開」
    
-     <img src="images/01-25打開.PNG" alt="01-25打開" style="zoom:67%;" />
+     <img src="images/01-25打開.PNG" alt="01-25打開" style="width: 280px;" />
    
      
    
-     <img src="images/01-26清單.PNG" alt="01-26清單" style="zoom:67%;" />
+     <img src="images/01-26清單.PNG" alt="01-26清單" style="width: 280px;" />
    
      
    
@@ -205,21 +205,21 @@
    
    - 打開 iOS 瀏覽器（以 Safari 為例），並貼上皮膚網址，即會出現下載視窗
    
-     <img src="images/01-27下載視窗.PNG" alt="01-27下載視窗" style="zoom:67%;" />
+     <img src="images/01-27下載視窗.PNG" alt="01-27下載視窗" style="width: 280px;" />
    
      
    
    - 將皮膚儲存至「檔案.app」
    
-     <img src="images/01-28下載項目.png" alt="01-28下載項目" style="zoom:67%;" />
+     <img src="images/01-28下載項目.png" alt="01-28下載項目" style="width: 280px;" />
    
      
    
-     <img src="images/01-29下載項目.PNG" alt="01-29下載項目" style="zoom:67%;" />
+     <img src="images/01-29下載項目.PNG" alt="01-29下載項目" style="width: 280px;" />
    
      
    
-     <img src="images/01-30下載項目.PNG" alt="01-30下載項目" style="zoom:67%;" />
+     <img src="images/01-30下載項目.PNG" alt="01-30下載項目" style="width: 280px;" />
    
      
    
@@ -229,19 +229,19 @@
    
    - 點擊.cskin檔案，以元書輸入法 App 開啟
    
-     <img src="images/01-32下載項目.PNG" alt="01-32下載項目" style="zoom:67%;" />
+     <img src="images/01-32下載項目.PNG" alt="01-32下載項目" style="width: 280px;" />
    
      
    
    - 勾選「皮膚主題」
    
-     <img src="images/01-33勾選皮膚.PNG" alt="01-33勾選皮膚" style="zoom:67%;" />
+     <img src="images/01-33勾選皮膚.PNG" alt="01-33勾選皮膚" style="width: 280px;" />
 
 ### 注意事項
 
 若元書輸入法有更新，導致無法打字，請重新部署
 
-<img src="images/重新部署.png" alt="重新部署" style="zoom:67%;" />
+    <img src="images/重新部署.png" alt="重新部署" style="width: 280px;" />
 
 ---
 
@@ -253,23 +253,23 @@
 
 - **位置**：鍵盤設定
 
-  <img src="images/02-1鍵盤設定.PNG" alt="02-1鍵盤設定" style="zoom:67%;" />
+    <img src="images/02-1鍵盤設定.PNG" alt="02-1鍵盤設定" style="width: 280px;" />
 
   
 
-  <img src="images/02-2設定.png" alt="02-2設定" style="zoom:67%;" />
+    <img src="images/02-2設定.png" alt="02-2設定" style="width: 280px;" />
 
 #### 簡繁轉換設定
 
 - **位置**：RIME
 
-  <img src="images/02-3RIME.png" alt="02-3RIME" style="zoom:67%;" />
+    <img src="images/02-3RIME.png" alt="02-3RIME" style="width: 280px;" />
 
   
 
 - **簡繁切換**→`simplification`
 
-  <img src="images/02-4簡繁切換.png" alt="02-4簡繁切換" style="zoom:67%;" />
+    <img src="images/02-4簡繁切換.png" alt="02-4簡繁切換" style="width: 280px;" />
 
   
 
@@ -278,17 +278,17 @@
 
 - **位置**：鍵盤設定
 
-  <img src="images/02-1鍵盤設定.PNG" alt="02-1鍵盤設定" style="zoom:67%;" />
+    <img src="images/02-1鍵盤設定.PNG" alt="02-1鍵盤設定" style="width: 280px;" />
 
   
 
 - **候選Comment**：開啟
 
-  <img src="images/02-5候選Comment.png" alt="02-5候選Comment" style="zoom:67%;" />
+    <img src="images/02-5候選Comment.png" alt="02-5候選Comment" style="width: 280px;" />
 
   
 
-  <img src="images/02-6候選Comment效果.png" alt="02-6候選Comment效果" style="zoom:67%;" />
+    <img src="images/02-6候選Comment效果.png" alt="02-6候選Comment效果" style="width: 280px;" />
 
 ---
 
@@ -325,7 +325,7 @@
 
 - **候選字**：直接點選候選字上屏
 
-  <img src="images/03-3點擊操作.png" alt="03-3點擊操作" style="zoom:67%;" />
+    <img src="images/03-3點擊操作.png" alt="03-3點擊操作" style="width: 280px;" />
   
   
   
@@ -334,25 +334,25 @@
 #### 長按操作
 - **字母鍵**：顯示該鍵的符號選單或變體選項
 
-  <img src="images/03-3-2長按操作字母.gif" alt="03-3-2長按操作字母" style="zoom:67%;" />
+    <img src="images/03-3-2長按操作字母.gif" alt="03-3-2長按操作字母" style="width: 280px;" />
 
 
 
 - **空格鍵**：開啟方案選擇器，可在「蝦米輸入法」及「Easy English」間切換
 
-  <img src="images/03-3-3長按操作空白.gif" alt="03-3-3長按操作空白" style="zoom:67%;" />
+    <img src="images/03-3-3長按操作空白.gif" alt="03-3-3長按操作空白" style="width: 280px;" />
 
   
 
 - **123鍵**：顯示數學符號選單（+、-、×、÷、=、≠）
 
-  <img src="images/03-3-4長按操作123.gif" alt="03-3-4長按操作123" style="zoom:67%;" />
+    <img src="images/03-3-4長按操作123.gif" alt="03-3-4長按操作123" style="width: 280px;" />
 
   
 
 - **「,」及「.」鍵**：開啟「日期時間」選單
 
-  <img src="images/03-3-5長按操作，。.gif" alt="03-3-5長按操作，。" style="zoom:67%;" />
+    <img src="images/03-3-5長按操作，。.gif" alt="03-3-5長按操作，。" style="width: 280px;" />
 
 #### 滑動操作
 
@@ -362,31 +362,31 @@
 
 - **Q～P鍵下滑**：快速輸入**數字1～0**，若「候選字區」有候選字，也可透過**Q～P鍵下滑**來選字
 
-  <img src="images/03-11-1QP鍵下滑.gif" alt="03-11-1QP鍵下滑" style="zoom:67%;" />
+    <img src="images/03-11-1QP鍵下滑.gif" alt="03-11-1QP鍵下滑" style="width: 280px;" />
 
   
 
 - **Q～P鍵上滑、A～L鍵上下滑、X～B鍵上滑**：輸出該鍵左上或右上之符號
 
-  <img src="images/03-11-2QP鍵上滑.gif" alt="03-11-2QP鍵上滑" style="zoom:67%;" />
+    <img src="images/03-11-2QP鍵上滑.gif" alt="03-11-2QP鍵上滑" style="width: 280px;" />
 
   
 
 - **空格鍵上滑**：切換擴充字集
 
-  <img src="images/03-11-3空白鍵上滑.gif" alt="03-11-3空白鍵上滑" style="zoom:67%;" />
+    <img src="images/03-11-3空白鍵上滑.gif" alt="03-11-3空白鍵上滑" style="width: 280px;" />
 
   
 
 - **Shift鍵上滑**：切換中文及純英文鍵盤
 
-  <img src="images/03-11-4Shift鍵上滑.gif" alt="03-11-4Shift鍵上滑" style="zoom:67%;" />
+    <img src="images/03-11-4Shift鍵上滑.gif" alt="03-11-4Shift鍵上滑" style="width: 280px;" />
 
   
 
 - **「123」鍵上滑**：切換為符號鍵盤
 
-  <img src="images/03-11-5「123」鍵上滑.gif" alt="03-11-5「123」鍵上滑" style="zoom:67%;" />
+    <img src="images/03-11-5「123」鍵上滑.gif" alt="03-11-5「123」鍵上滑" style="width: 280px;" />
   
   
 
@@ -396,7 +396,7 @@
 
 - **A鍵上滑**：上滑A鍵輸出之<code>&#96;</code>，可開啟「字母變體」及「數字變體」功能
 
-  <img src="images/03-11-6A鍵上滑.gif" alt="03-11-6A鍵上滑" style="zoom:67%;" />
+    <img src="images/03-11-6A鍵上滑.gif" alt="03-11-6A鍵上滑" style="width: 280px;" />
 
   
 
@@ -404,43 +404,43 @@
 
 - **G鍵上滑2次**：上滑G鍵2次輸出之右括號`]]`，可使每個英文字母均大寫
 
-  <img src="images/03-11-7G鍵上滑.gif" alt="03-11-7G鍵上滑" style="zoom:67%;" />
+    <img src="images/03-11-7G鍵上滑.gif" alt="03-11-7G鍵上滑" style="width: 280px;" />
 
   
 
 - **K鍵上滑**：上滑K鍵輸出之分號 `;`，可開啟「臨時造詞」功能（註：不適用於屏蔽無效字方案）
 
-  <img src="images/03-11-8K鍵上滑.gif" alt="03-11-8K鍵上滑" style="zoom:67%;" />
+    <img src="images/03-11-8K鍵上滑.gif" alt="03-11-8K鍵上滑" style="width: 280px;" />
 
   
 
 - **K鍵上滑2次**：上滑K鍵2次輸出之分號 `;;`，可開啟「讀音查詢」功能（註：需開啟候選Comment）
 
-  <img src="images/03-11-9K鍵上滑2.gif" alt="03-11-9K鍵上滑2" style="zoom:67%;" />
+    <img src="images/03-11-9K鍵上滑2.gif" alt="03-11-9K鍵上滑2" style="width: 280px;" />
 
   
 
 - **K鍵及L鍵依序上滑**：上滑K鍵輸出之分號 `;`，上滑L鍵輸出之單引號 `'` ，組合成`;'`，可開啟「拼音輸入」功能
 
-  <img src="images/03-11-10KL鍵上滑.gif" alt="03-11-10KL鍵上滑" style="zoom:67%;" />
+    <img src="images/03-11-10KL鍵上滑.gif" alt="03-11-10KL鍵上滑" style="width: 280px;" />
 
   
 
 - **L鍵上滑**：輸入蝦米編碼 + 上滑L鍵輸出之單引號 `'`，可開啟「同音字」功能
 
-  <img src="images/03-11-11L鍵上滑.gif" alt="03-11-11L鍵上滑" style="zoom:67%;" />
+    <img src="images/03-11-11L鍵上滑.gif" alt="03-11-11L鍵上滑" style="width: 280px;" />
 
   
 
 - **Z～M鍵下滑**：分別為  **Z**「句首」、**M**「句尾」、**N**「全選」、**X**「剪下」、**V**「貼上」、**C**「複製」及 **B**「Tab」功能
 
-  <img src="images/03-11-12ZM鍵下滑.gif" alt="03-11-12ZM鍵下滑" style="zoom:67%;" />
+    <img src="images/03-11-12ZM鍵下滑.gif" alt="03-11-12ZM鍵下滑" style="width: 280px;" />
 
   
 
 - **Z、N及M鍵上滑**：分別為  **Z**「單手模式」、**N**「選擇第2候選字」及 **M**「選擇第3候選字」功能
 
-  <img src="images/03-11-13ZNM鍵上滑.gif" alt="03-11-13ZNM鍵上滑" style="zoom:67%;" />
+    <img src="images/03-11-13ZNM鍵上滑.gif" alt="03-11-13ZNM鍵上滑" style="width: 280px;" />
   
   
 
@@ -450,13 +450,13 @@
 
 - **輸入蝦碼字碼後左滑**：清除所有字碼，方便刪除錯誤之字碼
 
-  <img src="images/03-11-14Delete01.gif" alt="03-11-14Delete01" style="zoom:67%;" />
+    <img src="images/03-11-14Delete01.gif" alt="03-11-14Delete01" style="width: 280px;" />
 
   
 
 - **輸入臨時造詞之字碼後下滑**：清除臨時造詞
 
-  <img src="images/03-11-14Delete02.gif" alt="03-11-14Delete02" style="zoom:67%;" />
+    <img src="images/03-11-14Delete02.gif" alt="03-11-14Delete02" style="width: 280px;" />
 
   
 
@@ -464,13 +464,13 @@
 
 - **清除上屏文字後下滑**：回復前次清除之上屏文字
 
-  <img src="images/03-11-14Delete03.gif" alt="03-11-14Delete03" style="zoom:67%;" />
+    <img src="images/03-11-14Delete03.gif" alt="03-11-14Delete03" style="width: 280px;" />
 
   
 
 - **對已上屏文字長按並左滑及右滑**：長按並往左滑動可逐字刪除已上屏之文字，保持長按並往右滑動，則可逐字回復刪除之文字
 
-  <img src="images/03-11-14Delete05.gif" alt="03-11-14Delete05" style="zoom:67%;" />
+    <img src="images/03-11-14Delete05.gif" alt="03-11-14Delete05" style="width: 280px;" />
   
   
 
@@ -478,7 +478,7 @@
 
 ![03-12全鍵盤左右滑動](images/03-12全鍵盤左右滑動.png)
 
-  <img src="images/03-11-15全鍵盤.gif" alt="03-11-15全鍵盤" style="zoom:67%;" />
+    <img src="images/03-11-15全鍵盤.gif" alt="03-11-15全鍵盤" style="width: 280px;" />
 
 
 
@@ -523,7 +523,7 @@
 
 4. **按右側展開鍵**：顯示更多候選字
 
-   <img src="images/03-19數字選字.gif" alt="03-19數字選字" style="zoom:67%;" />
+   <img src="images/03-19數字選字.gif" alt="03-19數字選字" style="width: 280px;" />
 
 ---
 
@@ -613,7 +613,7 @@
 
 - **注意**：簡體模式下亦可對應相關同音字，如「发」的同音字有「伐」、「瞂」及「法」。
 
-  <img src="images/06-1同音選字.gif" alt="06-1同音選字" style="zoom: 58%;" />
+    <img src="images/06-1同音選字.gif" alt="06-1同音選字" style="zoom: 58%;" />
 
 ### 應用場景
 
