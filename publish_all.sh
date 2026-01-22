@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 
 # Rime 自動發布腳本 (Inheritance Mode)
 # 邏輯： Root (Common) + _variants (Override) -> Branch
@@ -24,7 +25,14 @@ publish_branch() {
     echo "正在處理: $DESCRIPTION ($BRANCH_NAME)"
     
     # 1. 切換到該分支
-    git checkout $BRANCH_NAME
+    git checkout -f $BRANCH_NAME
+    
+    # 安全檢查：確保真的切換過去了，避免誤刪 maintenance 的檔案
+    CURRENT=$(git branch --show-current)
+    if [ "$CURRENT" != "$BRANCH_NAME" ]; then
+        echo "❌ 錯誤：無法切換到 $BRANCH_NAME，停止執行以保護維護分支"
+        exit 1
+    fi
     
     # 2. 同步共用檔案
     # 把 maintenance (共用區) 的所有檔案倒過來覆蓋目前分支
