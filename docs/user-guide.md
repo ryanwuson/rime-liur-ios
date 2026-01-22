@@ -257,7 +257,7 @@
 
   
 
-  <img src="images/02-2設定.png" alt="02-2設定" style="zoom:137%;" />
+  <img src="images/02-2設定.png" alt="02-2設定" style="zoom:67%;" />
 
 #### 簡繁轉換設定
 

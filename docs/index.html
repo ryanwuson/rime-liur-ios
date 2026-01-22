@@ -267,12 +267,15 @@
       margin: 15px 10px;
       /* 增加上下 15px，左右 10px 的間距 */
       display: inline-block;
+      vertical-align: middle;
+      /* 讓不同高度的圖片中線對齊，視覺上較平衡 */
     }
 
     /* 限制電腦版圖片大小，避免 iPhone 截圖在橫向螢幕顯得過大 */
     @media screen and (min-width: 769px) {
       .markdown-section img[src*="images/"] {
-        max-width: 400px !important;
+        max-width: 380px;
+        /* 稍微縮小，並移除 !important 讓內聯樣式可以微調 */
       }
     }
 
