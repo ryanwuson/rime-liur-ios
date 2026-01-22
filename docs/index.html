@@ -260,16 +260,13 @@
       border-radius: 4px;
     }
 
-    /* PNG 圖片加陰影效果和間距 - 只針對內容圖片 */
-    .markdown-section img[src$=".png"],
-    .markdown-section img[src$=".PNG"] {
-      margin: 15px 0;
-    }
-
-    /* 只有實際內容圖片才加圓角和陰影 */
+    /* 只有實際內容圖片才加圓角和陰影，並增加間距 */
     .markdown-section img[src*="images/"] {
       box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.2);
       border-radius: 4px;
+      margin: 15px 10px;
+      /* 增加上下 15px，左右 10px 的間距 */
+      display: inline-block;
     }
 
     /* 限制電腦版圖片大小，避免 iPhone 截圖在橫向螢幕顯得過大 */
