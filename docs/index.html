@@ -263,14 +263,17 @@
       vertical-align: middle;
     }
 
-    /* 排除圖標文件：圖標不應有陰影與邊距 */
+    /* 排除圖標文件：圖標應維持固定小尺寸，不應有陰影 */
     .markdown-section img[src*="icon"],
     .markdown-section img[src*="重新部署"] {
       box-shadow: none !important;
       border-radius: 0 !important;
-      margin: 0 !important;
-      display: inline !important;
+      margin: 0 5px !important;
+      display: inline-block !important;
       vertical-align: middle;
+      width: 60px !important;
+      /* 強制所有圖標統一寬度 */
+      height: auto !important;
     }
 
     /* 電腦版：限制圖片最大寬度，避免 iPhone 截圖過大 */
@@ -290,12 +293,9 @@
         /* 置中顯示 */
       }
 
-      /* 手機版圖標維持原樣 */
+      /* 手機版圖標樣式由上方全域規則控制，此處僅確保不被 block 覆蓋 */
       .markdown-section img[src*="icon"] {
-        display: inline !important;
-        width: auto !important;
-        max-width: none !important;
-        margin: 0 !important;
+        display: inline-block !important;
       }
     }
 
