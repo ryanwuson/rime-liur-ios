@@ -264,14 +264,14 @@
     }
 
     /* 排除圖標文件：圖標應維持固定小尺寸，不應有陰影 */
-    .markdown-section img[src*="icon"],
-    .markdown-section img[src*="重新部署"] {
+    .markdown-section img[src*="icon"] {
       box-shadow: none !important;
       border-radius: 0 !important;
       margin: 0 5px !important;
       display: inline-block !important;
       vertical-align: middle;
-      width: 44px !important; /* 強制所有圖標統一寬度 */
+      width: 44px !important;
+      /* 強制所有圖標統一寬度 */
       height: auto !important;
     }
 
@@ -288,8 +288,10 @@
       .markdown-section img[src*="images/"]:not(.wide-img) {
         max-width: 380px;
       }
+
       .markdown-section img.wide-img {
-        max-width: 800px !important; /* 電腦版寬圖限制 */
+        max-width: 800px !important;
+        /* 電腦版寬圖限制 */
       }
     }
 
@@ -301,10 +303,12 @@
         max-width: 280px !important;
         margin: 15px auto !important;
       }
+
       .markdown-section img.wide-img {
         max-width: 100% !important;
         width: 100% !important;
       }
+
       /* 手機版圖標維持行內顯示 */
       .markdown-section img[src*="icon"] {
         display: inline-block !important;
