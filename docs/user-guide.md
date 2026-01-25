@@ -280,7 +280,7 @@
 
    - 上傳解壓縮後之資料夾
 
-     <img src="images/01-37upfolder.png" alt="01-37upfolder" />
+     <img src="images/01-37upfolder.png" alt="01-37upfolder" class="wide-img" />
 
    - 資料夾結構如下
 
@@ -350,7 +350,7 @@
 
    - 上傳解壓縮後之資料夾
 
-     <img src="images/01-37upfolder.png" alt="01-37upfolder" />
+     <img src="images/01-37upfolder.png" alt="01-37upfolder" class="wide-img" />
 
    - 資料夾結構如下
 
