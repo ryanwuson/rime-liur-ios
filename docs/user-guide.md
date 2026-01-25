@@ -272,11 +272,11 @@
 
    - 打開電腦瀏覽器，貼上並前往前一步顯示之網址，雙擊 **RimeUserData** 資料夾
 
-     <img src="images/01-36瀏覽器.png" alt="01-36瀏覽器" />
+     <img src="images/01-36瀏覽器.png" alt="01-36瀏覽器" class="wide-img" />
 
    - 點擊右上角的「↑」圖示
 
-     <img src="images/01-37RimeUserData.png" alt="01-37RimeUserData" />
+     <img src="images/01-37RimeUserData.png" alt="01-37RimeUserData" class="wide-img" />
 
    - 上傳解壓縮後之資料夾
 
@@ -284,9 +284,9 @@
 
    - 資料夾結構如下
 
-     <img src="images/01-38RimeUserData.png" alt="01-38RimeUserData" />
+     <img src="images/01-38RimeUserData.png" alt="01-38RimeUserData" class="wide-img" />
 
-     <img src="images/01-39RimeUserData.png" alt="01-39RimeUserData" />
+     <img src="images/01-39RimeUserData.png" alt="01-39RimeUserData" class="wide-img" />
 
    - 回到 iPhone 或 iPad，選擇「輸入方案」
 
@@ -342,11 +342,11 @@
 
    - 透過前述 iPhone（iPad）與電腦於**同一 WI-FI 網段**之連線，雙擊進入Skins資料夾
 
-     <img src="images/01-40瀏覽器.png" alt="01-40瀏覽器" />
+     <img src="images/01-40瀏覽器.png" alt="01-40瀏覽器" class="wide-img" />
 
    - 點擊右上角的「↑」圖示
 
-     <img src="images/01-41skin.png" alt="01-41skin" />
+     <img src="images/01-41skin.png" alt="01-41skin" class="wide-img" />
 
    - 上傳解壓縮後之資料夾
 
@@ -354,7 +354,7 @@
 
    - 資料夾結構如下
 
-     <img src="images/01-42skin.png" alt="01-42skin" />
+     <img src="images/01-42skin.png" alt="01-42skin" class="wide-img" />
 
    - 回到 iPhone 或 iPad，選擇「鍵盤皮膚」
 
