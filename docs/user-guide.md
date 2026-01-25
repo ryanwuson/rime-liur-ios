@@ -94,7 +94,7 @@
 - **蝦米：慣用右手**，適合左手持機者之佈局
 - **蝦米：慣用左手**，適合右手持機者之佈局
 
-### 安裝步驟
+### 手機直接安裝之步驟
 
 1. **選擇適合方案並複製網址**
    
@@ -111,6 +111,7 @@
      https://codeload.github.com/ryanwuson/rime-liur-ios/zip/refs/heads/english-block
 
 2. **匯入元書輸入法**
+   
    - 開啟元書輸入法 App
    
      ![01.元書icon](images/01-1元書icon.png)
@@ -124,7 +125,7 @@
    - 點擊「下載方案」
    
      <img src="images/01-14下載方案.PNG" alt="01-14下載方案" />
-
+   
      
    
      <img src="images/01-15下載方案.PNG" alt="01-15下載方案" />
@@ -237,6 +238,130 @@
    
    - 勾選「皮膚主題」
    
+     <img src="images/01-33勾選皮膚.PNG" alt="01-33勾選皮膚" />
+
+### 透過電腦安裝之步驟
+
+1. **選擇適合方案，點擊網址下載至電腦並解壓縮**
+
+   - **中文輸入**：純中文輸入，不含英文詞庫
+     https://codeload.github.com/ryanwuson/rime-liur-ios/zip/refs/heads/main
+
+   - **中文輸入+英文詞庫**：包含英文詞庫，支援英文自動補全
+     https://codeload.github.com/ryanwuson/rime-liur-ios/zip/refs/heads/english
+
+   - **中文輸入+屏蔽無效鍵**：純中文輸入 + 屏蔽無效按鍵
+     https://codeload.github.com/ryanwuson/rime-liur-ios/zip/refs/heads/main-block
+
+   - **中文輸入+英文詞庫+屏蔽無效鍵**：完整功能 + 屏蔽無效按鍵
+     https://codeload.github.com/ryanwuson/rime-liur-ios/zip/refs/heads/english-block
+
+2. **將電腦及iPhone（或iPad）連線到同一 Wi-Fi**
+
+   - 開啟元書輸入法
+
+     ![01.元書icon](images/01-1元書icon.png)
+
+   - Wi-Fi檔案傳輸
+
+     <img src="images/01-34wifi.PNG" alt="01-34wifi" />
+
+   - 記下網址（每個人網址不同），將手機維持開啟，並停留在此頁面
+
+     <img src="images/01-35網址.PNG" alt="01-35網址" />
+
+   - 打開電腦瀏覽器，貼上並前往前一步顯示之網址，雙擊 **RimeUserData** 資料夾
+
+     <img src="images/01-36瀏覽器.PNG" alt="01-36瀏覽器" />
+
+   - 點擊右上角的「↑」圖示
+
+     <img src="images/01-37RimeUserData.PNG" alt="01-37RimeUserData" />
+
+   - 上傳解壓縮後之資料夾
+
+     <img src="images/01-37upfolder.PNG" alt="01-37upfolder" />
+
+   - 資料夾結構如下
+
+     <img src="images/01-38RimeUserData.PNG" alt="01-38RimeUserData" />
+
+     <img src="images/01-39RimeUserData.PNG" alt="01-39RimeUserData" />
+
+   - 回到 iPhone 或 iPad，選擇「輸入方案」
+
+     <img src="images/01-13輸入方案.PNG" alt="01-13輸入方案" />
+
+   - 點擊「方案目錄切換」
+
+     <img src="images/01-14下載方案.PNG" alt="01-14下載方案" />
+
+     <img src="images/01-21方案目錄切換.PNG" alt="01-21方案目錄切換" />
+
+     
+
+   - 依序選擇「RimeUserData」
+
+     <img src="images/01-22RimeUserData.PNG" alt="01-22RimeUserData" />
+
+     
+
+     - 選擇「方案名稱」
+
+       <img src="images/01-23方案名稱.PNG" alt="01-23方案名稱" />
+
+       
+
+     - 選擇「rime-liur-ios」
+
+       <img src="images/01-24rime-liur-ios.PNG" alt="01-24rime-liur-ios" />
+
+       
+
+     - 點擊「打開」
+
+       <img src="images/01-25打開.PNG" alt="01-25打開" />
+
+       
+
+       <img src="images/01-26清單.PNG" alt="01-26清單" />
+
+       
+
+   - **下載及選擇皮膚主題**
+
+     **蝦米：慣用右手**：適合左手持機者之佈局
+
+     https://github.com/ryanwuson/rime-liur-ios-skin/raw/main/Right-handed.cskin
+
+     **蝦米：慣用左手**：適合右手持機者之佈局
+
+     https://github.com/ryanwuson/rime-liur-ios-skin/raw/main/Left-handed.cskin
+
+     下載後，將**.cskin**副檔名，變更為**.zip**，並**解壓縮**
+
+   - 透過前述 iPhone（iPad）與電腦於**同一 WI-FI 網段**之連線，雙擊進入Skins資料夾
+
+     <img src="images/01-40瀏覽器.PNG" alt="01-40瀏覽器" />
+
+   - 點擊右上角的「↑」圖示
+
+     <img src="images/01-41skin.PNG" alt="01-41skin" />
+
+   - 上傳解壓縮後之資料夾
+
+     <img src="images/01-37upfolder.PNG" alt="01-37upfolder" />
+
+   - 資料夾結構如下
+
+     <img src="images/01-42skin.PNG" alt="01-42skin" />
+
+   - 回到 iPhone 或 iPad，選擇「鍵盤皮膚」
+
+     <img src="images/01-43鍵盤皮膚.PNG" alt="01-43鍵盤皮膚" />
+
+   - 勾選「皮膚主題」
+
      <img src="images/01-33勾選皮膚.PNG" alt="01-33勾選皮膚" />
 
 ### 注意事項
