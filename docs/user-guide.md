@@ -338,7 +338,7 @@
 
      https://github.com/ryanwuson/rime-liur-ios-skin/raw/main/Left-handed.cskin
 
-     下載後，將**.cskin**副檔名，變更為**.zip**，並**解壓縮**
+     **下載後，將.cskin副檔名，變更為.zip，並解壓縮**
 
    - 透過前述 iPhone（iPad）與電腦於**同一 WI-FI 網段**之連線，雙擊進入Skins資料夾
 
