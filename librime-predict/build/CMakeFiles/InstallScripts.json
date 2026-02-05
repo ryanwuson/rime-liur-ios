@@ -1,8 +1,0 @@
-{
-	"InstallScripts" : 
-	[
-		"/Users/ryan/Desktop/rime-liur-ios/librime-predict/build/cmake_install.cmake",
-		"/Users/ryan/Desktop/rime-liur-ios/librime-predict/build/tools/cmake_install.cmake"
-	],
-	"Parallel" : false
-}

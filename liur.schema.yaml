@@ -31,7 +31,10 @@ switches:
     states: [ 正常, 查碼 ]
   - name: quick_mode
     reset: 0
-    states: [ 正常, 快打 ]
+    states: [ 正常, 快打提示 ]
+  - name: force_quick_mode
+    reset: 0
+    states: [ 正常, 強制快打 ]
   # - name: wildcard_mode    # 萬用查碼（手機用不到）
   #   reset: 0
   #   states: [ 正常, 萬用查字 ]
