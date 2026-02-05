@@ -1,0 +1,6 @@
+/Users/ryan/Desktop/rime-liur-ios/librime-predict/build/CMakeFiles/rime-predict-objs.dir
+/Users/ryan/Desktop/rime-liur-ios/librime-predict/build/CMakeFiles/edit_cache.dir
+/Users/ryan/Desktop/rime-liur-ios/librime-predict/build/CMakeFiles/rebuild_cache.dir
+/Users/ryan/Desktop/rime-liur-ios/librime-predict/build/tools/CMakeFiles/build_predict.dir
+/Users/ryan/Desktop/rime-liur-ios/librime-predict/build/tools/CMakeFiles/edit_cache.dir
+/Users/ryan/Desktop/rime-liur-ios/librime-predict/build/tools/CMakeFiles/rebuild_cache.dir

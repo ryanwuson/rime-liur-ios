@@ -1,0 +1,55 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout last commit
+        uses: actions/checkout@v4
+      - name: Install clang-format
+        run: sudo apt install -y clang-format
+      - name: Lint
+        run: find src tools -name '*.cc' -o -name '*.h' | xargs clang-format -Werror --dry-run || { echo Please lint your code by '"'"find src tools -name '*.cc' -o -name '*.h' | xargs clang-format -i"'"'.; false; }
+
+  build:
+    runs-on: ubuntu-24.04
+    needs: lint
+    steps:
+      - name: Checkout librime
+        uses: actions/checkout@v4
+        with:
+          repository: rime/librime
+
+      - name: Checkout last commit
+        uses: actions/checkout@v4
+        with:
+          path: plugins/predict
+
+      - name: Install dependency
+        run: ./action-install-linux.sh
+
+      - name: Build librime with plugin
+        run: |
+          cmake -B build -G Ninja -DCMAKE_BUILD_TYPE=Release -DENABLE_ASAN=ON
+          cmake --build build
+
+      - name: Build predict.db
+        working-directory: build/bin
+        run: |
+          wget https://github.com/rime/librime-predict/releases/download/data-1.0/predict.txt
+          wget -O release.db https://github.com/rime/librime-predict/releases/download/data-1.0/predict.db
+          cat predict.txt | ../plugins/predict/bin/build_predict
+          diff predict.db release.db
+
+      - name: Test
+        working-directory: build/bin
+        run: |
+          cp ../../plugins/predict/data/luna_pinyin.custom.yaml .
+          echo -e 'nihao \n ' | ./rime_api_console | tee log
+          grep 'commit: 嗎' log
