@@ -87,7 +87,7 @@
 - **中文輸入+屏蔽無效鍵**：純中文輸入 + 屏蔽無效按鍵，不可中英混輸
 - **中文輸入+英文詞庫+屏蔽無效鍵**：完整功能 + 屏蔽無效按鍵，英文字母多於5字可中英混輸
 
- **★補充說明★**：方案中所稱之**「屏蔽無效鍵」**，是讓你無法按出無效鍵，如按完ab，無法按c，但**視覺上無法讓c鍵變淡**，這是元書輸入法沒有支援的功能。
+ **★補充說明★**：方案中所稱之「屏蔽無效鍵」，是讓你無法按出無效鍵，如按完ab，無法按c，但視覺上無法讓c鍵變淡，這是元書輸入法沒有支援的功能。
 
 #### 皮膚主題
 
@@ -103,7 +103,7 @@
 
     <img src="images/Skin02.png" alt="Skin02" class="wide-img" />
 
-  - **基礎外觀：**調整亮/暗色鍵盤顏色
+  - **基礎外觀**：調整亮/暗色鍵盤顏色
 
     <img src="images/Skin01.png" alt="Skin01" class="wide-img" />
     <img src="images/Skin02.png" alt="Skin02" class="wide-img" />
@@ -123,7 +123,7 @@
 
     <img src="images/Skin05-2.PNG" alt="Skin05-2" class="wide-img" />
 
-  - 透過 iOS 元書輸入法的長按鍵盤皮膚並**「運行 main.jsonnet」**即可使用
+  - 透過 iOS 元書輸入法的長按鍵盤皮膚並 **「運行 main.jsonnet」** 即可使用
 
     <img src="images/Skin05-1.png" alt="Skin05-1" class="wide-img" />
 
@@ -131,7 +131,7 @@
 
   - 導出之.cskin皮膚可分享給他人
 
-  - 若需修改自己或他人之皮膚，可按右上 **匯入配置 (.cskin)**，進行2次修改。
+  - 若需修改自己或他人之皮膚，可按右上 **匯入配置 (.cskin)**，進行修改。
 
     <img src="images/Skin06.png" alt="Skin06" class="wide-img" />
 
@@ -247,11 +247,11 @@
    
    - **從皮膚設計器中直接匯出：**
    
-     - 打開 iOS 瀏覽器（以 Safari 為例），訪問**蝦米輸入法皮膚設計器**
+     - 打開 iOS 瀏覽器（以 Safari 為例），訪問 **蝦米輸入法皮膚設計器**
    
        https://ryanwuson.github.io/rime-liur-ios-skin/
    
-     - 按右上角**導出配置 (.cskin)**，即會出現下載視窗
+     - 按右上角 **導出配置 (.cskin)**，即會出現下載視窗
    
      <img src="images/01-27下載視窗.PNG" alt="01-27下載視窗" />
    
@@ -283,7 +283,7 @@
    
      
    
-     - 長按「皮膚主題」，點擊**「運行 main.jsonnet」**，即可使用
+     - 長按「皮膚主題」，點擊 **「運行 main.jsonnet」**，即可使用
    
    
      <img src="images/01-33勾選皮膚.PNG" alt="01-33勾選皮膚" />
@@ -378,13 +378,13 @@
 
    - **從皮膚設計器中直接匯出**
 
-     打開電腦瀏覽器（以 Safari 為例），訪問**蝦米輸入法皮膚設計器**
+     打開電腦瀏覽器（以 Safari 為例），訪問 **蝦米輸入法皮膚設計器**
 
-     https://ryanwuson.github.io/rime-liur-ios-skin/，按右上角**導出配置 (.cskin)**，即會出現下載主題
+     https://ryanwuson.github.io/rime-liur-ios-skin/，按右上角 **導出配置 (.cskin)**，即會出現下載主題
 
-    **下載後，將.cskin副檔名，變更為.zip，並解壓縮**
+     **下載後，將 .cskin 副檔名變更為 .zip，並解壓縮**
 
-   - 透過前述 iPhone（iPad）與電腦於**同一 WI-FI 網段**之連線，雙擊進入Skins資料夾
+   - 透過前述 iPhone（iPad）與電腦於 **同一 WI-FI 網段** 之連線，雙擊進入Skins資料夾
 
      <img src="images/01-40瀏覽器.png" alt="01-40瀏覽器" class="wide-img" />
 
@@ -404,7 +404,7 @@
 
      <img src="images/01-43鍵盤皮膚.PNG" alt="01-43鍵盤皮膚" />
 
-   - 長按「皮膚主題」，點擊** 「運行 main.jsonnet」**，即可使用
+   - 長按「皮膚主題」，點擊 **「運行 main.jsonnet」**，即可使用
 
      <img src="images/01-33勾選皮膚.PNG" alt="01-33勾選皮膚" />
 
