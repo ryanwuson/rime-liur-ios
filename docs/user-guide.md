@@ -91,8 +91,53 @@
 
 #### 皮膚主題
 
-- **蝦米：慣用右手**，適合左手持機者之佈局
-- **蝦米：慣用左手**，適合右手持機者之佈局
+- **蝦米輸入法皮膚設計器：**https://ryanwuson.github.io/rime-liur-ios-skin/
+
+- 使用者可以使用習慣調整：
+
+  - **按鍵佈局**：包含「空白鍵長度」、「左、右手持機」、「上下滑功能」及「長按功能」
+
+    <img src="images/Skin01.PNG" alt="Skin01" />
+
+  - **工具配置：**包含25項實用工具，使用者可依需求於工具列放置10項
+
+    <img src="images/Skin02.PNG" alt="Skin02" />
+
+  - **基礎外觀：**調整亮/暗色鍵盤顏色
+
+    <img src="images/Skin03.PNG" alt="Skin03" />
+
+  - **進階微調：**細緻調整「26鍵」、「數字」、「符號」及「Emoji」鍵盤。
+
+    <img src="images/Skin04.PNG" alt="Skin04" />
+
+- 編輯皮膚後，請依序：
+
+  - 按右上角 **i 圖示**，編輯皮膚名稱及作者資訊
+
+  - 按右上角**導出配置 (.cskin)**，即可導出自定皮膚，包含亮暗色26鍵**自動截圖**
+
+    <img src="images/Skin05.PNG" alt="Skin05" />
+
+    <img src="images/Skin05-2.PNG" alt="Skin05-2" />
+
+  - 透過 iOS 元書輸入法的長按鍵盤皮膚並 **「運行 main.jasonet」** 即可使用
+
+    <img src="images/Skin05-1.PNG" alt="Skin05-1" />
+
+- 皮膚分享及再次修改：
+
+  - 導出之.cskin皮膚可分享給他人
+
+  - 若需修改自己或他人之皮膚，可按右上**匯入配置 (.cskin)**，進行2次修改。
+
+    <img src="images/Skin06.PNG" alt="Skin06" />
+
+    <img src="images/Skin06-1.PNG" alt="Skin06-1" />
+
+- **簡易操作說明**：https://github.com/ryanwuson/rime-liur-ios-skin
+
+  
 
 ### 手機直接安裝之步驟
 
@@ -196,23 +241,22 @@
    
      
    
-3. **下載及選擇皮膚主題**
+3. **安裝皮膚主題**
    
-   - **蝦米：慣用右手**：適合左手持機者之佈局
+   - **從皮膚設計器中直接匯出：**
    
-     https://github.com/ryanwuson/rime-liur-ios-skin/raw/main/Right-handed.cskin
+     - 打開 iOS 瀏覽器（以 Safari 為例），訪問**蝦米輸入法皮膚設計器**
    
-   - **蝦米：慣用左手**：適合右手持機者之佈局
+       https://ryanwuson.github.io/rime-liur-ios-skin/
    
-     https://github.com/ryanwuson/rime-liur-ios-skin/raw/main/Left-handed.cskin
-   
-   - 打開 iOS 瀏覽器（以 Safari 為例），並貼上皮膚網址，即會出現下載視窗
+     - 按右上角**導出配置 (.cskin)**，即會出現下載視窗
    
      <img src="images/01-27下載視窗.PNG" alt="01-27下載視窗" />
    
      
    
-   - 將皮膚儲存至「檔案.app」
+     - 將皮膚儲存至「檔案.app」
+   
    
      <img src="images/01-28下載項目.png" alt="01-28下載項目" />
    
@@ -230,13 +274,15 @@
    
      
    
-   - 點擊.cskin檔案，以元書輸入法 App 開啟
+     - 點擊.cskin檔案，以元書輸入法 App 開啟
+   
    
      <img src="images/01-32下載項目.PNG" alt="01-32下載項目" />
    
      
    
-   - 勾選「皮膚主題」
+     - 長按「皮膚主題」，點擊**「運行 main.jsonnet」**，即可使用
+   
    
      <img src="images/01-33勾選皮膚.PNG" alt="01-33勾選皮膚" />
 
@@ -328,15 +374,11 @@
 
        
 
-   - **下載及選擇皮膚主題**
+   - **從皮膚設計器中直接匯出**
 
-     **蝦米：慣用右手**：適合左手持機者之佈局
+     打開電腦瀏覽器（以 Safari 為例），訪問**蝦米輸入法皮膚設計器**
 
-     https://github.com/ryanwuson/rime-liur-ios-skin/raw/main/Right-handed.cskin
-
-     **蝦米：慣用左手**：適合右手持機者之佈局
-
-     https://github.com/ryanwuson/rime-liur-ios-skin/raw/main/Left-handed.cskin
+     https://ryanwuson.github.io/rime-liur-ios-skin/，按右上角**導出配置 (.cskin)**，即會出現下載主題
 
      **下載後，將.cskin副檔名，變更為.zip，並解壓縮**
 
@@ -360,7 +402,7 @@
 
      <img src="images/01-43鍵盤皮膚.PNG" alt="01-43鍵盤皮膚" />
 
-   - 勾選「皮膚主題」
+   - 長按「皮膚主題」，點擊**「運行 main.jsonnet」**，即可使用
 
      <img src="images/01-33勾選皮膚.PNG" alt="01-33勾選皮膚" />
 
@@ -436,15 +478,6 @@
 
   ![03-0鍵盤](images/03-0鍵盤.png)
 
-#### 皮膚差異
-- **慣用右手**：工具列圖示位於右側，適合左手持機、右手操作
-
-  ![03-1慣用右手](images/03-1慣用右手.png)
-
-- **慣用左手**：工具列圖示位於左側，適合右手持機、左手操作
-
-  ![03-2慣用左手](images/03-2慣用左手.png)
-
 ### 基本操作手勢
 
 #### 點擊操作
@@ -509,6 +542,18 @@
 
   
 
+- **Shift鍵下滑**：切換至下一個輸入法 (解決 SE 機型無地球問題)
+
+    <img src="images/03-11-4Shift鍵下滑.gif" alt="03-11-4Shift鍵下滑" />
+    
+    
+    
+- **「Enter」鍵下滑**：換行，部分 App 無換行功能，下滑 Enter 可強制換行
+
+    <img src="images/03-11-5「Enter」鍵下滑.gif" alt="03-11-5「Enter」鍵下滑" />
+    
+    
+    
 - **「123」鍵上滑**：切換為符號鍵盤
 
     <img src="images/03-11-5「123」鍵上滑.gif" alt="03-11-5「123」鍵上滑" />
@@ -849,12 +894,105 @@
 ### 注意事項
 
 - 快打模式主要用於學習簡碼
+
 - 熟悉簡碼後可關閉此模式以減少視覺干擾
-- 與查碼模式可同時使用
+
+- 若需常駐此功能：
+
+  1. 至方案中開啟 liur.schema.yaml
+
+  2. 尋找
+
+     name: quick_mode
+     reset: 0
+     states: [ 正常, 快打提示 ]
+
+  3. 將 reset 改為 1
+
+  4. 儲存並重新部署
 
 ---
 
-## 十一、無效鍵屏蔽
+## 十一、強制快打模式 (需開啟候選Comment)
+
+### 功能說明
+
+- **開關**：`,,sf`（輸入後按空格）
+- **狀態**：正常 ↔ 強制快打
+- **說明**：開啟後會提示可用的簡碼，**使用者如果不是用最簡碼，按 sapce 鍵無法上屏**
+
+### 功能特色
+
+1. **簡碼提示**：當輸入的字有更短的編碼時，會在候選字旁顯示簡碼提示
+2. **提升效率**：強制使用者學習並記住常用字的簡碼
+3. **即時顯示**：輸入時即時顯示可用的簡碼選項
+
+### 提示格式
+
+- `簡碼▸⟨x⟩`：表示該字可用字碼 `x` 輸入
+- 簡碼提示會顯示在候選字的註解區域
+
+### 使用範例
+
+|  輸入  | 候選字 | 簡碼提示        |
+| :----: | :----: | :-------------- |
+| `ttmb` |   頂   | ▸簡碼⟨TTA⟩      |
+| `lonm` |   毫   | ▸簡碼⟨LVM⟩⟨LNM⟩ |
+
+### 注意事項
+
+- 快打模式主要用於學習簡碼
+
+- 熟悉簡碼後可關閉此模式以減少視覺干擾
+
+- 若需常駐此功能：
+  1. 至方案中開啟 liur.schema.yaml
+
+  2. 尋找
+
+      name: force_quick_mode
+      reset: 0
+      states: [ 正常, 強制快打 ]
+
+  3. 將 reset 改為 1
+
+  4. 儲存並重新部署
+
+- 1. 儲存並重新部署
+
+---
+
+## 十二、聯想字
+
+### 功能特色
+
+- 預設開啟聯想字功能，**簡體字也有相對應的聯想字**
+
+- 可依上屏的第1個字進行聯想
+
+- 1次提供24個候選聯想字，自工具列下滑即可展開
+
+  <img src="images/07聯想字.gif" alt="07聯想字" />
+
+### 注意事項
+
+- 因 RIEM 候選字模組問題，無法判斷前後語意，因此無法做到像內建或其他輸入法一樣有強大的前後文語意聯想，屬於**「固定式」聯想**
+
+- 若無需使用此功能：
+
+  1. 至方案中開啟 liur.schema.yaml
+
+  2. 詢找
+      
+      name: prediction
+      states: [ 關閉預測, 開啟預測 ]
+      reset: 1
+  3. 將 reset 改為 0
+  4. 儲存並重新部署
+
+---
+
+## 十三、無效鍵屏蔽
 
 ### 功能說明
 
@@ -862,7 +1000,7 @@
 
 ### 主要特色
 
-1. 屏蔽功能**：根據當前輸入狀態屏蔽無效按鍵
+1. **屏蔽功能**：根據當前輸入狀態屏蔽無效按鍵
 2. **避免誤觸**：減少輸入錯誤，提升輸入準確度
 
 ### 屏蔽邏輯
@@ -878,7 +1016,7 @@
 
 ---
 
-## 十二、特殊功能總覽
+## 十四、特殊功能總覽
 
 | 功能     | 快捷鍵/引導鍵                | 說明                                            | 備註                                |
 | :------- | :--------------------------- | :---------------------------------------------- | :---------------------------------- |
@@ -888,6 +1026,93 @@
 | 拼音輸入 | `;'`                         | 漢語拼音輸入中文                                | 下滑QWERT可對應1～5聲調              |
 | 快打模式 | `,,sp`                       | 提示可用簡碼                                    | 需開啟元書輸入法「候選Comment功能」 |
 | 按鍵說明 | `,,h`                        | 顯示所有快捷鍵說明                              |                                     |
+
+---
+
+## 十五、20250303 版本更新說明
+
+<table>
+  <thead>
+    <tr>
+      <th>功能分類</th>
+      <th>功能需求</th>
+      <th>提出者</th>
+      <th>備註</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>元書內建付費功能</td>
+      <td>常用詞</td>
+      <td>Leo Huang</td>
+      <td>透過元書輸入法內購功能付費給作者(不是我)，即可使用</td>
+    </tr>
+    <tr>
+      <td rowspan="8">方案新增功能</td>
+      <td rowspan="6">聯想字</td>
+      <td>Xu Zhenxuan</td>
+      <td rowspan="6">若無需使用此功能：<br>1. 至方案中開啟 liur.schema.yaml<br>2. 尋找<br>&nbsp;&nbsp;&nbsp;&nbsp;<code>- name: prediction</code><br>&nbsp;&nbsp;&nbsp;&nbsp;<code>states: [ 關閉預測, 開啟預測 ]</code><br>&nbsp;&nbsp;&nbsp;&nbsp;<code>reset: 1</code><br>3. 將 reset 改為 0<br>4. 儲存並重新部署</td>
+    </tr>
+    <tr>
+      <td>Nana Weng</td>
+    </tr>
+    <tr>
+      <td>林思絲</td>
+    </tr>
+    <tr>
+      <td>Fula No</td>
+    </tr>
+    <tr>
+      <td>Sean Wu</td>
+    </tr>
+    <tr>
+      <td>陳嘉興</td>
+    </tr>
+    <tr>
+      <td rowspan="2">強制快打</td>
+      <td>Peter Chiang</td>
+      <td rowspan="2">若需常駐此功能：<br>1. 至方案中開啟 liur.schema.yaml<br>2. 尋找<br>&nbsp;&nbsp;&nbsp;&nbsp;<code>- name: force_quick_mode</code><br>&nbsp;&nbsp;&nbsp;&nbsp;<code>reset: 0</code><br>&nbsp;&nbsp;&nbsp;&nbsp;<code>states: [ 正常, 強制快打 ]</code><br>3. 將 reset 改為 1<br>4. 儲存並重新部署</td>
+    </tr>
+    <tr>
+      <td>彭世民</td>
+    </tr>
+    <tr>
+      <td rowspan="2">皮膚新增功能</td>
+      <td rowspan="2">SE型號無地球</td>
+      <td>Dxball Liu</td>
+      <td rowspan="2">Shift 鍵下滑，可切換到下一個輸入法</td>
+    </tr>
+    <tr>
+      <td>Kenny Wu</td>
+    </tr>
+    <tr>
+      <td>皮膚功能優化</td>
+      <td>長按S鍵應出現＿</td>
+      <td>Sean Wu</td>
+      <td>長按選選修復</td>
+    </tr>
+    <tr>
+      <td rowspan="5">皮膚設計器</td>
+      <td rowspan="2">自定皮膚</td>
+      <td>莊嚴</td>
+      <td rowspan="5">可透過蝦米輸入法皮膚設計器自定<br><a href="https://ryanwuson.github.io/rime-liur-ios-skin/">https://ryanwuson.github.io/rime-liur-ios-skin/</a><br><br>簡易說明<br><a href="https://github.com/ryanwuson/rime-liur-ios-skin">https://github.com/ryanwuson/rime-liur-ios-skin</a></td>
+    </tr>
+    <tr>
+      <td>陳鈺沛</td>
+    </tr>
+    <tr>
+      <td>Emoji 圖示大小</td>
+      <td>陳嘉興</td>
+    </tr>
+    <tr>
+      <td rowspan="2">空白鍵加長</td>
+      <td>Leo Huang</td>
+    </tr>
+    <tr>
+      <td>陳嘉興</td>
+    </tr>
+  </tbody>
+</table>
 
 ---
 
