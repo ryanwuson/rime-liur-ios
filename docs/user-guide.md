@@ -101,10 +101,12 @@
 
   - **工具配置：**包含25項實用工具，使用者可依需求於工具列放置10項
 
-    <img src="images/Skin02." alt="Skin02" class="wide-img" />
+    <img src="images/Skin02.pngpng" alt="Skin02" class="wide-img" />
 
   - **基礎外觀：**調整亮/暗色鍵盤顏色
 
+    <img src="images/Skin01.png" alt="Skin01" class="wide-img" />
+    <img src="images/Skin02.pngpng" alt="Skin02" class="wide-img" />
     <img src="images/Skin03.png" alt="Skin03" class="wide-img" />
 
   - **進階微調：**細緻調整「26鍵」、「數字」、「符號」及「Emoji」鍵盤。
@@ -119,7 +121,7 @@
 
     <img src="images/Skin05.png" alt="Skin05" class="wide-img" />
 
-    <img src="images/Skin05-2.PNG" alt="Skin05-2" class="wide-img" />
+    <img src="images/Skin05-2.png" alt="Skin05-2" class="wide-img" />
 
   - 透過 iOS 元書輸入法的長按鍵盤皮膚並 **「運行 main.jasonet」** 即可使用
 

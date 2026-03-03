@@ -256,11 +256,20 @@
 
     /* 圖片基礎樣式：陰影與圓角 */
     .markdown-section img[src*="images/"] {
-      box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.2);
-      border-radius: 4px;
+      box-shadow: 3px 3px 12px rgba(0, 0, 0, 0.15);
+      border-radius: 8px;
       margin: 15px 10px;
       display: inline-block;
       vertical-align: middle;
+      border: 1px solid rgba(0, 0, 0, 0.05);
+      /* 添加極淺邊框增加層次感，但 Skin 圖片會被排除 */
+    }
+
+    /* 針對 Skin 圖片：移除陰影、邊框與圓角，保持原始狀態 */
+    .markdown-section img[src*="images/Skin"] {
+      box-shadow: none !important;
+      border: none !important;
+      border-radius: 0 !important;
     }
 
     /* 排除圖標文件：圖標應維持固定小尺寸，不應有陰影 */
