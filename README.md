@@ -28,7 +28,7 @@
 
 ### 皮膚主題
 
-- **蝦米輸入法皮膚設計器：**https://ryanwuson.github.io/rime-liur-ios-skin/
+- **蝦米輸入法皮膚設計器**：https://ryanwuson.github.io/rime-liur-ios-skin/
 - 使用者可以使用習慣調整：
 
   - **按鍵佈局**：包含「空白鍵長度」、「左、右手持機」、「上下滑功能」及「長按功能」
