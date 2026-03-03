@@ -129,7 +129,7 @@
 
   - 導出之.cskin皮膚可分享給他人
 
-  - 若需修改自己或他人之皮膚，可按右上 **匯入配置 (.cskin)**，進行2次修改。
+  - 若需修改自己或他人之皮膚，可按右上 **匯入配置 (.cskin)**，進行**2次修改**
 
     <img src="images/Skin06.png" alt="Skin06" />
 
@@ -245,7 +245,7 @@
    
    - **從皮膚設計器中直接匯出：**
    
-     - 打開 iOS 瀏覽器（以 Safari 為例），訪問**蝦米輸入法皮膚設計器**
+     - 打開 iOS 瀏覽器（以 Safari 為例），訪問 **蝦米輸入法皮膚設計器**
    
        https://ryanwuson.github.io/rime-liur-ios-skin/
    
@@ -376,13 +376,15 @@
 
    - **從皮膚設計器中直接匯出**
 
-     打開電腦瀏覽器（以 Safari 為例），訪問**蝦米輸入法皮膚設計器**
+     打開電腦瀏覽器（以 Safari 為例），訪問 **蝦米輸入法皮膚設計器**
 
-     https://ryanwuson.github.io/rime-liur-ios-skin/，按右上角 **導出配置 (.cskin)**，即會出現下載主題
+     https://ryanwuson.github.io/rime-liur-ios-skin/
 
-     **下載後，將.cskin副檔名，變更為.zip，並解壓縮**
+     按右上角 **導出配置 (.cskin)**，即會出現下載主題
 
-   - 透過前述 iPhone（iPad）與電腦於**同一 WI-FI 網段**之連線，雙擊進入Skins資料夾
+     **下載後，將 .cskin 副檔名變更為 .zip，並解壓縮**
+
+   - 透過前述 iPhone（iPad）與電腦於 **同一 WI-FI 網段** 之連線，雙擊進入Skins資料夾
 
      <img src="images/01-40瀏覽器.png" alt="01-40瀏覽器" class="wide-img" />
 
@@ -403,7 +405,7 @@
      <img src="images/01-43鍵盤皮膚.PNG" alt="01-43鍵盤皮膚" />
 
    - 長按「皮膚主題」，點擊**「運行 main.jsonnet」**，即可使用
-
+   
      <img src="images/01-33勾選皮膚.PNG" alt="01-33勾選皮膚" />
 
 ### 注意事項
