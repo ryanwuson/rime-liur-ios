@@ -97,19 +97,19 @@
 
   - **按鍵佈局**：包含「空白鍵長度」、「左、右手持機」、「上下滑功能」及「長按功能」
 
-    <img src="images/Skin01.png" alt="Skin01" />
+    <img src="images/Skin01.png" alt="Skin01" class="wide-img" />
 
   - **工具配置：**包含25項實用工具，使用者可依需求於工具列放置10項
 
-    <img src="images/Skin02.png" alt="Skin02" />
+    <img src="images/Skin02.png" alt="Skin02" class="wide-img" />
 
   - **基礎外觀：**調整亮/暗色鍵盤顏色
 
-    <img src="images/Skin03.png" alt="Skin03" />
+    <img src="images/Skin03.png" alt="Skin03" class="wide-img" />
 
   - **進階微調：**細緻調整「26鍵」、「數字」、「符號」及「Emoji」鍵盤。
 
-    <img src="images/Skin04.png" alt="Skin04" />
+    <img src="images/Skin04.png" alt="Skin04" class="wide-img" />
 
 - 編輯皮膚後，請依序：
 
@@ -117,7 +117,7 @@
 
   - 按右上角**導出配置 （.cskin）**，即可導出自定皮膚，包含亮暗色26鍵及**自動截圖**
 
-    <img src="images/Skin05.png" alt="Skin05" />
+    <img src="images/Skin05.png" alt="Skin05" class="wide-img" />
 
     <img src="images/Skin05-2.PNG" alt="Skin05-2" />
 
@@ -131,7 +131,7 @@
 
   - 若需修改自己或他人之皮膚，可按右上**導出配置 （.cskin）**，進行**2次修改**
 
-    <img src="images/Skin06.png" alt="Skin06" />
+    <img src="images/Skin06.png" alt="Skin06" class="wide-img" />
 
     <img src="images/Skin06-1.png" alt="Skin06-1" />
 
