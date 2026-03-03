@@ -1,10 +1,14 @@
 -- liu_quick_hint.lua
 -- 快打模式：輸入 ≥4 碼時，提示可用的簡碼
+-- 支援兩種模式：
+-- 1. quick_mode（快打提示）：只提示簡碼
+-- 2. force_quick_mode（強制快打）：提示簡碼並阻止非簡碼上屏
 -- 優化版：使用 Opencc 查詢 liu_w2c.json，關閉時釋放資源
 
 -- Opencc 實例（延遲載入，關閉時釋放）
 local opencc_liu_w2c = nil
 local last_quick_mode = false
+local last_force_quick_mode = false
 
 -- 獲取 Opencc 實例
 local function get_opencc()
@@ -71,15 +75,17 @@ end
 local function filter(input, env)
     local context = env.engine.context
     local quick_mode = context:get_option("quick_mode")
+    local force_quick_mode = context:get_option("force_quick_mode")
     
     -- 檢測快打模式是否剛關閉
-    if last_quick_mode and not quick_mode then
+    if (last_quick_mode and not quick_mode) or (last_force_quick_mode and not force_quick_mode) then
         clear_cache()
     end
     last_quick_mode = quick_mode
+    last_force_quick_mode = force_quick_mode
     
-    -- 快速路徑：未開啟快打模式
-    if not quick_mode then
+    -- 快速路徑：未開啟任何快打模式
+    if not quick_mode and not force_quick_mode then
         for cand in input:iter() do yield(cand) end
         return
     end
@@ -157,8 +163,20 @@ local function filter(input, env)
                 local shortest_codes = find_shortest_codes(codes_str, input_length)
                 
                 if shortest_codes then
-                    -- 構建提示
+                    -- 檢查是否使用了簡碼（用於強制快打模式）
+                    local is_using_short_code = false
+                    if force_quick_mode then
+                        for code in shortest_codes:gmatch("[^⟩⟨]+") do
+                            if input_text:upper() == code:upper() then
+                                is_using_short_code = true
+                                break
+                            end
+                        end
+                    end
+                    
+                    -- 統一使用「簡碼」提示
                     local hint = "▸簡碼⟨" .. shortest_codes:upper() .. "⟩"
+                    
                     local comment = cand.comment or ""
                     
                     -- 簡體模式移除繁體標記
