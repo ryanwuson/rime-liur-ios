@@ -43,6 +43,9 @@ switches:
     reset: 0
   - name: zh_tw
     reset: 1
+  - name: prediction
+    states: [ 關閉預測, 開啟預測 ]
+    reset: 1
 
 engine:
   processors:
@@ -59,6 +62,7 @@ engine:
     # - lua_processor@liu_symbols_processor            # 符號清單模式下屏蔽 ctrl+'（手機用不到）
     - lua_processor@liu_phonetic_suffix_processor    # 同音字模式（選中後按 '）
     - lua_processor@liu_gc_processor                 # 上屏後小步垃圾回收
+    - predictor
     - key_binder
     
     - speller
@@ -93,6 +97,7 @@ engine:
 #    - echo_translator
 #    - punct_translator
 #    - script_translator
+    - predict_translator
     - lua_translator@liu_help_translator  # 功能說明（,,h 模式）- 必須在最前面
     # - lua_translator@liu_symbols_hint  # 符號清單提示（手機用不到）
     - lua_translator@liu_letter_variants  # 擴充模式字母變化形（保留）
@@ -453,3 +458,8 @@ help_mode:
   tag: help_mode
   prefix: ",,h"
   tips: "《按鍵說明》▸"
+
+# 預測（聯想字）設定
+predictor:
+  db: predict.db
+  max_candidates: 23  # 預測候選數量

@@ -5,6 +5,5 @@
 _variants/
 publish_all.sh
 .DS_Store
-predict.db
 predict_data.txt
 librime-predict/
