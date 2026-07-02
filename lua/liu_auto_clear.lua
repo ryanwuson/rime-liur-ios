@@ -43,7 +43,7 @@ local function is_valid_prefix(input)
     end
     
     if #lower_input > 5 then
-        return true
+        return false
     end
     
     -- Lazy Load logic using liu_data
@@ -104,12 +104,6 @@ local function processor(key, env)
     
     -- 有修飾鍵：不處理
     if key:ctrl() or key:alt() then
-        return 2  -- kNoop
-    end
-    
-    -- VRSF 選字輔碼：有候選時允許
-    local vrsf_keys = { v = true, r = true, s = true, f = true }
-    if vrsf_keys[key_char] and context:has_menu() then
         return 2  -- kNoop
     end
     
