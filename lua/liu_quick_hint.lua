@@ -1,26 +1,18 @@
 -- liu_quick_hint.lua
--- 快打模式：輸入 ≥4 碼時，提示可用的簡碼
+-- 快打模式：輸入 ≥3 碼時，提示可用的簡碼
 -- 支援兩種模式：
 -- 1. quick_mode（快打提示）：只提示簡碼
 -- 2. force_quick_mode（強制快打）：提示簡碼並阻止非簡碼上屏
--- 優化版：使用 Opencc 查詢 liu_w2c.json，關閉時釋放資源
+-- 優化版：Opencc 實例統一由 liu_data 管理，上屏後自動釋放
 
--- Opencc 實例（延遲載入，關閉時釋放）
-local opencc_liu_w2c = nil
+local liu_data = require("liu_data")
 local last_quick_mode = false
 local last_force_quick_mode = false
 
--- 獲取 Opencc 實例
-local function get_opencc()
-    if not opencc_liu_w2c then
-        opencc_liu_w2c = Opencc("liu_w2c.json")
-    end
-    return opencc_liu_w2c
-end
-
--- 清除快取（關閉快打模式時）
+-- 清除快取（關閉快打模式時）- 現在只需通知 liu_data
 local function clear_cache()
-    opencc_liu_w2c = nil
+    -- Opencc 實例由 liu_data 統一管理，不需要在這裡釋放
+    -- liu_gc_processor 的 commit_notifier 會在上屏後統一釋放
 end
 
 -- 從 Opencc 返回的編碼字串中找最短的簡碼（可能有多個同長度）
@@ -99,8 +91,8 @@ local function filter(input, env)
     
     local input_length = #input_text
     
-    -- 快速路徑：輸入 < 4 碼
-    if input_length < 4 then
+    -- 快速路徑：輸入 < 3 碼（2碼簡碼不需要提示）
+    if input_length < 3 then
         for cand in input:iter() do yield(cand) end
         return
     end
@@ -118,14 +110,14 @@ local function filter(input, env)
         return
     end
     
-    -- 獲取 Opencc
-    local opencc = get_opencc()
+    -- 獲取 Opencc（從 liu_data 統一取用）
+    local is_simplified = context:get_option("simplification")
+    local opencc = liu_data.get_opencc_w2c(is_simplified)
     if not opencc then
         for cand in input:iter() do yield(cand) end
         return
     end
     
-    local is_simplified = context:get_option("simplification")
     local count = 0
     
     for cand in input:iter() do
@@ -141,23 +133,10 @@ local function filter(input, env)
             if utf8.len(char) ~= 1 then
                 yield(cand)
             else
-                -- 用 Opencc 查詢編碼
-                local lookup_char = char
-                
-                -- 簡體模式：從 comment 提取繁體字
-                if is_simplified then
-                    local comment = cand.comment
-                    if comment then
-                        local trad = comment:match("〔(.)〕")
-                        if trad then
-                            lookup_char = trad
-                        end
-                    end
-                end
-                
-                local codes_str = opencc:convert(lookup_char)
+                -- 直接用 Opencc 查詢編碼（已經根據簡繁模式使用正確的資料文件）
+                local codes_str = opencc:convert(char)
                 -- 如果返回值和輸入相同，表示沒有找到編碼
-                if codes_str == lookup_char then
+                if codes_str == char then
                     codes_str = nil
                 end
                 local shortest_codes = find_shortest_codes(codes_str, input_length)

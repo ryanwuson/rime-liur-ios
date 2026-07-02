@@ -130,3 +130,7 @@ liu_english_case_filter = require("liu_english_case_filter")
 
 -- 上屏後小步垃圾回收
 liu_gc_processor = require("liu_gc_processor")
+
+-- 計算機（= 引導）
+liu_calculator = require("liu_calculator")
+liu_calculator_shortcut = require("liu_calculator_shortcut")
