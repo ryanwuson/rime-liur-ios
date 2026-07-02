@@ -131,9 +131,9 @@ local function is_valid_prefix(input)
         return true
     end
     
-    -- 超過 5 個字元不屏蔽（效能考量，中文編碼最長 5 碼）
+    -- 超過 5 個字元一律屏蔽（中文編碼最長 5 碼）
     if #lower_input > 5 then
-        return true
+        return false
     end
     
     -- 優先檢查自定詞映射
@@ -217,12 +217,6 @@ local function processor(key, env)
     
     -- 有修飾鍵：不處理
     if key:ctrl() or key:alt() then
-        return 2  -- kNoop
-    end
-    
-    -- VRSF 選字輔碼：有候選時允許
-    local vrsf_keys = { v = true, r = true, s = true, f = true }
-    if vrsf_keys[key_char] and context:has_menu() then
         return 2  -- kNoop
     end
     
