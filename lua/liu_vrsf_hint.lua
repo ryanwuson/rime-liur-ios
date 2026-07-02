@@ -9,8 +9,8 @@
 local liu_data = require("liu_data")
 
 -- 載入編碼字典（從共用資料中心獲取）
-local function load_code_dict()
-    return liu_data.get_w2c_data()
+local function load_code_dict(is_simplified)
+    return liu_data.get_w2c_data(is_simplified)
 end
 
 -- VRSF 對應表
@@ -54,7 +54,8 @@ local function filter(input, env)
     local input_upper = input_text:upper()
     
     -- 載入編碼字典
-    local code_dict = load_code_dict()
+    local is_simplified = context:get_option("simplification")
+    local code_dict = load_code_dict(is_simplified)
     if not code_dict then
         for cand in input:iter() do
             yield(cand)
