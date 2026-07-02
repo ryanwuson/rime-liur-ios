@@ -133,3 +133,6 @@ liu_gc_processor = require("liu_gc_processor")
 
 -- 無效輸入遮蔽（防誤觸）
 liu_key_blocker = require("liu_key_blocker")
+
+-- 計算機（= 引導）
+liu_calculator = require("liu_calculator")liu_calculator_shortcut = require("liu_calculator_shortcut")

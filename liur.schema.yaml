@@ -14,8 +14,8 @@ schema:
     - terra_pinyin_onion  # 漢語拼音（地球拼音-洋蔥版）
     - Mount_bopomo       # 讀音查詢需要（保留）
     # - liur_symbols       # 字母變體改用 date_translator，不需要字典
-    # - bopomofo_tw        # 注音輸入（手機用不到）
-    # - allbpm             # 注音輸入（手機用不到）
+    - bopomofo_tw
+    - allbpm
 switches:
   - name: ascii_mode
     reset: 0
@@ -54,6 +54,7 @@ engine:
     - lua_processor@liu_fancy_processor              # 變體英數模式按鍵處理（必須在 recognizer 之前攔截 ` 鍵）
     - lua_processor@liu_extended_backspace           # `` 擴充模式（字母變化形需要）
     - lua_processor@liu_symbols_number_processor     # 數字變體及字母變化形（保留）
+    - lua_processor@liu_calculator_shortcut
     - recognizer
     # - lua_processor@liu_wildcard_processor           # 萬用字元開關（手機用不到）
     - lua_processor@liu_key_blocker                # 無效輸入遮蔽（防誤觸）
@@ -84,13 +85,14 @@ engine:
     - affix_segmentor@symbols  # 字母變體（`a，保留）
     - affix_segmentor@code_decode  # 編碼解碼模式 ,,x
     - affix_segmentor@help_mode  # 功能說明 ,,h
+    - affix_segmentor@calculator  # 計算機（= 引導）
     - abc_segmentor
     # - affix_segmentor@mkst         # 造詞功能（屏蔽無效鍵模式下註解）
     - affix_segmentor@liurqry      # 讀音查詢（保留）
     - affix_segmentor@pinyin  # 漢語拼音（;' 引導）
-    # - affix_segmentor@phonetic     # 注音輸入（手機用不到）
+    - affix_segmentor@phonetic
     # - affix_segmentor@reverse2_lookup  # 未定義，暫時註解
-    # - affix_segmentor@all_bpm      # 注音輸入（手機用不到）
+    - affix_segmentor@all_bpm
 #    - punct_segmentor
     - fallback_segmentor
   translators:
@@ -98,6 +100,7 @@ engine:
 #    - punct_translator
 #    - script_translator
     - predict_translator
+    - lua_translator@liu_calculator  # 計算機（= 引導）- 必須在最前面
     - lua_translator@liu_help_translator  # 功能說明（,,h 模式）- 必須在最前面
     # - lua_translator@liu_symbols_hint  # 符號清單提示（手機用不到）
     - lua_translator@liu_letter_variants  # 擴充模式字母變化形（保留）
@@ -106,7 +109,7 @@ engine:
     - lua_translator@date_translator  # 符號清單變體（`a 字母變體，`01 數字變體）
     - lua_translator@liu_phonetic_suffix_translator  # 同音字翻譯器（選中後按 '）
     - lua_translator@liu_code_decoder_translator  # 編碼解碼器（,,x 模式）
-    # - script_translator@all_bpm        # 注音輸入（手機用不到）
+    - script_translator@all_bpm
     # - table_translator@mkst            # 造詞功能（屏蔽無效鍵模式下註解）
     - table_translator@fixed
     - table_translator@liurqry         # 讀音查詢（保留）
@@ -114,7 +117,7 @@ engine:
     - table_translator
     # - table_translator@easy_en  # 英文輸入（註解掉，純中文方案）
     - script_translator@pinyin  # 漢語拼音（;' 引導）
-    # - script_translator@phonetic       # 注音輸入（手機用不到）
+    - script_translator@phonetic
     # - table_translator@symbols         # 字母變體改用 date_translator
 
   filters:
@@ -155,10 +158,10 @@ liu_w2c:
   
 
 
-zh_tw:	#只針對拼音輸入進行台灣用語轉換（注音輸入已註解）
+zh_tw:        #只針對拼音及注音輸入進行台灣用語轉換
   opencc_config: t2tw.json
   option_name: zh_tw
-  tags: [ pinyin ]  # 移除 phonetic（手機用不到）
+  tags: [ pinyin, phonetic ]
 
 simplifier:
   option_name: simplification
@@ -169,6 +172,10 @@ speller:
   alphabet: "abcdefghijklmnopqrstuvwxyz[];',.?~"
   delimiter: "~"
   algebra:
+    # 英文大小寫支持（僅用於英文詞庫版本，此版本不需要）
+    # - derive/^.+$/\L$0/
+    # - derive/^.+$/\U$0/
+    # - derive/^./\U$0/
     # 萬用字元「?」支援 3-4 碼，最多 2 個 ?
     # 注意：查碼模式下會自動禁用萬用字元以確保效能
     # 3碼字
@@ -253,22 +260,21 @@ liurqry:
 #   tag: abc
 #   initial_quality: -1
 
-# 注音輸入（手機用不到）
-# all_bpm:
-#   tag: all_bpm
-#   dictionary: allbpm
-#   enable_completion: false
-#   enable_sentence: false
-#   enable_user_dict: false
-#   prefix: "';'"
-#   tips: "《注音直出》▸"
-#   # closing_tips: "◂《注音直出》"
-#   preedit_format:
-#     - xform/~//
-#     - xform/^/《注音直出》/
-#     - "xlit|1qaz2wsxedcrfv5tgbyhnujm8ik,9ol.0p;/-6347'|ㄅㄆㄇㄈㄉㄊㄋㄌㄍㄎㄏㄐㄑㄒㄓㄔㄕㄖㄗㄘㄙㄧㄨㄩㄚㄛㄜㄝㄞㄟㄠㄡㄢㄣㄤㄥㄦˊˇˋ˙ˉ|"
-#     - xform/\|//
-#     - xform/`//
+all_bpm:
+  tag: all_bpm
+  dictionary: allbpm
+  enable_completion: false
+  enable_sentence: false
+  enable_user_dict: false
+  prefix: "';'"
+  tips: "《注音直出》▸"
+  # closing_tips: "◂《注音直出》"
+  preedit_format:
+    - xform/~//
+    - xform/^/《注音直出》/
+    - "xlit|1qaz2wsxedcrfv5tgbyhnujm8ik,9ol.0p;/-6347'|ㄅㄆㄇㄈㄉㄊㄋㄌㄍㄎㄏㄐㄑㄒㄓㄔㄕㄖㄗㄘㄙㄧㄨㄩㄚㄛㄜㄝㄞㄟㄠㄡㄢㄣㄤㄥㄦˊˇˋ˙ˉ|"
+    - xform/\|//
+    - xform/`//
 
 # 漢語拼音輸入（;' 引導）- 使用地球拼音洋蔥版字典
 pinyin:
@@ -290,23 +296,22 @@ pinyin:
   closing_tips: "◂《拼音輸入》"
   initial_quality: 0.2
 
-# 注音輸入（手機用不到）
-# phonetic:
-#   tag: phonetic
-#   dictionary: "Mount_bopomo.extended"
-#   enable_completion: false
-#   enable_sentence: false
-#   enable_user_dict: true
-#   prefix: "';"
-#   suffix: "'"
-#   tips: "《注音輸入》▸"
-#   closing_tips: "◂《注音輸入》"
-#   preedit_format:
-#     - "xlit|1qaz2wsxedcrfv5tgbyhnujm8ik,9ol.0p;/-6347|ㄅㄆㄇㄈㄉㄊㄋㄌㄍㄎㄏㄐㄑㄒㄓㄔㄕㄖㄗㄘㄙㄧㄨㄩㄚㄛㄜㄝㄞㄟㄠㄡㄢㄣㄤㄥㄦˊˇˋ˙|"
-#     - xform/~/⋮/
-#     - xform/^/《注音輸入》/
-#     - xform/\|/  /
-#     - xform/`/  /
+phonetic:
+  tag: phonetic
+  dictionary: "Mount_bopomo.extended"
+  enable_completion: false
+  enable_sentence: false
+  enable_user_dict: true
+  prefix: "';"
+  suffix: "'"
+  tips: "《注音輸入》▸"
+  closing_tips: "◂《注音輸入》"
+  preedit_format:
+    - "xlit|1qaz2wsxedcrfv5tgbyhnujm8ik,9ol.0p;/-6347|ㄅㄆㄇㄈㄉㄊㄋㄌㄍㄎㄏㄐㄑㄒㄓㄔㄕㄖㄗㄘㄙㄧㄨㄩㄚㄛㄜㄝㄞㄟㄠㄡㄢㄣㄤㄥㄦˊˇˋ˙|"
+    - xform/~/⋮/
+    - xform/^/《注音輸入》/
+    - xform/\|/  /
+    - xform/`/  /
 
 # 讀音查詢功能（保留）
 phonetic_reverse_lookup:
@@ -332,11 +337,12 @@ recognizer:
   import_preset: default
 
   patterns:
+    calculator: "^,,=.*$"  # 計算機引導鍵（,,=）
     email: ^[a-z][-_.0-9a-z]*@.*$
     url: ^(www[.]|https?:|ftp:|mailto:).*$
-    # phonetic: "^';[-.,;/0-9a-z`|]*'?$"     # 注音輸入（手機用不到）
+    phonetic: "^';[-.,;/0-9a-z`|]*'?$"
     pinyin: "^;'[a-z0-9;,/<'-]*'?$"
-    # all_bpm: "^';'[-a-z0-9.,/;']*$"        # 注音輸入（手機用不到）
+    all_bpm: "^';'[-a-z0-9.,/;']*$"
 # 讀音查詢引導鍵（;;）- 保留
     liurqry: "^;;[a-z']*'?$"
 # 拼音引導鍵（;'）- 必須在 mkst 之前
@@ -458,6 +464,15 @@ help_mode:
   tag: help_mode
   prefix: ",,h"
   tips: "《按鍵說明》▸"
+
+# 計算機配置（= 引導）- 與注音輸入保持統一的提示格式
+calculator:
+  tag: calculator
+  prefix: ",,="
+  tips: "《計算機》▸"
+  closing_tips: "◂《計算機》"
+  alphabet: "0123456789+-*/().abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ,'"
+  initial_quality: 50
 
 # 預測（聯想字）設定
 predictor:
