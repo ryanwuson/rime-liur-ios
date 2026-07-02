@@ -110,7 +110,7 @@ local function get_opencc_s2t()
 end
 
 local function get_char_codes(char, is_simplified)
-    local code_data = liu_data.get_w2c_data() -- Always get fresh data from liu_data
+    local code_data = liu_data.get_w2c_data(is_simplified)  -- 傳入參數
     if not code_data then
         return nil
     end

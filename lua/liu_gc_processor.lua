@@ -15,10 +15,10 @@ local function cleanup_memory(force)
     
     -- 2. 如果超過閾值或強制清理
     if force or mem_usage > memory_threshold then
-        -- 釋放大型資料 (liu_w2c, liu_phonetic)
+        -- 釋放大型資料，force=true 時同時釋放 Opencc
         -- 注意：這不會影響正在輸入的體驗，因為下次需要時會自動重載
         -- 但在連續打字時頻繁重載會影響效能，所以通常在 commit 後執行
-        liu_data.free_data()
+        liu_data.free_data(force)
         
         -- 強制執行完整的垃圾回收
         collectgarbage("collect")
@@ -52,11 +52,12 @@ local function processor(key, env)
         local mem_usage = collectgarbage("count")
         
         if mem_usage > aggressive_gc_threshold then
-            -- 危險水位：強制清理
-            cleanup_memory(true)
+            -- 危險水位：強制清理 table 資料，但不釋放 Opencc（輸入中途不能釋放）
+            liu_data.free_data(false)
+            collectgarbage("collect")
         elseif mem_usage > memory_threshold then
-            -- 警戒水位：嘗試釋放暫存資料
-            liu_data.free_data()
+            -- 警戒水位：釋放 table 資料，保留 Opencc
+            liu_data.free_data(false)
             collectgarbage("step", 100)
         else
             -- 正常水位：輕量回收

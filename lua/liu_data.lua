@@ -6,7 +6,8 @@
 local M = {}
 
 -- 私有數據存儲
-local _w2c_data = nil
+local _w2c_data_trad = nil
+local _w2c_data_simp = nil
 local _phonetic_data = {
     groups_trad = nil,
     groups_simp = nil,
@@ -51,28 +52,53 @@ end
 -- 用於：liu_w2c_sorter, liu_vrsf_hint, liu_phonetic_suffix
 -- ==========================================
 
-function M.get_w2c_data()
-    if _w2c_data then return _w2c_data end
-
-    local data = {}
-    local path = get_file_path("liu_w2c.txt")
-    
-    if path then
-        local content = read_file_content(path)
-        if content then
-             for line in content:gmatch("[^\r\n]+") do
-                local char, code_str = line:match("^([^\t]+)\t~(.+)$")
-                if char and code_str then
-                    -- 為了記憶體優化，我們不再這裡做過多解析，只存儲字串
-                    -- 需要的模組自己去解析
-                    data[char] = code_str
+function M.get_w2c_data(is_simplified)
+    -- 根據簡繁模式載入不同的資料文件
+    if is_simplified then
+        if _w2c_data_simp then return _w2c_data_simp end
+        
+        local data = {}
+        local path = get_file_path("liu_w2c_simp.txt")
+        
+        if path then
+            local content = read_file_content(path)
+            if content then
+                 for line in content:gmatch("[^\r\n]+") do
+                    local char, code_str = line:match("^([^\t]+)\t~(.+)$")
+                    if char and code_str then
+                        -- 為了記憶體優化，我們不再這裡做過多解析，只存儲字串
+                        -- 需要的模組自己去解析
+                        data[char] = code_str
+                    end
                 end
             end
         end
+        
+        _w2c_data_simp = data
+        return _w2c_data_simp
+    else
+        if _w2c_data_trad then return _w2c_data_trad end
+        
+        local data = {}
+        local path = get_file_path("liu_w2c_trad.txt")
+        
+        if path then
+            local content = read_file_content(path)
+            if content then
+                 for line in content:gmatch("[^\r\n]+") do
+                    local char, code_str = line:match("^([^\t]+)\t~(.+)$")
+                    if char and code_str then
+                        -- 為了記憶體優化，我們不再這裡做過多解析，只存儲字串
+                        -- 需要的模組自己去解析
+                        data[char] = code_str
+                    end
+                end
+            end
+        end
+        
+        _w2c_data_trad = data
+        return _w2c_data_trad
     end
-    
-    _w2c_data = data
-    return _w2c_data
 end
 
 -- ==========================================
@@ -117,7 +143,6 @@ local function load_phonetic_groups(is_simplified)
     return groups, char_to_gids
 end
 
-
 function M.get_phonetic_data(is_simplified)
     if is_simplified then
         if not _phonetic_data.groups_simp then
@@ -133,9 +158,35 @@ function M.get_phonetic_data(is_simplified)
 end
 
 -- ==========================================
--- 3. 有效按鍵資料管理 (Memory Optimized)
--- 用於：liu_key_blocker
+-- 4. liu_w2c Opencc 實例統一管理
+-- 用於：liu_quick_hint, liu_quick_mode_processor,
+--       liu_remove_trad_in_w2c, liu_wildcard_code_hint
+-- 注意：只在上屏後（commit）釋放，不在週期性 GC 中釋放
+--       避免輸入中途 Opencc 被清除導致功能失效
 -- ==========================================
+
+local _opencc_w2c_trad = nil
+local _opencc_w2c_simp = nil
+
+function M.get_opencc_w2c(is_simplified)
+    if is_simplified then
+        if not _opencc_w2c_simp then
+            _opencc_w2c_simp = Opencc("liu_w2c_simp.json")
+        end
+        return _opencc_w2c_simp
+    else
+        if not _opencc_w2c_trad then
+            _opencc_w2c_trad = Opencc("liu_w2c_trad.json")
+        end
+        return _opencc_w2c_trad
+    end
+end
+
+-- 釋放 Opencc 實例（只由 liu_gc_processor 的 commit_notifier 呼叫）
+function M.free_opencc_w2c()
+    _opencc_w2c_trad = nil
+    _opencc_w2c_simp = nil
+end
 
 -- 快取有效按鍵表
 local _valid_keys_cache = {}
@@ -181,7 +232,6 @@ function M.get_valid_keys_table(start_char)
     return data
 end
 
-
 -- ==========================================
 -- 記憶體管理
 -- ==========================================
@@ -192,12 +242,14 @@ function M.register_cleanup_callback(callback)
 end
 
 -- 釋放所有大型資料
--- 由 liu_gc_processor 在記憶體壓力大或閒置時呼叫
-function M.free_data()
+-- force=true：上屏後呼叫，釋放全部（含 Opencc）
+-- force=false 或省略：週期性 GC，只釋放 table 資料，保留 Opencc
+function M.free_data(force)
     local freed = false
     
-    if _w2c_data then 
-        _w2c_data = nil 
+    if _w2c_data_trad or _w2c_data_simp then 
+        _w2c_data_trad = nil
+        _w2c_data_simp = nil
         freed = true
     end
     
@@ -213,6 +265,14 @@ function M.free_data()
     
     if next(_valid_keys_cache) then
         _valid_keys_cache = {}
+        freed = true
+    end
+    
+    -- Opencc 實例只在上屏後（force=true）才釋放
+    -- 週期性 GC 不釋放，避免輸入中途功能失效
+    if force and (_opencc_w2c_trad or _opencc_w2c_simp) then
+        _opencc_w2c_trad = nil
+        _opencc_w2c_simp = nil
         freed = true
     end
     

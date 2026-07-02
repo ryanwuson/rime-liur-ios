@@ -4,21 +4,41 @@
 -- ,,sf = 強制快打模式
 -- ,,wc = 萬用查字模式 (wildcard)
 
--- Opencc 實例（延遲載入）
-local opencc_liu_w2c = nil
+-- Opencc 實例統一由 liu_data 管理
+local liu_data = require("liu_data")
 
--- 獲取 Opencc 實例
-local function get_opencc()
-    if not opencc_liu_w2c then
-        opencc_liu_w2c = Opencc("liu_w2c.json")
-    end
-    return opencc_liu_w2c
+-- ============ 強制快打學習流程狀態 ============
+--
+-- 流程：打全碼（如 ttmb）→ space 被阻止，顯示簡碼提示（如 tta）
+--       → 使用者可以：
+--         A. 接著打簡碼（tta）+ space → 上屏「頂」（學習路徑）
+--         B. 再按一次 space → 清空編碼（放棄路徑）
+--         C. 打不匹配的字元 → 清除 pending，把已打的字元推回 RIME 正常處理
+--
+-- pending_shortcodes: 所有最短簡碼的列表（如 {"lmv", "lnm"}）
+-- pending_active_paths: 目前仍在匹配中的簡碼列表（逐字過濾後剩下的）
+-- pending_typed_buffer: 使用者在 pending 狀態下已打的字元（被攔截的）
+
+local pending_shortcodes = nil    -- 所有最短簡碼列表
+local pending_active_paths = nil  -- 目前仍活著的匹配路徑
+local pending_typed_buffer = nil  -- 已攔截的字元 buffer
+
+-- 清除所有 pending 狀態
+local function clear_pending()
+    pending_shortcodes = nil
+    pending_active_paths = nil
+    pending_typed_buffer = nil
 end
 
--- 從 Opencc 返回的編碼字串中找最短的簡碼
+-- 獲取 Opencc 實例（從 liu_data 統一取用）
+local function get_opencc(is_simplified)
+    return liu_data.get_opencc_w2c(is_simplified)
+end
+
+-- 從 Opencc 返回的編碼字串中找所有最短簡碼（列表形式）
 -- 輸入格式："⟨e⟩ ⟨f^v⟩ ⟨abc⟩"
--- 返回：所有最短簡碼組成的字串，或 nil
-local function find_shortest_codes(codes_str, max_len)
+-- 返回：最短簡碼的字串列表，或 nil
+local function find_shortest_codes_list(codes_str, max_len)
     if not codes_str or codes_str == "" then
         return nil
     end
@@ -35,7 +55,7 @@ local function find_shortest_codes(codes_str, max_len)
         if not code:find("^", 1, true) then
             local len = #code
             if len < max_len then
-                all_codes[#all_codes + 1] = {code = code, len = len}
+                all_codes[#all_codes + 1] = {code = code:lower(), len = len}
                 if len < min_len then
                     min_len = len
                 end
@@ -44,34 +64,31 @@ local function find_shortest_codes(codes_str, max_len)
     end
     
     -- 收集所有最短長度的編碼
-    local shortest_codes = {}
+    local shortest = {}
     for _, item in ipairs(all_codes) do
         if item.len == min_len then
-            shortest_codes[#shortest_codes + 1] = item.code
+            shortest[#shortest + 1] = item.code
         end
     end
     
-    if #shortest_codes == 0 then
-        return nil
-    end
-    
-    return table.concat(shortest_codes, "⟩⟨")
+    return #shortest > 0 and shortest or nil
 end
 
 -- 檢查是否應該阻止上屏
+-- 返回值：blocked (boolean), shortcodes (list or nil)
 local function should_block_commit(context)
     local input_text = context.input
     local input_length = #input_text
     
-    -- 輸入 < 4 碼，允許上屏
-    if input_length < 4 then
-        return false
+    -- 輸入 < 3 碼，允許上屏（2碼簡碼不需要檢查）
+    if input_length < 3 then
+        return false, nil
     end
     
     -- 特殊模式，允許上屏
     local first_char = input_text:sub(1, 1)
     if first_char == ";" or first_char == "`" or first_char == "'" or first_char == "," then
-        return false
+        return false, nil
     end
     
     -- 檢查第一個候選是否為單字且有簡碼
@@ -81,48 +98,34 @@ local function should_block_commit(context)
         if seg and seg.menu and seg.menu:candidate_count() > 0 then
             local cand = seg:get_selected_candidate()
             if cand and utf8.len(cand.text) == 1 then
-                -- 獲取 Opencc
-                local opencc = get_opencc()
-                if not opencc then
-                    return false
-                end
-                
                 local char = cand.text
                 local is_simplified = context:get_option("simplification")
                 
-                -- 簡體模式：從 comment 提取繁體字
-                local lookup_char = char
-                if is_simplified then
-                    local comment = cand.comment
-                    if comment then
-                        local trad = comment:match("〔(.)〕")
-                        if trad then
-                            lookup_char = trad
-                        end
-                    end
+                local opencc = get_opencc(is_simplified)
+                if not opencc then
+                    return false, nil
                 end
                 
-                -- 用 Opencc 查詢編碼
-                local codes_str = opencc:convert(lookup_char)
-                if codes_str == lookup_char then
+                local codes_str = opencc:convert(char)
+                if codes_str == char then
                     codes_str = nil
                 end
                 
-                local shortest_codes = find_shortest_codes(codes_str, input_length)
-                if shortest_codes then
-                    -- 檢查當前輸入是否為簡碼
-                    for code in shortest_codes:gmatch("[^⟩⟨]+") do
-                        if input_text:upper() == code:upper() then
-                            return false  -- 使用了簡碼，允許上屏
+                local shortcodes = find_shortest_codes_list(codes_str, input_length)
+                if shortcodes then
+                    -- 檢查當前輸入是否已是某個簡碼
+                    for _, code in ipairs(shortcodes) do
+                        if input_text:lower() == code then
+                            return false, nil  -- 已使用簡碼，允許上屏
                         end
                     end
-                    return true  -- 有簡碼但沒使用，阻止上屏
+                    return true, shortcodes  -- 有簡碼但沒使用，阻止上屏
                 end
             end
         end
     end
     
-    return false  -- 其他情況允許上屏
+    return false, nil
 end
 
 local function processor(key, env)
@@ -136,11 +139,8 @@ local function processor(key, env)
         local current_force = context:get_option("force_quick_mode")
         
         if current_quick then
-            -- 快打提示已開啟 → 關閉快打提示
             context:set_option("quick_mode", false)
         else
-            -- 快打提示未開啟 → 開啟快打提示
-            -- 先關閉強制快打（互斥），再開啟快打提示（確保顯示正確）
             if current_force then
                 context:set_option("force_quick_mode", false)
             end
@@ -156,11 +156,8 @@ local function processor(key, env)
         local current_force = context:get_option("force_quick_mode")
         
         if current_force then
-            -- 強制快打已開啟 → 關閉強制快打
             context:set_option("force_quick_mode", false)
         else
-            -- 強制快打未開啟 → 開啟強制快打
-            -- 先關閉快打提示（互斥），再開啟強制快打（確保顯示正確）
             if current_quick then
                 context:set_option("quick_mode", false)
             end
@@ -171,16 +168,61 @@ local function processor(key, env)
     end
     
     -- ,,wc + 空格 = 切換萬用查字模式 (wildcard)
-    -- if input == ",,wc" and key_repr == "space" then
-    --     context:set_option("wildcard_mode", not context:get_option("wildcard_mode"))
-    --     context:clear()
-    --     return 1
-    -- end
+    if input == ",,wc" and key_repr == "space" then
+        context:set_option("wildcard_mode", not context:get_option("wildcard_mode"))
+        context:clear()
+        return 1
+    end
     
-    -- 強制快打模式下攔截空格鍵
-    if context:get_option("force_quick_mode") and key_repr == "space" then
-        if should_block_commit(context) then
-            return 1  -- 攔截空格鍵，阻止上屏
+    -- ============ 強制快打模式邏輯 ============
+    if not context:get_option("force_quick_mode") then
+        return 2
+    end
+    
+    -- committing 狀態：我們自己觸發的 space，直接放行
+    -- （已移除，不再需要自動上屏）
+
+    -- ---- pending 狀態下的按鍵處理 ----
+    if pending_shortcodes then
+        
+        -- 情形 B：再按 space → 繼續攔截，ttmb 保留，提示繼續在
+        if key_repr == "space" then
+            return 1  -- 攔截，不清屏，不做任何事
+        end
+        
+        -- 只處理單個小寫字母（a-z）
+        local ch = key_repr:match("^([a-z])$")
+        if not ch then
+            -- 非字母鍵（如 backspace、enter 等）→ 清除 pending，把 buffer 推回，放行此鍵
+            local buf = pending_typed_buffer or ""
+            clear_pending()
+            -- 把已攔截的字元推回 RIME
+            for i = 1, #buf do
+                env.engine:process_key(KeyEvent(buf:sub(i, i)))
+            end
+            -- 放行當前按鍵
+            return 2
+        end
+        
+        -- 任何字母鍵 → 清屏，全新開始（不追蹤前綴）
+        clear_pending()
+        context:clear()
+        env.engine:process_key(KeyEvent(ch))
+        return 1
+    end
+    
+    -- ---- 非 pending 狀態下的 space 攔截 ----
+    if key_repr == "space" then
+        local blocked, shortcodes = should_block_commit(context)
+        if blocked then
+            -- 進入 pending 狀態，等待使用者打簡碼
+            pending_shortcodes = shortcodes
+            pending_active_paths = {}
+            for _, c in ipairs(shortcodes) do
+                pending_active_paths[#pending_active_paths + 1] = c
+            end
+            pending_typed_buffer = ""
+            return 1  -- 攔截 space，候選框保持顯示
         end
     end
     

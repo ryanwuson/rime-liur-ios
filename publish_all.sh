@@ -71,11 +71,10 @@ if [ "$CURRENT_BRANCH" != "maintenance" ]; then
     exit 1
 fi
 
-# 執行 4 個分支的發布
+# 執行 3 個分支的發布
 publish_branch "main" "純中文版"
 publish_branch "main-block" "純中文+屏蔽版"
 publish_branch "english" "英文版"
-publish_branch "english-block" "英文+屏蔽版"
 
 # 最後回到這
 echo "------------------------------------------------------"
