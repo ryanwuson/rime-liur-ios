@@ -1,6 +1,6 @@
 # 電腦傳檔安裝皮膚
 
-> 若還沒裝輸入方案，請先完成 [安裝入門](../getting-started/requirements.md)。  
+> 若還沒裝輸入方案，請先完成 [安裝入門](getting-started/requirements.md)。  
 > 設計器操作請見 [皮膚設計器完整說明](https://ryanwuson.github.io/rime-liur-ios-new-skin/guide/#/)。
 
 ## 步驟 1：在電腦導出 .cskin
@@ -11,7 +11,7 @@
 
 ## 步驟 2：Wi‑Fi 傳至 Skins 資料夾
 
-手機與電腦須在**同一 Wi‑Fi**。若尚未設定 Wi‑Fi 傳檔，請先完成 [電腦安裝方案](../getting-started/install-scheme-pc.md) 中的 Wi‑Fi 傳輸步驟。
+手機與電腦須在**同一 Wi‑Fi**。若尚未設定 Wi‑Fi 傳檔，請先完成 [電腦安裝方案](getting-started/install-scheme-pc.md) 中的 Wi‑Fi 傳輸步驟。
 
 在電腦瀏覽器進入元書輸入法的 Wi‑Fi 頁面，雙擊進入 **Skins** 資料夾。
 
@@ -49,4 +49,4 @@
 
 ## 其他安裝方式
 
-- [手機安裝皮膚](install-on-phone.md)
+- [手機安裝皮膚](skin/install-on-phone.md)

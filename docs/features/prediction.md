@@ -14,8 +14,8 @@
 
 ### 若無需使用此功能
 
-步驟見 [方案開關設定·關閉聯想字](../getting-started/scheme-switches.md#關閉聯想字)。
+步驟見 [方案開關設定·關閉聯想字](getting-started/scheme-switches.md)。
 
 ## 相關
 
-- [方案開關設定](../getting-started/scheme-switches.md)
+- [方案開關設定](getting-started/scheme-switches.md)

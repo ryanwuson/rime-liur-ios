@@ -29,13 +29,13 @@
 
 ## 關於「屏蔽無效鍵」
 
-方案中所稱之**「屏蔽無效鍵」**，是讓你無法按出無效鍵（例如按完 `ab` 後無法按 `c`），但**視覺上無法讓 c 鍵變淡**──這是元書輸入法尚未支援的功能。詳見 [無效鍵屏蔽·視覺限制](../features/block-invalid-keys.md#視覺限制)。
+方案中所稱之**「屏蔽無效鍵」**，是讓你無法按出無效鍵（例如按完 `ab` 後無法按 `c`），但**視覺上無法讓 c 鍵變淡**──這是元書輸入法尚未支援的功能。詳見 [無效鍵屏蔽·視覺限制](features/block-invalid-keys.md)。
 
 ## 皮膚主題
 
 鍵盤外觀可透過 [蝦米輸入法皮膚設計器](https://ggininder.work/r/Ryan) 自訂。設計器可調整佈局、工具列、配色、字體等；完整操作請見 [設計器說明](https://ryanwuson.github.io/rime-liur-ios-new-skin/guide/#/)。
 
-方案裝好後，請依 [皮膚：手機安裝](../skin/install-on-phone.md) 將 `.cskin` 匯入元書輸入法使用。
+方案裝好後，請依 [皮膚：手機安裝](skin/install-on-phone.md) 將 `.cskin` 匯入元書輸入法使用。
 
 ## 下一步
 

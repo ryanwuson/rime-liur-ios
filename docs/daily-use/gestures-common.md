@@ -1,6 +1,6 @@
 # 常用手勢
 
-日常最常用的手勢一覽。更多進階手勢請見 [完整手勢](gestures-full.md)。
+日常最常用的手勢一覽。更多進階手勢請見 [完整手勢](daily-use/gestures-full.md)。
 
 ## 一覽圖
 
@@ -82,4 +82,4 @@
 
 ---
 
-[→ 完整手勢（進階）](gestures-full.md)
+[→ 完整手勢（進階）](daily-use/gestures-full.md)

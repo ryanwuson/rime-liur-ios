@@ -46,5 +46,5 @@
 
 ## 相關章節
 
-- [常用手勢](gestures-common.md)
-- [工具列](toolbar.md)
+- [常用手勢](daily-use/gestures-common.md)
+- [工具列](daily-use/toolbar.md)

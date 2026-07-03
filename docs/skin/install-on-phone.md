@@ -1,6 +1,6 @@
 # 手機安裝皮膚
 
-> 若還沒裝輸入方案，請先完成 [安裝入門](../getting-started/requirements.md)。  
+> 若還沒裝輸入方案，請先完成 [安裝入門](getting-started/requirements.md)。  
 > 若要在設計器裡改配色、佈局，請見 [皮膚設計器完整說明](https://ryanwuson.github.io/rime-liur-ios-new-skin/guide/#/)。本章只講**如何把皮膚裝進元書輸入法**。
 
 ## 從設計器導出（手機）
@@ -63,4 +63,4 @@
 
 ## 其他安裝方式
 
-- [電腦傳檔安裝皮膚](install-via-pc.md)
+- [電腦傳檔安裝皮膚](skin/install-via-pc.md)

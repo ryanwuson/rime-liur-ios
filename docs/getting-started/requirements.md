@@ -18,4 +18,4 @@
 4. [手機安裝方案](getting-started/install-scheme-phone.md) 或 [電腦安裝方案](getting-started/install-scheme-pc.md)
 5. [方案開關設定](getting-started/scheme-switches.md)（若有自訂快打／聯想字）
 
-若要自訂鍵盤外觀，方案裝好後請看 [皮膚：手機安裝](../skin/install-on-phone.md)。
+若要自訂鍵盤外觀，方案裝好後請看 [皮膚：手機安裝](skin/install-on-phone.md)。

@@ -1,6 +1,6 @@
 # 完整手勢
 
-進階與完整手勢說明。建議先看 [常用手勢](gestures-common.md)。
+進階與完整手勢說明。建議先看 [常用手勢](daily-use/gestures-common.md)。
 
 ## 快速導覽
 
@@ -202,4 +202,4 @@
 ![全鍵盤左右滑](../images/03-11-15全鍵盤.gif)
 ---
 
-[← 回到常用手勢](gestures-common.md)
+[← 回到常用手勢](daily-use/gestures-common.md)

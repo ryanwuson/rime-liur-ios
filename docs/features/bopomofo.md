@@ -7,7 +7,7 @@
 - **說明**：使用注音輸入中文，可連續輸入
 - **舉例**：`';1upzpu,204j06w961o3` → 繽紛耶誕玩台北
 
-詳見 [完整手勢：Enter 上滑](../daily-use/gestures-full.md#一般上滑及下滑)。
+詳見 [完整手勢：Enter 上滑](daily-use/gestures-full.md)。
 
 ## 注音直出（注音文）
 
@@ -18,4 +18,4 @@
 
 ## 相關
 
-- [鍵盤佈局：注音鍵盤](../daily-use/keyboard-layout.md)
+- [鍵盤佈局：注音鍵盤](daily-use/keyboard-layout.md)

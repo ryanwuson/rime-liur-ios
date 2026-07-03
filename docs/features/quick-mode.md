@@ -1,6 +1,6 @@
 # 快打模式
 
-> 需開啟元書輸入法「候選 Comment」。設定見 [基本設定](../yuanshu-settings/basic-settings.md)。
+> 需開啟元書輸入法「候選 Comment」。設定見 [基本設定](yuanshu-settings/basic-settings.md)。
 
 ## 功能說明
 
@@ -33,9 +33,9 @@
 
 ### 若需常駐此功能
 
-步驟見 [方案開關設定·快打提示常駐](../getting-started/scheme-switches.md#快打提示常駐)。
+步驟見 [方案開關設定·快打提示常駐](getting-started/scheme-switches.md)。
 
 ## 相關
 
-- [強制快打模式](force-quick-mode.md)（行為不同，可續打簡碼出字）
-- [方案開關設定](../getting-started/scheme-switches.md)
+- [強制快打模式](features/force-quick-mode.md)（行為不同，可續打簡碼出字）
+- [方案開關設定](getting-started/scheme-switches.md)
