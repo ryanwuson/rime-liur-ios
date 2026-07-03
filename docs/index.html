@@ -254,6 +254,30 @@
       border-color: var(--theme-color);
     }
 
+    /* 內文級別：步驟說明、列表等（通案加大） */
+    .markdown-section {
+      font-size: 17px;
+      line-height: 1.75;
+    }
+
+    .markdown-section p,
+    .markdown-section li,
+    .markdown-section td,
+    .markdown-section th,
+    .markdown-section blockquote {
+      font-size: inherit;
+      line-height: inherit;
+    }
+
+    .markdown-section h3 {
+      font-size: 1.35em;
+      margin-top: 1.4em;
+    }
+
+    .markdown-section h4 {
+      font-size: 1.15em;
+    }
+
     /* 圖片基礎樣式：陰影與圓角 */
     .markdown-section img[src*="images/"] {
       box-shadow: 3px 3px 12px rgba(0, 0, 0, 0.15);
@@ -285,23 +309,88 @@
     }
 
     /* 寬圖（電腦瀏覽器截圖）基礎樣式 */
-    .markdown-section img.wide-img {
+    .markdown-section img.wide-img,
+    .markdown-section img.overview-img,
+    .markdown-section img[src*="gestures-common-overview"],
+    .markdown-section img[src*="images/"][src*="瀏覽器"],
+    .markdown-section img[src*="images/"][src*="upfolder"],
+    .markdown-section img[src*="images/"][src*="01-41skin.png"],
+    .markdown-section img[src*="images/"][src*="01-42skin.png"],
+    .markdown-section img[src*="images/01-37RimeUserData.png"],
+    .markdown-section img[src*="images/01-38RimeUserData.png"],
+    .markdown-section img[src*="images/01-39RimeUserData.png"],
+    .markdown-section img[src*="images/"][src*="比較"] {
       display: block !important;
       margin: 20px 0 !important;
-      /* 靠左顯示 */
       max-width: 100% !important;
       width: auto !important;
+    }
+
+    /* 常用手勢一覽圖：橫向資訊量大，電腦版盡量撐滿內文欄 */
+    .markdown-section img.overview-img,
+    .markdown-section img[src*="gestures-common-overview"] {
+      width: 100% !important;
+      max-width: min(100%, 1200px) !important;
+      height: auto !important;
+      margin: 20px auto !important;
+    }
+
+    .markdown-section p:has(> img.overview-img:only-child),
+    .markdown-section p:has(> img[src*="gestures-common-overview"]:only-child) {
+      display: block !important;
+      max-width: none !important;
+      text-align: center;
     }
 
     /* 電腦版：限制 iPhone 截圖最大寬度，但允許寬圖顯示 */
     @media screen and (min-width: 769px) {
       .markdown-section img[src*="images/"]:not(.wide-img) {
-        max-width: 380px;
+        max-width: 460px;
       }
 
-      .markdown-section img.wide-img {
+      .markdown-section img.wide-img,
+      .markdown-section img[src*="images/"][src*="瀏覽器"],
+      .markdown-section img[src*="images/"][src*="upfolder"],
+      .markdown-section img[src*="images/"][src*="01-41skin.png"],
+      .markdown-section img[src*="images/"][src*="01-42skin.png"],
+      .markdown-section img[src*="images/01-37RimeUserData.png"],
+      .markdown-section img[src*="images/01-38RimeUserData.png"],
+      .markdown-section img[src*="images/01-39RimeUserData.png"],
+      .markdown-section img[src*="images/"][src*="比較"] {
         max-width: 800px !important;
-        /* 電腦版寬圖限制 */
+      }
+
+      .markdown-section img.overview-img,
+      .markdown-section img[src*="gestures-common-overview"] {
+        max-width: min(100%, 1200px) !important;
+        width: 100% !important;
+      }
+
+      /* 連續截圖段落併排（通案：僅含手機截圖的 <p>） */
+      .markdown-section p:has(> img[src*="images/"]:only-child):not(:has(> img.wide-img)):not(:has(> img[src*="icon"])):not(:has(> img[src*="瀏覽器"])):not(:has(> img[src*="upfolder"])):not(:has(> img[src*="01-41skin.png"])):not(:has(> img[src*="01-42skin.png"])):not(:has(> img[src*="01-37RimeUserData.png"])):not(:has(> img[src*="01-38RimeUserData.png"])):not(:has(> img[src*="01-39RimeUserData.png"])):not(:has(> img[src*="比較"])) {
+        display: inline-block;
+        vertical-align: top;
+        margin: 8px 12px 16px 0;
+        max-width: 460px;
+      }
+
+      .markdown-section p:has(> img[src*="images/"]:only-child):not(:has(> img.wide-img)) img {
+        margin: 0;
+        display: block;
+        width: 100%;
+      }
+
+      .markdown-section p:has(> img.wide-img:only-child),
+      .markdown-section p:has(> img[src*="瀏覽器"]:only-child),
+      .markdown-section p:has(> img[src*="upfolder"]:only-child),
+      .markdown-section p:has(> img[src*="01-41skin.png"]:only-child),
+      .markdown-section p:has(> img[src*="01-42skin.png"]:only-child),
+      .markdown-section p:has(> img[src*="01-37RimeUserData.png"]:only-child),
+      .markdown-section p:has(> img[src*="01-38RimeUserData.png"]:only-child),
+      .markdown-section p:has(> img[src*="01-39RimeUserData.png"]:only-child),
+      .markdown-section p:has(> img[src*="比較"]:only-child) {
+        display: block !important;
+        max-width: none;
       }
     }
 
@@ -314,7 +403,17 @@
         margin: 15px auto !important;
       }
 
-      .markdown-section img.wide-img {
+      .markdown-section img.wide-img,
+      .markdown-section img.overview-img,
+      .markdown-section img[src*="gestures-common-overview"],
+      .markdown-section img[src*="images/"][src*="瀏覽器"],
+      .markdown-section img[src*="images/"][src*="upfolder"],
+      .markdown-section img[src*="images/"][src*="01-41skin.png"],
+      .markdown-section img[src*="images/"][src*="01-42skin.png"],
+      .markdown-section img[src*="images/01-37RimeUserData.png"],
+      .markdown-section img[src*="images/01-38RimeUserData.png"],
+      .markdown-section img[src*="images/01-39RimeUserData.png"],
+      .markdown-section img[src*="images/"][src*="比較"] {
         max-width: 100% !important;
         width: 100% !important;
       }
@@ -441,6 +540,78 @@
     html[data-theme="dark"] .docsify-copy-code-button:hover {
       background: #4a4a6a !important;
     }
+
+    /* 全域「回到頂部」浮動按鈕（對齊皮膚設計器 SettingsScrollTopButton） */
+    .docs-scroll-top-btn {
+      position: fixed;
+      right: 20px;
+      bottom: 24px;
+      z-index: 200;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      border: 1px solid rgba(49, 130, 206, 0.25);
+      border-radius: 999px;
+      padding: 8px 12px;
+      background: rgba(255, 255, 255, 0.96);
+      box-shadow: 0 4px 14px rgba(15, 23, 42, 0.12);
+      font-size: 13px;
+      font-weight: 600;
+      font-family: inherit;
+      color: #3182ce;
+      cursor: pointer;
+      transition:
+        background 0.15s,
+        border-color 0.15s,
+        color 0.15s,
+        transform 0.15s,
+        opacity 0.2s;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(8px);
+    }
+
+    .docs-scroll-top-btn.is-visible {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+
+    .docs-scroll-top-btn.is-visible:hover {
+      border-color: #3182ce;
+      background: #3182ce;
+      color: #ffffff;
+      transform: translateY(-1px);
+    }
+
+    .docs-scroll-top-icon {
+      font-size: 14px;
+      line-height: 1;
+    }
+
+    .docs-scroll-top-label {
+      line-height: 1;
+    }
+
+    html[data-theme="dark"] .docs-scroll-top-btn {
+      background: rgba(26, 26, 46, 0.96);
+      border-color: rgba(91, 159, 255, 0.35);
+      color: #5B9FFF;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+    }
+
+    html[data-theme="dark"] .docs-scroll-top-btn.is-visible:hover {
+      background: #5B9FFF;
+      border-color: #5B9FFF;
+      color: #1a1a2e;
+    }
+
+    @media screen and (max-width: 768px) {
+      .docs-scroll-top-btn {
+        right: 16px;
+        bottom: 72px;
+      }
+    }
   </style>
 </head>
 
@@ -539,7 +710,7 @@
     window.$docsify = {
       name: '元書輸入法 - 蝦米方案',
       repo: 'ryanwuson/rime-liur-ios',
-      homepage: 'user-guide.md',
+      homepage: 'README.md',
       loadSidebar: true,
       subMaxLevel: 0,
       auto2top: true,
@@ -548,7 +719,74 @@
         noData: '找不到結果',
         paths: 'auto'
       }
-    }
+    };
+
+    // 全域浮動「↑ 頂部」按鈕（每頁共用，樣式對齊皮膚設計器）
+    (function () {
+      let scrollListenersAttached = false;
+
+      function getScrollTop() {
+        const main = document.querySelector('.main');
+        const mainTop = main ? main.scrollTop : 0;
+        const winTop = window.scrollY || document.documentElement.scrollTop || 0;
+        return Math.max(mainTop, winTop);
+      }
+
+      function scrollToTop() {
+        document.querySelector('.main')?.scrollTo({ top: 0, behavior: 'smooth' });
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+
+      function updateScrollTopButton() {
+        const btn = document.getElementById('docs-scroll-top-btn');
+        if (!btn) return;
+        const threshold = window.matchMedia('(max-width: 768px)').matches ? 48 : 240;
+        btn.classList.toggle('is-visible', getScrollTop() > threshold);
+      }
+
+      function bindScrollListeners(onScroll) {
+        if (scrollListenersAttached) return;
+        scrollListenersAttached = true;
+        window.addEventListener('scroll', onScroll, { passive: true });
+        const main = document.querySelector('.main');
+        if (main) {
+          main.addEventListener('scroll', onScroll, { passive: true });
+        }
+        window.addEventListener('resize', onScroll, { passive: true });
+        const observer = new MutationObserver(function () {
+          const node = document.querySelector('.main');
+          if (node && !node.dataset.scrollTopBound) {
+            node.dataset.scrollTopBound = '1';
+            node.addEventListener('scroll', onScroll, { passive: true });
+          }
+        });
+        observer.observe(document.body, { childList: true, subtree: true });
+      }
+
+      function ensureScrollTopButton() {
+        let btn = document.getElementById('docs-scroll-top-btn');
+        if (!btn) {
+          btn = document.createElement('button');
+          btn.type = 'button';
+          btn.id = 'docs-scroll-top-btn';
+          btn.className = 'docs-scroll-top-btn';
+          btn.setAttribute('aria-label', '回到頂部');
+          btn.title = '回到頂部';
+          btn.innerHTML = '<span class="docs-scroll-top-icon" aria-hidden>↑</span><span class="docs-scroll-top-label">頂部</span>';
+          btn.addEventListener('click', scrollToTop);
+          document.body.appendChild(btn);
+          bindScrollListeners(updateScrollTopButton);
+        }
+        updateScrollTopButton();
+      }
+
+      window.$docsify.plugins = [].concat(window.$docsify.plugins || [], function (hook) {
+        hook.doneEach(function () {
+          ensureScrollTopButton();
+          setTimeout(updateScrollTopButton, 80);
+        });
+      });
+    })();
   </script>
   <!-- Docsify v4 -->
   <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
