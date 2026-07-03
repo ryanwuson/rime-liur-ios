@@ -32,21 +32,21 @@
 
 在電腦瀏覽器貼上並前往該網址，雙擊 **RimeUserData** 資料夾。
 
-<img src="../images/01-36瀏覽器.png" alt="電腦瀏覽器" class="wide-img">
+<img src="./images/01-36瀏覽器.png" alt="電腦瀏覽器" class="wide-img">
 
 ### 2-5 上傳資料夾
 
 點擊右上角「↑」圖示，上傳解壓縮後的資料夾。
 
-<img src="../images/01-37RimeUserData.png" alt="RimeUserData" class="wide-img">
+<img src="./images/01-37RimeUserData.png" alt="RimeUserData" class="wide-img">
 
-<img src="../images/01-37upfolder.png" alt="上傳資料夾" class="wide-img">
+<img src="./images/01-37upfolder.png" alt="上傳資料夾" class="wide-img">
 
 ### 2-6 確認資料夾結構
 
-<img src="../images/01-38RimeUserData.png" alt="資料夾結構 1" class="wide-img">
+<img src="./images/01-38RimeUserData.png" alt="資料夾結構 1" class="wide-img">
 
-<img src="../images/01-39RimeUserData.png" alt="資料夾結構 2" class="wide-img">
+<img src="./images/01-39RimeUserData.png" alt="資料夾結構 2" class="wide-img">
 
 ## 步驟 3：手機開啟方案
 

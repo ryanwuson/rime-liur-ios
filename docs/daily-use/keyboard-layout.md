@@ -7,7 +7,7 @@
 - **功能鍵區**：Shift、123、空格、Enter、Backspace
 - **字母鍵區**：QWERTY 配置
 
-<img src="../images/03-layout-鍵盤總覽.png" alt="蝦米 26 鍵佈局" class="wide-img">
+<img src="./images/03-layout-鍵盤總覽.png" alt="蝦米 26 鍵佈局" class="wide-img">
 
 ## 其他鍵盤類型
 

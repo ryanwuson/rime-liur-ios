@@ -15,17 +15,17 @@
 
 在電腦瀏覽器進入元書輸入法的 Wi‑Fi 頁面，雙擊進入 **Skins** 資料夾。
 
-<img src="../images/01-40瀏覽器.png" alt="Skins 資料夾" class="wide-img">
+<img src="./images/01-40瀏覽器.png" alt="Skins 資料夾" class="wide-img">
 
 點擊右上角「↑」上傳解壓縮後的資料夾。
 
-<img src="../images/01-41skin.png" alt="Skins 上傳" class="wide-img">
+<img src="./images/01-41skin.png" alt="Skins 上傳" class="wide-img">
 
-<img src="../images/01-37upfolder.png" alt="上傳資料夾" class="wide-img">
+<img src="./images/01-37upfolder.png" alt="上傳資料夾" class="wide-img">
 
 確認資料夾結構如下：
 
-<img src="../images/01-42skin.png" alt="Skins 結構" class="wide-img">
+<img src="./images/01-42skin.png" alt="Skins 結構" class="wide-img">
 
 ## 步驟 3：手機啟用皮膚
 

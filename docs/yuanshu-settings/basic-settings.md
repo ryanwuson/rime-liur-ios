@@ -41,7 +41,7 @@
 
 對照如下：
 
-<img src="../images/02-8內嵌比較.png" alt="內嵌比較" class="wide-img">
+<img src="./images/02-8內嵌比較.png" alt="內嵌比較" class="wide-img">
 
 ## 相關功能
 

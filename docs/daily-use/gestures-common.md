@@ -4,7 +4,7 @@
 
 ## 一覽圖
 
-<img src="../images/gestures-common-overview.png" alt="常用手勢一覽" class="wide-img overview-img">
+<img src="./images/gestures-common-overview.png" alt="常用手勢一覽" class="wide-img overview-img">
 
 | 編號 | 手勢 | 功能 |
 |:----:|------|------|
