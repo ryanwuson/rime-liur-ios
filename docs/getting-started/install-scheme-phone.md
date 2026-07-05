@@ -1,12 +1,12 @@
 # 手機安裝方案
 
-在 iPhone 或 iPad 上直接下載並匯入蝦米方案（**不含皮膚**；皮膚請見 [手機安裝皮膚](skin/install-on-phone.md)）。
+在 iPhone 或 iPad 上直接下載並匯入蝦米方案（**不含皮膚**；皮膚請見 [手機安裝皮膚](/skin/install-on-phone.md)）。
 
-> **升級用戶：** 若已安裝舊版方案，請先 [刪除舊方案](getting-started/remove-old-scheme.md) 再依下列步驟安裝。
+> **升級用戶：** 若已安裝舊版方案，請先 [刪除舊方案](/getting-started/remove-old-scheme.md) 再依下列步驟安裝。
 
 ## 步驟 1：複製方案網址
 
-請先至 [選擇方案](getting-started/choose-scheme.md) 複製適合的下載網址。
+請先至 [選擇方案](/getting-started/choose-scheme.md) 複製適合的下載網址。
 
 ## 步驟 2：匯入元書輸入法
 
@@ -80,9 +80,9 @@
 
 ## 下一步
 
-- [方案開關設定](getting-started/scheme-switches.md)（快打／強制快打常駐、關閉聯想字）
-- [手機安裝皮膚](skin/install-on-phone.md)
-- [元書輸入法基本設定](yuanshu-settings/basic-settings.md)
+- [方案開關設定](/getting-started/scheme-switches.md)（快打／強制快打常駐、關閉聯想字）
+- [手機安裝皮膚](/skin/install-on-phone.md)
+- [元書輸入法基本設定](/yuanshu-settings/basic-settings.md)
 
 ## 注意事項
 

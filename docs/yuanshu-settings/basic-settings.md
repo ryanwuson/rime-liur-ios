@@ -47,8 +47,8 @@
 
 需開啟候選 Comment 的功能：
 
-- [快打模式](features/quick-mode.md)（`,,sp`）
-- [強制快打](features/force-quick-mode.md)（`,,sf`）
-- [讀音查詢](reference/shortcuts.md)（`;;`）
+- [快打模式](/features/quick-mode.md)（`,,sp`）
+- [強制快打](/features/force-quick-mode.md)（`,,sf`）
+- [讀音查詢](/reference/shortcuts.md)（`;;`）
 
-若要**常駐**快打／強制快打，或**關閉聯想字**，見 [方案開關設定](getting-started/scheme-switches.md)。
+若要**常駐**快打／強制快打，或**關閉聯想字**，見 [方案開關設定](/getting-started/scheme-switches.md)。

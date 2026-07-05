@@ -58,5 +58,5 @@
 
 ## 下一步
 
-- [選擇方案](getting-started/choose-scheme.md)
-- [手機安裝方案](getting-started/install-scheme-phone.md)
+- [選擇方案](/getting-started/choose-scheme.md)
+- [手機安裝方案](/getting-started/install-scheme-phone.md)

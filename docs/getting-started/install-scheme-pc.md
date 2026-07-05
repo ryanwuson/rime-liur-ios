@@ -1,12 +1,12 @@
 # 電腦安裝方案
 
-透過 Wi‑Fi 將方案資料夾上傳至 iPhone 或 iPad（**不含皮膚**；皮膚請見 [電腦傳檔安裝皮膚](skin/install-via-pc.md)）。
+透過 Wi‑Fi 將方案資料夾上傳至 iPhone 或 iPad（**不含皮膚**；皮膚請見 [電腦傳檔安裝皮膚](/skin/install-via-pc.md)）。
 
-> **升級用戶：** 若已安裝舊版方案，請先 [刪除舊方案](getting-started/remove-old-scheme.md) 再依下列步驟安裝。
+> **升級用戶：** 若已安裝舊版方案，請先 [刪除舊方案](/getting-started/remove-old-scheme.md) 再依下列步驟安裝。
 
 ## 步驟 1：下載並解壓縮方案
 
-請先至 [選擇方案](getting-started/choose-scheme.md) 選定方案，在電腦瀏覽器下載 zip 並解壓縮。
+請先至 [選擇方案](/getting-started/choose-scheme.md) 選定方案，在電腦瀏覽器下載 zip 並解壓縮。
 
 ## 步驟 2：連接同一 Wi‑Fi
 
@@ -74,9 +74,9 @@
 
 ## 下一步
 
-- [方案開關設定](getting-started/scheme-switches.md)（快打／強制快打常駐、關閉聯想字）
-- [電腦傳檔安裝皮膚](skin/install-via-pc.md)
-- [元書輸入法基本設定](yuanshu-settings/basic-settings.md)
+- [方案開關設定](/getting-started/scheme-switches.md)（快打／強制快打常駐、關閉聯想字）
+- [電腦傳檔安裝皮膚](/skin/install-via-pc.md)
+- [元書輸入法基本設定](/yuanshu-settings/basic-settings.md)
 
 ## 注意事項
 

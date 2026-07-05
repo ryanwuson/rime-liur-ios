@@ -2,7 +2,7 @@
 
 若你已安裝過舊版蝦米方案，**建議先刪除再安裝新版**，避免殘留目錄或設定與新方案衝突。
 
-新安裝、從未裝過方案者可略過本章，直接 [選擇方案](getting-started/choose-scheme.md) 後安裝。
+新安裝、從未裝過方案者可略過本章，直接 [選擇方案](/getting-started/choose-scheme.md) 後安裝。
 
 ## 步驟 1：開啟文件管理
 
@@ -22,13 +22,13 @@
 
 ![左滑刪除](../images/01-remove-03-左滑刪除.png)
 
-刪除完成後，再依 [手機安裝方案](getting-started/install-scheme-phone.md) 或 [電腦安裝方案](getting-started/install-scheme-pc.md) 安裝新版。
+刪除完成後，再依 [手機安裝方案](/getting-started/install-scheme-phone.md) 或 [電腦安裝方案](/getting-started/install-scheme-pc.md) 安裝新版。
 
 ## 安裝後
 
-若你先前有自訂 **快打提示常駐**、**強制快打常駐** 或 **關閉聯想字**，請見 [方案開關設定](getting-started/scheme-switches.md) 重新操作。
+若你先前有自訂 **快打提示常駐**、**強制快打常駐** 或 **關閉聯想字**，請見 [方案開關設定](/getting-started/scheme-switches.md) 重新操作。
 
 ## 相關
 
-- [選擇方案](getting-started/choose-scheme.md)
-- [方案開關設定](getting-started/scheme-switches.md)
+- [選擇方案](/getting-started/choose-scheme.md)
+- [方案開關設定](/getting-started/scheme-switches.md)

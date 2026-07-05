@@ -5,4 +5,4 @@
 - **說明**：使用漢語拼音輸入中文，支援數字 1～5（下滑 QWERT）鍵入聲調，可連續輸入
 - **舉例**：`;'binfenye2danwan2taibei` → 繽紛耶誕玩台北
 
-詳見 [完整手勢：K、L 依序上滑](daily-use/gestures-full.md)。
+詳見 [完整手勢：K、L 依序上滑](/daily-use/gestures-full.md)。

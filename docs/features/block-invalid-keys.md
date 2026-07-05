@@ -26,5 +26,5 @@
 
 ## 相關
 
-- [選擇方案](getting-started/choose-scheme.md)（main-block 分支）
+- [選擇方案](/getting-started/choose-scheme.md)（main-block 分支）
 - 臨時造詞在屏蔽無效鍵方案**不適用**

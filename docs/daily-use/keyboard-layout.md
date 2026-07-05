@@ -24,6 +24,8 @@
 | **Emoji** | 表情符號 | 主鍵盤 **句號下滑** |
 | **純英文／詞庫英文** | 依皮膚設計器設定 | Shift 上滑等 |
 
+<a id="注音鍵盤"></a>
+
 ### 注音鍵盤
 
 ![注音鍵盤](../images/03-layout-注音鍵盤.png)
@@ -52,5 +54,5 @@
 
 ## 相關章節
 
-- [常用手勢](daily-use/gestures-common.md)
-- [工具列](daily-use/toolbar.md)
+- [常用手勢](/daily-use/gestures-common.md)
+- [工具列](/daily-use/toolbar.md)

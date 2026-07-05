@@ -12,10 +12,10 @@
 
 安裝 App 後，請依序完成：
 
-1. [啟用輸入法](getting-started/enable-keyboard.md)
-2. [選擇方案](getting-started/choose-scheme.md)
-3. [刪除舊方案（升級前）](getting-started/remove-old-scheme.md)（曾安裝舊版者）
-4. [手機安裝方案](getting-started/install-scheme-phone.md) 或 [電腦安裝方案](getting-started/install-scheme-pc.md)
-5. [方案開關設定](getting-started/scheme-switches.md)（若有自訂快打／聯想字）
+1. [啟用輸入法](/getting-started/enable-keyboard.md)
+2. [選擇方案](/getting-started/choose-scheme.md)
+3. [刪除舊方案（升級前）](/getting-started/remove-old-scheme.md)（曾安裝舊版者）
+4. [手機安裝方案](/getting-started/install-scheme-phone.md) 或 [電腦安裝方案](/getting-started/install-scheme-pc.md)
+5. [方案開關設定](/getting-started/scheme-switches.md)（若有自訂快打／聯想字）
 
-若要自訂鍵盤外觀，方案裝好後請看 [皮膚：手機安裝](skin/install-on-phone.md)。
+若要自訂鍵盤外觀，方案裝好後請看 [皮膚：手機安裝](/skin/install-on-phone.md)。

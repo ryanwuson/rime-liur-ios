@@ -4,11 +4,11 @@
 
 | 設定 | 說明 | 功能說明 |
 |------|------|----------|
-| 快打提示常駐 | `quick_mode` 的 `reset` 改為 `1` | [快打模式](features/quick-mode.md) |
-| 強制快打常駐 | `force_quick_mode` 的 `reset` 改為 `1` | [強制快打](features/force-quick-mode.md) |
-| 關閉聯想字 | `prediction` 的 `reset` 改為 `0` | [聯想字](features/prediction.md) |
+| 快打提示常駐 | `quick_mode` 的 `reset` 改為 `1` | [快打模式](/features/quick-mode.md) |
+| 強制快打常駐 | `force_quick_mode` 的 `reset` 改為 `1` | [強制快打](/features/force-quick-mode.md) |
+| 關閉聯想字 | `prediction` 的 `reset` 改為 `0` | [聯想字](/features/prediction.md) |
 
-> 快打／強制快打須先開啟元書「候選 Comment」，見 [基本設定](yuanshu-settings/basic-settings.md)。
+> 快打／強制快打須先開啟元書「候選 Comment」，見 [基本設定](/yuanshu-settings/basic-settings.md)。
 
 ## 開啟 liur.schema.yaml
 
@@ -88,7 +88,7 @@
 
 ## 相關
 
-- [快打模式](features/quick-mode.md)
-- [強制快打](features/force-quick-mode.md)
-- [聯想字](features/prediction.md)
-- [刪除舊方案（升級前）](getting-started/remove-old-scheme.md)
+- [快打模式](/features/quick-mode.md)
+- [強制快打](/features/force-quick-mode.md)
+- [聯想字](/features/prediction.md)
+- [刪除舊方案（升級前）](/getting-started/remove-old-scheme.md)

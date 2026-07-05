@@ -11,6 +11,6 @@
 
 ## 相關手勢
 
-- [常用手勢：選字](daily-use/gestures-common.md)
-- [同音選字](features/homophone.md)
-- [聯想字](features/prediction.md)
+- [常用手勢：選字](/daily-use/gestures-common.md)
+- [同音選字](/features/homophone.md)
+- [聯想字](/features/prediction.md)
