@@ -33,7 +33,7 @@ switches:
     reset: 0
     states: [ 正常, 快打提示 ]
   - name: force_quick_mode
-    reset: 0
+    reset: 1
     states: [ 正常, 強制快打 ]
   # - name: wildcard_mode    # 萬用查碼（手機用不到）
   #   reset: 0
@@ -57,8 +57,9 @@ engine:
     - lua_processor@liu_calculator_shortcut
     - recognizer
     # - lua_processor@liu_wildcard_processor           # 萬用字元開關（手機用不到）
+    # 強制快打 pending 必須先於 blocker：否則 ttmb+space 後打 tta 會被當成 ttmbt 吃掉
+    - lua_processor@liu_quick_mode_processor         # 處理 ,,sp 切換快打／強制快打 pending
     - lua_processor@liu_key_blocker                # 無效輸入遮蔽（防誤觸）
-    - lua_processor@liu_quick_mode_processor         # 處理 ,,sp 切換快打模式
     # - lua_processor@liu_phonetic_hint_processor      # 讀音查詢模式下屏蔽 ctrl+'（手機用不到）
     # - lua_processor@liu_symbols_processor            # 符號清單模式下屏蔽 ctrl+'（手機用不到）
     - lua_processor@liu_phonetic_suffix_processor    # 同音字模式（選中後按 '）
