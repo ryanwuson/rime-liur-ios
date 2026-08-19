@@ -30,6 +30,7 @@
   - [同音選字](/features/homophone.md)
   - [注音](/features/bopomofo.md)
   - [拼音](/features/pinyin.md)
+  - [隨附 Emoji](/features/emoji.md)
   - [字母變體](/features/letter-variants.md)
   - [變體英數](/features/number-variants.md)
   - [快打模式](/features/quick-mode.md)
@@ -44,3 +45,4 @@
 - **更新紀錄**
   - [2026-03](/changelog/2026-03.md)
   - [2026-07](/changelog/2026-07.md)
+  - [2026-08](/changelog/2026-08.md)

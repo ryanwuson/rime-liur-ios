@@ -27,7 +27,7 @@
 - [元書輸入法基本設定](/yuanshu-settings/basic-settings.md)
 - [鍵盤佈局](/daily-use/keyboard-layout.md)
 - [輸入功能](/features/basic-input.md)（造詞、注音、快打等）
-- [更新紀錄](/changelog/2026-07.md)
+- [更新紀錄](/changelog/2026-08.md)
 
 ---
 
