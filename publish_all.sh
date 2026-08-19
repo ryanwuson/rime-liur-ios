@@ -82,5 +82,7 @@ publish_branch "main-block" "純中文+屏蔽版"
 publish_branch "english" "英文版"
 
 echo "------------------------------------------------------"
-git checkout maintenance
+# 發佈分支會 git rm --cached docs/，檔案留在工作區成未追蹤；
+# 不加 -f 回 maintenance 會被「會覆寫未追蹤檔」擋住。
+git checkout -f maintenance
 echo "全部完成，已回到 maintenance。"
