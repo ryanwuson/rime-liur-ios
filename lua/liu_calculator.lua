@@ -107,7 +107,7 @@ function T.init(env)
     local config = env.engine.schema.config
     env.name_space = env.name_space:gsub('^*', '')
     local _calc_pat = config:get_string("recognizer/patterns/calculator") or nil
-    T.prefix = _calc_pat and _calc_pat:match("%^.?([a-zA-Z/=]+).*") or "="
+    T.prefix = _calc_pat and _calc_pat:match("%^([a-zA-Z/=,]+).*") or "="
     T.tips = config:get_string("calculator/tips") or "計算機"
 end
 

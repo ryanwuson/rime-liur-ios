@@ -67,8 +67,10 @@ local function filter(input, env)
         local char = cand.text
         local comment = cand.comment or ""
         
-        -- 只處理單字
-        if utf8.len(char) == 1 then
+        -- 詞（多碼位，UTF-8 通常 ≥6 bytes）不看 VRSF；單個 CJK 3～4 bytes
+        if char and #char > 4 then
+            yield(cand)
+        elseif utf8.len(char) == 1 then
             local codes = code_dict[char]
             
             if codes then

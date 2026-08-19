@@ -69,6 +69,12 @@ local function filter(input, env)
         base_input = raw_input
     end
 
+    -- 平常小寫打碼：無大寫、無 ]／]] → 不掃描候選
+    if not input_has_upper and not suffix then
+        for cand in input:iter() do yield(cand) end
+        return
+    end
+
     local count = 0
     local found_eng = 0
 

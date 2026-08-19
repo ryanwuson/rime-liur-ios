@@ -12,7 +12,7 @@ schema:
   description:
     Easy English
   dependencies:
-    - liur_symbols
+    # - liur_symbols       # 字母變體改用 date_translator，不需要字典
 
 easy_en:
   split_sentence: true
@@ -26,14 +26,28 @@ switches:
   - name: ascii_mode
     reset: 0
     states: [ ASCII-OFF, ASCII-ON ]
+  # 哨兵開關：與桌面版對齊。切換方案時 librime 會依序重設每個帶 reset 的開關，
+  # 小狼毫只顯示最後一則通知；此開關無 states，通知靜默、也不出現在方案選單，
+  # 用來讓 ascii_mode 不是最後一則，方案名稱才不會被中／英圖示蓋掉。手機端無副作用。
+  - name: _weasel_tip_guard
+    reset: 0
+
+# 小狼毫切換提示（Windows 專用；手機端與鼠鬚管會忽略這個鍵，此處與桌面版 14 對齊）
+# 名單含 schema 才會顯示方案名稱「Easy English」；名單外的開關靜默，不會蓋掉方案名稱。
+# ascii_mode 帶 reset 又要通知，故上面用哨兵開關把它擠到倒數第二個。
+show_notifications:
+  - schema
+  - ascii_mode
 
 engine:
   processors:
     - ascii_composer
     - lua_processor@liu_extended_backspace
-    - lua_processor@liu_symbols_number_processor
+    - lua_processor@liu_fancy_processor              # 變體英數 `/
+    - lua_processor@liu_symbols_number_processor     # 數字變體及字母變化形（保留）
     - lua_processor@liu_calculator_shortcut
     - recognizer
+    # - lua_processor@liu_symbols_processor            # 符號清單模式下屏蔽 ctrl+'（手機用不到）
     - key_binder
     - speller
     - punctuator
@@ -45,23 +59,30 @@ engine:
     - ascii_segmentor
     - lua_segmentor@liu_extended_segmentor
     - affix_segmentor@extended_mode
-    - affix_segmentor@symbols
+    - affix_segmentor@fancy_number
+    - affix_segmentor@fancy_upper
+    - affix_segmentor@fancy_lower
+    - affix_segmentor@fancy_title
+    - affix_segmentor@number_variant
+    - affix_segmentor@symbols  # 字母變體（`a，保留）
     - affix_segmentor@calculator
     - abc_segmentor
     - punct_segmentor
     - fallback_segmentor
   translators:
     - lua_translator@liu_calculator
-    - lua_translator@liu_symbols_hint
+    # - lua_translator@liu_symbols_hint  # 符號清單提示（手機用不到）
     - lua_translator@liu_letter_variants
-    - lua_translator@liu_datetime
-    - lua_translator@date_translator
-    - table_translator@symbols
+    - lua_translator@liu_datetime  # 日期時間（保留 ``/01~10 長按；``/ 選單不顯示）
+    - lua_translator@liu_fancy_translator
+    - lua_translator@date_translator  # 符號清單變體（`a 字母變體，`'01 數字變體）
+    # - table_translator@symbols         # 字母變體改用 date_translator
     - table_translator
     - punct_translator
   filters:
     - lua_filter@liu_extended_filter
-    - lua_filter@liu_symbols_hint_filter
+    # - lua_filter@liu_symbols_hint_filter  # 符號清單提示處理（手機用不到）
+    - lua_filter@liu_fancy_filter
     - lua_filter@liu_english_case_filter
     - uniquifier
     - lua_filter@easy_en_enhance_filter
@@ -89,127 +110,116 @@ recognizer:
   patterns:
     uppercase: ''
     extended_mode: "^``[a-zA-Z/0-9:`']*`?$"
+    fancy_number: "`/'[0-9.']*`?$"
+    fancy_upper: "`///[a-z.]*`?$"
+    fancy_lower: "`//[a-z.]*`?$"
+    fancy_title: "`/[a-z.]*`?$"
+    number_variant: "(?<![=`/])`'[0-9]{0,2}`?$"
+# 符號清單引導鍵（`）- 保留字母變體，移除數字編碼符號清單
     symbols: "^`([0-9]{0,2}|[a-z])`?$"
     calculator: "^cal=.*$"
 
+# 符號清單配置（只保留字母變體，移除數字編碼符號清單）
+# 注意：只處理字母變體（`a），數字編碼符號清單（`01~`50）已移除
+# `a = 字母變體（Ⓐ ⓐ...）由 date_translator 處理
 symbols:
   tag: symbols
-  dictionary: liur_symbols
+  # dictionary: liur_symbols  # 不使用字典，改用 date_translator 處理字母變體
   enable_completion: false
   enable_sentence: false
   enable_user_dict: false
   prefix: "`"
-  alphabet: "abcdefghijklmnopqrstuvwxyz`"
-  tips: "《符號清單》▸"
+  alphabet: "abcdefghijklmnopqrstuvwxyz`"  # 只保留字母
+  tips: "《字母變體》▸"
+  # tips: "《符號清單》▸"
   closing_tips: ""
   initial_quality: 1
-  comment_format:
-    - xform/^/~/
+  # comment_format:
+  #   - xform/^/~/
+  # 移除所有數字編碼的 preedit_format，只保留字母變體處理
+  # 字母變化形的 preedit 由 date_translator 處理
+  # preedit_format:
+  #   - xform/^01/[01]一般/
+  #   - xform/^02/[02]括號/
+  #   - xform/^03/[03]引號/
+  #   - xform/^04/[04]豎標/
+  #   - xform/^05/[05]數學/
+  #   - xform/^06/[06]單位/
+  #   - xform/^07/[07]貨幣/
+  #   - xform/^08/[08]分數/
+  #   - xform/^09/[09]上標/
+  #   - xform/^10/[10]下標/
+  #   - xform/^11/[11]注音/
+  #   - xform/^12/[12]拼音/
+  #   - xform/^13/[13]音標/
+  #   - xform/^14/[14]平假/
+  #   - xform/^15/[15]片假/
+  #   - xform/^16/[16]韓文/
+  #   - xform/^17/[17]藏文/
+  #   - xform/^18/[18]希臘/
+  #   - xform/^19/[19]俄語/
+  #   - xform/^20/[20]合字/
+  #   - xform/^21/[21]部首/
+  #   - xform/^22/[22]月份/
+  #   - xform/^23/[23]日期/
+  #   - xform/^24/[24]時間/
+  #   - xform/^25/[25]性別/
+  #   - xform/^26/[26]圈英/
+  #   - xform/^27/[27]圈數/
+  #   - xform/^28/[28]圈漢/
+  #   - xform/^29/[29]圈日/
+  #   - xform/^30/[30]圈韓/
+  #   - xform/^31/[31]括英/
+  #   - xform/^32/[32]括數/
+  #   - xform/^33/[33]括漢/
+  #   - xform/^34/[34]括韓/
+  #   - xform/^35/[35]框英/
+  #   - xform/^36/[36]框數/
+  #   - xform/^37/[37]框漢/
+  #   - xform/^38/[38]點數/
+  #   - xform/^39/[39]羅馬/
+  #   - xform/^40/[40]箭頭/
+  #   - xform/^41/[41]線段/
+  #   - xform/^42/[42]框線/
+  #   - xform/^43/[43]圓形/
+  #   - xform/^44/[44]三角/
+  #   - xform/^45/[45]方形/
+  #   - xform/^46/[46]星星/
+  #   - xform/^47/[47]八卦/
+  #   - xform/^48/[48]易經/
+  #   - xform/^49/[49]音樂/
+  #   - xform/^50/[50]圖案/
+  #   - "xform/^`$/``/"
 
-  preedit_format:
-    - xform/^01/[01]一般/
-    - xform/^02/[02]括號/
-    - xform/^03/[03]引號/
-    - xform/^04/[04]豎標/
-    - xform/^05/[05]數學/
-    - xform/^06/[06]單位/
-    - xform/^07/[07]貨幣/
-    - xform/^08/[08]分數/
-    - xform/^09/[09]上標/
-    - xform/^10/[10]下標/
-    - xform/^11/[11]注音/
-    - xform/^12/[12]拼音/
-    - xform/^13/[13]音標/
-    - xform/^14/[14]平假/
-    - xform/^15/[15]片假/
-    - xform/^16/[16]韓文/
-    - xform/^17/[17]藏文/
-    - xform/^18/[18]希臘/
-    - xform/^19/[19]俄語/
-    - xform/^20/[20]合字/
-    - xform/^21/[21]部首/
-    - xform/^22/[22]月份/
-    - xform/^23/[23]日期/
-    - xform/^24/[24]時間/
-    - xform/^25/[25]性別/
-    - xform/^26/[26]圈英/
-    - xform/^27/[27]圈數/
-    - xform/^28/[28]圈漢/
-    - xform/^29/[29]圈日/
-    - xform/^30/[30]圈韓/
-    - xform/^31/[31]括英/
-    - xform/^32/[32]括數/
-    - xform/^33/[33]括漢/
-    - xform/^34/[34]括韓/
-    - xform/^35/[35]框英/
-    - xform/^36/[36]框數/
-    - xform/^37/[37]框漢/
-    - xform/^38/[38]點數/
-    - xform/^39/[39]羅馬/
-    - xform/^40/[40]箭頭/
-    - xform/^41/[41]線段/
-    - xform/^42/[42]框線/
-    - xform/^43/[43]圓形/
-    - xform/^44/[44]三角/
-    - xform/^45/[45]方形/
-    - xform/^46/[46]星星/
-    - xform/^47/[47]八卦/
-    - xform/^48/[48]易經/
-    - xform/^49/[49]音樂/
-    - xform/^50/[50]圖案/
-    - "xform/^`$/``/"
+fancy_title:
+  tag: fancy_title
+  prefix: "`/"
+  alphabet: "abcdefghijklmnopqrstuvwxyz.`"
+  tips: "《變體Aa》▸"
 
-    - xform/^01/[01]一般/
-    - xform/^02/[02]括號/
-    - xform/^03/[03]引號/
-    - xform/^04/[04]豎標/
-    - xform/^05/[05]數學/
-    - xform/^06/[06]單位/
-    - xform/^07/[07]貨幣/
-    - xform/^08/[08]分數/
-    - xform/^09/[09]上標/
-    - xform/^10/[10]下標/
-    - xform/^11/[11]注音/
-    - xform/^12/[12]拼音/
-    - xform/^13/[13]音標/
-    - xform/^14/[14]平假/
-    - xform/^15/[15]片假/
-    - xform/^16/[16]韓文/
-    - xform/^17/[17]藏文/
-    - xform/^18/[18]希臘/
-    - xform/^19/[19]俄語/
-    - xform/^20/[20]合字/
-    - xform/^21/[21]部首/
-    - xform/^22/[22]月份/
-    - xform/^23/[23]日期/
-    - xform/^24/[24]時間/
-    - xform/^25/[25]性別/
-    - xform/^26/[26]圈英/
-    - xform/^27/[27]圈數/
-    - xform/^28/[28]圈漢/
-    - xform/^29/[29]圈日/
-    - xform/^30/[30]圈韓/
-    - xform/^31/[31]括英/
-    - xform/^32/[32]括數/
-    - xform/^33/[33]括漢/
-    - xform/^34/[34]括韓/
-    - xform/^35/[35]框英/
-    - xform/^36/[36]框數/
-    - xform/^37/[37]框漢/
-    - xform/^38/[38]點數/
-    - xform/^39/[39]羅馬/
-    - xform/^40/[40]箭頭/
-    - xform/^41/[41]線段/
-    - xform/^42/[42]框線/
-    - xform/^43/[43]圓形/
-    - xform/^44/[44]三角/
-    - xform/^45/[45]方形/
-    - xform/^46/[46]星星/
-    - xform/^47/[47]八卦/
-    - xform/^48/[48]易經/
-    - xform/^49/[49]音樂/
-    - xform/^50/[50]圖案/
-    - "xform/^`$/``/"
+fancy_lower:
+  tag: fancy_lower
+  prefix: "`//"
+  alphabet: "abcdefghijklmnopqrstuvwxyz.`"
+  tips: "《變體aa》▸"
+
+fancy_upper:
+  tag: fancy_upper
+  prefix: "`///"
+  alphabet: "abcdefghijklmnopqrstuvwxyz.`"
+  tips: "《變體AA》▸"
+
+fancy_number:
+  tag: fancy_number
+  prefix: "`/'"
+  alphabet: "0123456789.'`"
+  tips: "《變體數字》▸"
+
+number_variant:
+  tag: number_variant
+  prefix: "`'"
+  alphabet: "0123456789`"
+  tips: "《變體數字》▸"
 
 extended_mode:
   tag: extended_mode
@@ -224,4 +234,3 @@ calculator:
   tips: "《計算機》▸"
   closing_tips: "◂《計算機》"
   alphabet: "0123456789+-*/().abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ,'"
-
