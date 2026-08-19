@@ -26,6 +26,14 @@ local function liu_remove_trad_in_w2c(input, env)
         end
         return
     end
+
+    -- 平常打碼（非萬用、非簡體查碼）：直接放行
+    if not has_wildcard and not (is_simplified and is_w2c) then
+        for cand in input:iter() do
+            yield(cand)
+        end
+        return
+    end
     
     -- 萬用字元查詢：移除 ~ 符號（無論簡繁），並為沒有編碼的字查找編碼和排序
     if has_wildcard then

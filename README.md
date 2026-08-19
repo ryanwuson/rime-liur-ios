@@ -6,8 +6,9 @@
 
 - 🚀 **完整蝦米功能**：標準字碼、簡碼、VRSF 選字等
 - 🎨 **自訂皮膚**：[蝦米輸入法皮膚設計器](https://ggininder.work/r/Ryan) 調整佈局、工具列、配色；[操作說明](https://ryanwuson.github.io/rime-liur-ios-new-skin/guide/#/)
-- 📝 **智慧造詞**：臨時造詞、自訂詞庫（「屏蔽無效鍵」方案不適用）
-- 🔍 **查詢模式**：讀音查詢、同音選字、注音／拼音輸入
+- 🎵 **注音／拼音**：獨立注音、拼音鍵盤，直接打字選字；單字候選附蝦米字碼，並可隨附 Emoji
+- 📝 **智慧造詞**：臨時造詞、自訂詞庫（「屏蔽無效鍵」方案不適用）；組字中下滑 Backspace 可刪目前詞條／詞組記憶
+- 🔍 **查詢模式**：讀音查詢、同音選字
 - 🎯 **快打／強制快打**：`,,sp` 提示簡碼；`,,sf` 可續打簡碼出字（需開啟候選 Comment）
 - 🔤 **符號與變體**：分類符號、變體英數、字母變化形
 - 🌐 **英文詞庫**（english 分支）：自動補全、大小寫轉換
@@ -25,6 +26,16 @@
 | **中文輸入 + 屏蔽無效鍵**（main-block） | 純中文 + 屏蔽無效鍵，**不可**中英混輸 |
 
 從舊版升級者，請先 [刪除舊方案](https://ryanwuson.github.io/rime-liur-ios/#/getting-started/remove-old-scheme) 再安裝；快打常駐、聯想字等自訂需 [重新設定](https://ryanwuson.github.io/rime-liur-ios/#/getting-started/scheme-switches)。
+
+## 鍵盤切換
+
+切到注音／拼音鍵盤即進入獨立方案。詳見 [鍵盤佈局](https://ryanwuson.github.io/rime-liur-ios/#/daily-use/keyboard-layout)、[注音輸入](https://ryanwuson.github.io/rime-liur-ios/#/features/bopomofo)、[拼音輸入](https://ryanwuson.github.io/rime-liur-ios/#/features/pinyin)。
+
+| 切到 | 方式 |
+|------|------|
+| 注音鍵盤 | iPhone **Enter 上滑**；iPad **右 Shift 下滑**；工具列「ㄅ」 |
+| 拼音鍵盤 | iPad **左 Shift 下滑**；工具列「拼」 |
+| 回到蝦米 | iPhone「返回」上滑；iPad「返回」下滑 |
 
 ## 安裝方式
 

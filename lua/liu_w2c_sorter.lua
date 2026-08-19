@@ -35,6 +35,36 @@ local function get_opencc_t2s()
     return opencc_t2s_cache
 end
 
+-- 單字查碼（含繁簡字形回退）：
+-- - 簡體模式：先查簡表；找不到再 s2t 後查同表
+-- - 繁體模式：先查繁表；找不到再 t2s 後查同表
+local function resolve_raw_codes(code_dict, char, is_simplified)
+    local raw_codes = code_dict and code_dict[char]
+    if raw_codes then
+        return raw_codes
+    end
+
+    if is_simplified then
+        local opencc = get_opencc_s2t()
+        if opencc then
+            local trad_char = opencc:convert(char)
+            if trad_char and trad_char ~= char then
+                return code_dict and code_dict[trad_char]
+            end
+        end
+    else
+        local opencc = get_opencc_t2s()
+        if opencc then
+            local simp_char = opencc:convert(char)
+            if simp_char and simp_char ~= char then
+                return code_dict and code_dict[simp_char]
+            end
+        end
+    end
+
+    return nil
+end
+
 local function liu_w2c_sorter(input, env)
     local context = env.engine.context
     local is_simplified = context:get_option("simplification")
@@ -44,11 +74,12 @@ local function liu_w2c_sorter(input, env)
     -- 快速檢查萬用字元（使用 find 比 match 更快）
     local has_wildcard = input_text and input_text:find("?", 1, true)
     
-    -- 注音輸入模式（';...，但排除注音直出 ';'...）：強制顯示蝦米拆碼，不管 liu_w2c 開關
-    -- 目的：讓使用者在注音輸入時，永遠能看到候選字的蝦米拆碼，方便學習
-    local is_phonetic_input = input_text
-        and input_text:sub(1, 2) == "';"
-        and input_text:sub(3, 3) ~= "'"  -- 排除注音直出 ';'（all_bpm，輸出注音符號，無需拆碼）
+    -- 行內注音（';...，排除注音直出 ';'...）／行內拼音（;'...）：
+    -- 強制顯示蝦米拆碼，不管 liu_w2c 開關，方便學習
+    local is_phonetic_input = input_text and (
+        (input_text:sub(1, 2) == "';" and input_text:sub(3, 3) ~= "'")  -- 行內注音；排除 ';（注音直出）
+        or input_text:sub(1, 2) == ";'"                                  -- 行內拼音
+    )
     -- 保留原始 liu_w2c 狀態，用於決定是否顯示 ~ 前綴
     local liu_w2c_original = liu_w2c_enabled
     if is_phonetic_input then
@@ -156,7 +187,7 @@ local function liu_w2c_sorter(input, env)
                     end
                     
                     -- 處理單字
-                    local raw_codes = code_dict[cand.text]
+                    local raw_codes = resolve_raw_codes(code_dict, cand.text, is_simplified)
                     local codes = {}
                     
                     -- 直接使用分離後的資料（已經根據簡繁模式處理好了）
@@ -291,21 +322,10 @@ local function liu_w2c_sorter(input, env)
                     yield(new_cand)
                 end
             else
-                -- comment 為空：注音輸入模式下主動查碼（仿同音字做法）
-                if is_phonetic_input and utf8.len(cand.text) == 1 then
+                -- comment 為空：行內音碼或反查模式下主動查碼（仿同音字做法）
+                if (is_phonetic_input or liu_w2c_enabled) and utf8.len(cand.text) == 1 then
                     local code_dict = load_code_dict(is_simplified)
-                    local raw_codes = code_dict and code_dict[cand.text]
-                    
-                    -- 簡體模式：找不到時嘗試轉繁體查
-                    if not raw_codes and is_simplified then
-                        local opencc = get_opencc_s2t()
-                        if opencc then
-                            local trad_char = opencc:convert(cand.text)
-                            if trad_char and trad_char ~= cand.text then
-                                raw_codes = code_dict and code_dict[trad_char]
-                            end
-                        end
-                    end
+                    local raw_codes = resolve_raw_codes(code_dict, cand.text, is_simplified)
                     
                     if raw_codes then
                         local codes = {}

@@ -31,13 +31,13 @@ end
 -- 檢測是否為被破壞的擴充模式選單
 local function is_corrupted_extended_menu(text)
   return text:find("小写变化", 1, true) or text:find("大写变化", 1, true) or 
-         text:find("日期时间", 1, true) or text:find("小寫變化", 1, true) or
+         text:find("日期时間", 1, true) or text:find("小寫變化", 1, true) or
          text:find("大寫變化", 1, true) or text:find("日期時間", 1, true)
 end
 
 -- 檢測是否為被破壞的日期時間選單
 local function is_corrupted_datetime_menu(text)
-  return text:find("[01]时间", 1, true) or text:find("[01]時間", 1, true) or
+  return text:find("[01]时間", 1, true) or text:find("[01]時間", 1, true) or
          text:find("[06]英文", 1, true)
 end
 
@@ -69,42 +69,33 @@ local function filter(input, env)
         yield_extended_menu(cand.start, cand._end)
         menu_generated = true
       end
-      -- 跳過其他候選項
       goto continue
     end
     
-    -- 日期時間選單
+    -- 日期時間選單：手機用不到，``/ 不產生候選（長按 , / . 走 ``/01~10）
     if is_datetime_menu then
-      if not menu_generated and is_corrupted_datetime_menu(text_str) then
-        yield_datetime_menu(cand.start, cand._end)
-        menu_generated = true
-      end
-      -- 跳過其他候選項
       goto continue
     end
     
-    -- 日期時間項目或字母變化：清除所有 comment，但保留 preedit
+    -- 日期時間項目或字母變化：清除 comment，保留 preedit
     if is_datetime_item or is_letter_variant then
-      -- 不論是反查模式還是正常模式，都清除 comment
       local new_cand = Candidate(cand.type, cand.start, cand._end, text_str, "")
       new_cand.quality = cand.quality
-      new_cand.preedit = cand.preedit  -- 保留原始 preedit
+      new_cand.preedit = cand.preedit
       yield(new_cand)
       goto continue
     end
     
-    -- 其他情況直接輸出
     yield(cand)
     
     ::continue::
   end
   
-  -- 如果是選單但沒有生成（fallback）
+  -- 空 `` 不顯示日期時間／字母變化選單（EXTENDED_MENU 已註解）
   if is_extended_menu and not menu_generated then
     yield_extended_menu(0, #input_text)
-  elseif is_datetime_menu and not menu_generated then
-    yield_datetime_menu(0, #input_text)
   end
+  -- 不 fallback ``/ 分類選單（手機用不到；``/01~10 仍由 translator 產生）
 end
 
 return filter
