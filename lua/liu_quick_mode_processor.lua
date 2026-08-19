@@ -129,6 +129,11 @@ local function should_block_commit(context)
 end
 
 local function processor(key, env)
+    -- 忽略按鍵釋放 (KeyUp) 事件，避免破壞狀態機（特別是在 Windows 小狼毫中）
+    if key:release() then
+        return 2
+    end
+
     local context = env.engine.context
     local input = context.input
     local key_repr = key:repr()
@@ -170,6 +175,18 @@ local function processor(key, env)
     -- ,,wc + 空格 = 切換萬用查字模式 (wildcard)
     if input == ",,wc" and key_repr == "space" then
         context:set_option("wildcard_mode", not context:get_option("wildcard_mode"))
+        context:clear()
+        return 1
+    end
+
+    -- ,,clean + 空格 = 清除聯想學習
+    if input == ",,clean" and key_repr == "space" then
+        local ok, mod = pcall(require, "liu_user_predict")
+        if ok and mod and mod.clear then
+            mod.clear()
+        end
+        -- 開關兩態文字相同，切換一次即可跳出「清除聯想字記憶」
+        context:set_option("user_predict_cleared", not context:get_option("user_predict_cleared"))
         context:clear()
         return 1
     end
