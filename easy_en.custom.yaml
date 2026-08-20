@@ -2,6 +2,7 @@
 # 絕對跳轉：'族＝蝦／注；;族＝英／拼；/＝查碼
 # 手機：Ctrl+/ 仍回嘸蝦米（與桌面版不同）
 patch:
+  menu/alternative_select_keys: "123456789"
   menu/page_size: 9
   key_binder/bindings/+:
     - { when: always, accept: "Control+apostrophe", select: liur }
