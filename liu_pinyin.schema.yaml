@@ -105,9 +105,6 @@ abc_segmentor:
   extra_tags:
     - pinyin
 
-style:
-  inline_preedit: false
-
 speller:
   alphabet: zyxwvutsrqponmlkjihgfedcba12345
   # 自動分節空白；手動分節 \（預輸入顯示「･」；與行內／獨立注音一致）
