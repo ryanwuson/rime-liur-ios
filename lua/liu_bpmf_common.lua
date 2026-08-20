@@ -96,8 +96,8 @@ end
 local SEP = "･"
 
 local function is_segment_delimiter(ch)
-    -- ~ = 自動分節；' = 手動分節；\ = 舊手動；空白＝一聲（不是分節）
-    return ch == "~" or ch == "'" or ch == "\\"
+    -- ~ = 自動分節；\ = 手動分節；' = 舊手動（相容）；空白＝一聲（不是分節）
+    return ch == "~" or ch == "\\" or ch == "'"
 end
 
 local function split_delimited_segments(input)

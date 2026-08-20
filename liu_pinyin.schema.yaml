@@ -5,11 +5,12 @@
 schema:
   schema_id: liu_pinyin
   name: "拼音輸入法"
-  version: "1.2.3"
+  version: "1.2.4"
   author:
     - 元書
   description: |
     獨立拼音：空白找字；Enter 羅馬拼音上屏；Enter 上滑帶音標（不自動補調）
+    1.2.4：手動分節改 \；, . 直出標點；'＝、、[ ]＝「」
     1.2.3：`／`` 與獨立方案對齊（`a 字母變體、``a 變化形；符號清單／日期時間依手機版註解）
     1.2.2：隨附 Emoji（萬象格式 append；預設開）
     1.2.1：補 translator 段讓部署會編譯 terra_pinyin_onion.extended（修復拼音無候選）
@@ -76,6 +77,7 @@ engine:
     - affix_segmentor@symbols  # 字母變體（`a，保留）
     - affix_segmentor@calculator                     # 計算機（,,= 引導）
     - abc_segmentor
+    - punct_segmentor
     - fallback_segmentor
   translators:
     - lua_translator@liu_calculator                  # 計算機（,,= 引導）
@@ -108,7 +110,8 @@ style:
 
 speller:
   alphabet: zyxwvutsrqponmlkjihgfedcba12345
-  delimiter: " '"
+  # 自動分節空白；手動分節 \（預輸入顯示「･」；與行內／獨立注音一致）
+  delimiter: " \\"
   preedit_format:
     - xform/([nl])v/$1ü/
     - xform/([nl])ue/$1üe/
@@ -163,6 +166,12 @@ key_binder:
   import_preset: default
   select_first_character: "bracketleft"
   select_last_character: "bracketright"
+  bindings:
+    # 逗號句號為標點，勿被翻頁綁定吃掉
+    - { accept: comma, send: comma, when: has_menu }
+    - { accept: comma, send: comma, when: paging }
+    - { accept: period, send: period, when: has_menu }
+    - { accept: period, send: period, when: paging }
 
 editor:
   bindings:
@@ -307,10 +316,61 @@ calculator:
   alphabet: "0123456789+-*/().abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ,'"
   initial_quality: 50
 
+# 拼音：, . 可直出；'＝頓號（與注音統一）；「」＝[ ]
 punctuator:
   full_shape:
-    "<" : { commit: "，" }
-    ">" : { commit: "。" }
+    "," : { commit: "，" }
+    "." : { commit: "。" }
+    "?" : { commit: "？" }
+    "!" : { commit: "！" }
+    ":" : { commit: "：" }
+    ";" : { commit: "；" }
+    "'" : { commit: "、" }
+    "<" : [ "《", "〈", "«", "‹" ]
+    ">" : [ "》", "〉", "»", "›" ]
+    "[" : [ "「", "【", "〔", "［" ]
+    "]" : [ "」", "】", "〕", "］" ]
+    "{" : [ "『", "〖", "｛" ]
+    "}" : [ "』", "〗", "｝" ]
+    "(" : "（"
+    ")" : "）"
+    "/" : [ "／", "÷" ]
+    "~" : "～"
+    "^" : { commit: "……" }
+    "_" : "——"
+    "|" : [ "·", "｜", "§", "¦" ]
+    "*" : [ "＊", "·", "・", "×", "※" ]
+    "@" : [ "＠", "☯" ]
+    "#" : [ "＃", "⌘" ]
+    "%" : [ "％", "°", "℃" ]
+    "$" : [ "￥", "$", "€", "£" ]
+    "+" : "＋"
+    "=" : "＝"
   half_shape:
-    "<" : { commit: "，" }
-    ">" : { commit: "。" }
+    "," : { commit: "，" }
+    "." : { commit: "。" }
+    "?" : { commit: "？" }
+    "!" : { commit: "！" }
+    ":" : { commit: "：" }
+    ";" : { commit: "；" }
+    "'" : { commit: "、" }
+    "<" : [ "《", "〈", "«", "‹" ]
+    ">" : [ "》", "〉", "»", "›" ]
+    "[" : [ "「", "【", "〔", "［" ]
+    "]" : [ "」", "】", "〕", "］" ]
+    "{" : [ "『", "〖", "｛" ]
+    "}" : [ "』", "〗", "｝" ]
+    "(" : "（"
+    ")" : "）"
+    "/" : [ "/", "／", "÷" ]
+    "~" : [ "~", "～" ]
+    "^" : { commit: "……" }
+    "_" : "——"
+    "|" : [ "·", "|", "｜", "§", "¦" ]
+    "*" : [ "*", "＊", "·", "・", "×", "※" ]
+    "@" : "@"
+    "#" : "#"
+    "%" : [ "%", "％", "°", "℃" ]
+    "$" : [ "￥", "$", "€", "£" ]
+    "+" : "+"
+    "=" : "="
